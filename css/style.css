@@ -1,0 +1,155 @@
+* {
+  font-size: 14px;
+  color: #121212;
+  margin: 0;
+  padding: 0;
+}
+
+a, *:hover, *:active {
+  text-decoration: none;
+  color: #121212;
+}
+
+dt, dd, ul, li {
+  list-style: none;
+  display: inline-block;
+  text-align: start;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+body {
+  position: relative;
+}
+
+.header {
+  background: #FFF;
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto auto auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 70px;
+  z-index: 9999;
+}
+.header_logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em 3.6em;
+}
+.header_logo-img {
+  height: 2em;
+}
+.header_logo-txt {
+  display: block;
+  margin: 0 0.6em;
+  font-size: 1.1em;
+  font-weight: 900;
+  line-height: 1.3em;
+}
+.header_logo-txt-accent {
+  font-size: 1.3em;
+}
+.header_nav {
+  display: block;
+}
+.header_nav-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 70px;
+}
+.header_nav-list {
+  display: inline-block;
+  position: relative;
+}
+.header_nav-list-txt {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  font-weight: 700;
+  padding: 0 2em;
+}
+.header_nav-list-txt:hover {
+  background: #D4F1F8;
+}
+.header_nav-list-sub.open {
+  display: flex;
+  position: absolute;
+  display: inline-block;
+  top: 70px;
+  left: 0;
+  flex-wrap: wrap;
+  width: 20em;
+}
+.header_nav-list-sub-link {
+  width: 20em;
+  line-height: 4em;
+  height: 4em;
+  padding: 0 0 0 1em;
+  background: #E9F8FB;
+  font-weight: 700;
+}
+.header_nav-list-sub-link:hover {
+  background: #FFF;
+  color: #2498B3;
+}
+.header_nav-list-sub.close {
+  display: none;
+}
+.header_nav-link-txt {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  font-weight: 700;
+  padding: 0 2em;
+}
+.header_nav-link-txt:hover {
+  background: #D4F1F8;
+}
+.header_nav-link.sign_up .header_nav-link-txt {
+  font-weight: 700;
+  background: #2498B3;
+  color: #FFF;
+}
+
+.main {
+  display: block;
+  position: inherit;
+  padding: 70px 0 4em 0;
+  min-width: 100vw;
+  background-image: url("/image/main-bg-3.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.main_window {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  aspect-ratio: 2880/1310;
+  background-image: url("/image/main-bg-2.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.main_window-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  aspect-ratio: 2880/1310;
+  background-image: url("/image/main-bg-1.png");
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+}
+/*# sourceMappingURL=style.css.map */

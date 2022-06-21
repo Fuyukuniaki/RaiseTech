@@ -1,0 +1,167 @@
+$textColor : #121212;
+$navColour : #D4F1F8;
+$navLinkCol: #E9F8FB;
+$nvHovColor: #2498B3;
+$textWeight: 700;
+$headerHeight : 70px;
+
+* {
+    font-size: 14px;
+    color: $textColor;
+    margin: 0;
+    padding: 0;
+}
+a, *:hover, *:active {
+    text-decoration: none;
+    color: $textColor;
+}
+dt, dd, ul, li {
+    list-style: none;
+    display: inline-block;
+    text-align: start;
+    padding-inline-start: 0;
+}
+body {
+    position: relative;
+}
+
+.header {
+    background: #FFF;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto auto auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: $headerHeight;
+    z-index: 9999;
+    &_logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1em 3.6em;
+        &-img {
+            height: 2em;
+        }
+        &-txt {
+            display: block;
+            margin: 0 0.6em;
+            font-size: 1.1em;
+            font-weight: $textWeight + 200;
+            line-height: 1.3em;
+            &-accent {
+                font-size: 1.3em;
+            }
+        }
+    }
+    &_nav {
+        display: block;
+        &-wrap {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            height: $headerHeight;
+            }
+        &-list {
+            display: inline-block;
+            position: relative;
+            &-txt {
+                display: inline-block;
+                height: $headerHeight;
+                line-height: $headerHeight;
+                font-weight: $textWeight;
+                padding: 0 2em;
+                &:hover {
+                    background: $navColour;
+                }
+            }
+            &-sub.open {
+                display: flex;
+                position: absolute;
+                display: inline-block;
+                top: $headerHeight;
+                left: 0;
+                flex-wrap: wrap;
+                width: 20em;
+            }
+            &-sub-link {
+                width: 20em;
+                line-height: 4em;
+                height: 4em;
+                padding: 0 0 0 1em;
+                background: $navLinkCol;
+                font-weight: $textWeight;
+                &:hover{
+                    background: #FFF;
+                    color: $nvHovColor;
+                }
+            }
+        }
+        &-list {
+            &-sub.close {
+                display: none;
+            }
+        }
+        &-link {
+            &-txt {
+                display: inline-block;
+                height: $headerHeight;
+                line-height: $headerHeight;
+                font-weight: $textWeight;
+                padding: 0 2em;
+                &:hover {
+                    background: $navColour;
+                }
+            }
+        }
+        &-link.sign_up {
+            .header_nav-link-txt {
+                font-weight: $textWeight;
+                background: $nvHovColor;
+                color: #FFF;
+            }
+        }
+    }
+}
+.main {
+    display: block;
+    position: inherit;
+    padding: $headerHeight 0 4em 0;
+    min-width: 100vw;
+    background-image: url('/image/main-bg-3.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    &_window {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 100vw;
+        aspect-ratio: 2880 / 1310;
+        background-image: url('/image/main-bg-2.png');
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        &-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-width: 100vw;
+            aspect-ratio: 2880 / 1310;
+            background-image: url('/image/main-bg-1.png');
+            background-attachment: scroll;
+            background-position: center;
+            background-size: cover;
+            }
+    }
+    &_icon {
+        &-wrap{
+
+        }
+    }
+}
