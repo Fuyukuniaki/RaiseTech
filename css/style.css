@@ -1,13 +1,15 @@
 * {
   font-size: 14px;
-  color: #121212;
+  color: #131D34;
   margin: 0;
   padding: 0;
+  font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-system, BlinkMacSystemFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
+  text-rendering: "Noto Sans JP Black";
 }
 
 a, *:hover, *:active {
   text-decoration: none;
-  color: #121212;
+  color: #131D34;
 }
 
 dt, dd, ul, li {
@@ -20,6 +22,14 @@ dt, dd, ul, li {
 
 body {
   position: relative;
+  color: #121212;
+}
+
+button {
+  border-width: 1em;
+  border-radius: 5px;
+  background-color: inherit;
+  border-style: solid;
 }
 
 .header {
@@ -48,9 +58,9 @@ body {
 .header_logo-txt {
   display: block;
   margin: 0 0.6em;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 900;
-  line-height: 1.3em;
+  line-height: 1.1em;
 }
 .header_logo-txt-accent {
   font-size: 1.3em;
@@ -75,7 +85,8 @@ body {
   height: 70px;
   line-height: 70px;
   font-weight: 700;
-  padding: 0 2em;
+  font-size: 1.2em;
+  padding: 0 1em;
 }
 .header_nav-list-txt:hover {
   background: #D4F1F8;
@@ -109,7 +120,8 @@ body {
   height: 70px;
   line-height: 70px;
   font-weight: 700;
-  padding: 0 2em;
+  font-size: 1.2em;
+  padding: 0 1em;
 }
 .header_nav-link-txt:hover {
   background: #D4F1F8;
@@ -118,6 +130,9 @@ body {
   font-weight: 700;
   background: #2498B3;
   color: #FFF;
+}
+.header_nav-link.sign_up .header_nav-link-txt:hover {
+  cursor: pointer;
 }
 
 .main {
@@ -137,11 +152,11 @@ body {
   min-width: 100vw;
   aspect-ratio: 2880/1310;
   background-image: url("/image/main-bg-2.png");
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
   background-size: cover;
 }
-.main_window-logo {
+.main_window-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,5 +166,126 @@ body {
   background-attachment: scroll;
   background-position: center;
   background-size: cover;
+}
+.main_window-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26vw;
+  margin: -12rem auto 0 auto;
+  flex-wrap: wrap;
+  background: #FFF;
+  border-radius: 10px;
+  border: #FFF 2.4em solid;
+  box-sizing: border-box;
+}
+.main_window-logo-img {
+  display: block;
+  height: 4em;
+}
+.main_window-logo-txt {
+  display: block;
+  margin: 1.2em 0;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 2.2em;
+  text-align: center;
+}
+.main_window-logo-btn {
+  display: block;
+  margin: 1.4em auto -0.6em auto;
+  font-size: 1.2em;
+  font-weight: 900;
+  border-color: #2498B3;
+  background: #2498B3;
+  color: #FFF;
+}
+.main_icon {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: flex-start;
+  background: #131D34;
+  color: #FFF;
+  padding-bottom: 3em;
+}
+.main_icon- {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(200px + 2rem);
+  font-weight: 900;
+}
+.main_icon-icon {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin: -12rem auto 0 auto;
+  padding: 0;
+  text-align: center;
+  border: #131D34 1rem solid;
+  border-radius: 200px;
+  background: #FFF;
+  color: #131D34;
+  font-size: 100px;
+  line-height: 200px;
+}
+.main_icon-title {
+  display: flex;
+  justify-content: center;
+  color: #FFF;
+  width: 100%;
+  line-height: 2.8em;
+  font-size: 1.7em;
+}
+.main_icon-txt {
+  display: block;
+  color: #FFF;
+  line-height: 1.8em;
+  font-size: 1.2em;
+  padding: 1em 0;
+}
+
+.sticky_sticker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  bottom: 2em;
+  right: 2em;
+  background: #A2D729;
+  border-top: solid 1px #c1ff30;
+  border-bottom: solid 3px #9AC33D;
+  border-radius: 50%;
+}
+.sticky_sticker-link {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.sticky_sticker-link::after {
+  content: url("/image/sticky-tekkun.svg");
+  position: absolute;
+  top: 4em;
+  right: -1em;
+  width: 60px;
+  height: auto;
+}
+.sticky_sticker-img {
+  width: 2em;
+  height: auto;
+  padding: 0 calc((150px - 3em) / 2);
+}
+.sticky_sticker-txt {
+  text-align: center;
+  padding: 0.4em 0;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  font-weight: 900;
 }
 /*# sourceMappingURL=style.css.map */

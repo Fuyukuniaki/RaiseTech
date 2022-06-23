@@ -1,15 +1,21 @@
-$textColor : #121212;
+$textColor : #131D34;
+$baseWhite : #FFF;
 $navColour : #D4F1F8;
 $navLinkCol: #E9F8FB;
 $nvHovColor: #2498B3;
 $textWeight: 700;
-$headerHeight : 70px;
+$headerHght: 70px;
+$mainIconW : 100px;
+$mainIconM : -12rem auto 0 auto;
+
 
 * {
     font-size: 14px;
     color: $textColor;
     margin: 0;
     padding: 0;
+    font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-system, BlinkMacSystemFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
+    text-rendering: "Noto Sans JP Black";
 }
 a, *:hover, *:active {
     text-decoration: none;
@@ -23,10 +29,17 @@ dt, dd, ul, li {
 }
 body {
     position: relative;
+    color: #121212;
+}
+button {
+    border-width: 1em;
+    border-radius: 5px;
+    background-color: inherit;
+    border-style: solid;
 }
 
 .header {
-    background: #FFF;
+    background: $baseWhite;
     display: flex;
     position: fixed;
     top: 0;
@@ -36,7 +49,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: $headerHeight;
+    height: $headerHght;
     z-index: 9999;
     &_logo {
         display: flex;
@@ -49,9 +62,9 @@ body {
         &-txt {
             display: block;
             margin: 0 0.6em;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: $textWeight + 200;
-            line-height: 1.3em;
+            line-height: 1.1em;
             &-accent {
                 font-size: 1.3em;
             }
@@ -65,17 +78,18 @@ body {
             align-items: center;
             padding: 0;
             margin: 0;
-            height: $headerHeight;
+            height: $headerHght;
             }
         &-list {
             display: inline-block;
             position: relative;
             &-txt {
                 display: inline-block;
-                height: $headerHeight;
-                line-height: $headerHeight;
+                height: $headerHght;
+                line-height: $headerHght;
                 font-weight: $textWeight;
-                padding: 0 2em;
+                font-size: 1.2em;
+                padding: 0 1em;
                 &:hover {
                     background: $navColour;
                 }
@@ -84,7 +98,7 @@ body {
                 display: flex;
                 position: absolute;
                 display: inline-block;
-                top: $headerHeight;
+                top: $headerHght;
                 left: 0;
                 flex-wrap: wrap;
                 width: 20em;
@@ -97,7 +111,7 @@ body {
                 background: $navLinkCol;
                 font-weight: $textWeight;
                 &:hover{
-                    background: #FFF;
+                    background: $baseWhite;
                     color: $nvHovColor;
                 }
             }
@@ -110,10 +124,11 @@ body {
         &-link {
             &-txt {
                 display: inline-block;
-                height: $headerHeight;
-                line-height: $headerHeight;
+                height: $headerHght;
+                line-height: $headerHght;
                 font-weight: $textWeight;
-                padding: 0 2em;
+                font-size: 1.2em;
+                padding: 0 1em;
                 &:hover {
                     background: $navColour;
                 }
@@ -123,7 +138,10 @@ body {
             .header_nav-link-txt {
                 font-weight: $textWeight;
                 background: $nvHovColor;
-                color: #FFF;
+                color: $baseWhite;
+                &:hover {
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -131,7 +149,7 @@ body {
 .main {
     display: block;
     position: inherit;
-    padding: $headerHeight 0 4em 0;
+    padding: $headerHght 0 4em 0;
     min-width: 100vw;
     background-image: url('/image/main-bg-3.png');
     background-attachment: fixed;
@@ -144,10 +162,10 @@ body {
         min-width: 100vw;
         aspect-ratio: 2880 / 1310;
         background-image: url('/image/main-bg-2.png');
-        background-attachment: fixed;
+        background-attachment: scroll;
         background-position: center;
         background-size: cover;
-        &-logo {
+        &-wrap {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -158,10 +176,126 @@ body {
             background-position: center;
             background-size: cover;
             }
+        &-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 26vw;
+            margin: $mainIconM;
+            flex-wrap: wrap;
+            background: $baseWhite;
+            border-radius: 10px;
+            border: $baseWhite 2.4em solid;
+            box-sizing: border-box;
+            &-img {
+                display: block;
+                height: 4em;
+            }
+            &-txt {
+                display: block;
+                margin: 1.2em 0;
+                font-size: 1em;
+                font-weight: $textWeight + 200;
+                line-height: 2.2em;
+                text-align: center;
+            }
+            &-btn {
+                display: block;
+                margin: 1.4em auto -0.6em auto;
+                font-size: 1.2em;
+                font-weight: $textWeight + 200;
+                border-color: $nvHovColor;
+                background: $nvHovColor;
+                color: $baseWhite;
+            }
+        }
     }
     &_icon {
-        &-wrap{
-
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100vw;
+        justify-content: space-around;
+        align-items: flex-start;
+        background: $textColor;
+        color: $baseWhite;
+        padding-bottom: 3em;
+        &-{
+            display: flex;
+            flex-wrap: wrap;
+            width: calc($mainIconW * 2 + 2rem);
+            font-weight: $textWeight + 200;
+            &icon {
+                display: block;
+                width : $mainIconW * 2;
+                height: $mainIconW * 2;
+                margin: $mainIconM;
+                padding: 0;
+                text-align: center;
+                border: $textColor 1rem solid;
+                border-radius: $mainIconW * 2;
+                background: $baseWhite;
+                color: $textColor;
+                font-size: $mainIconW;
+                line-height: $mainIconW * 2;
+            }
+            &title {
+                display: flex;
+                justify-content: center;
+                color: $baseWhite;
+                width: 100%;
+                line-height: 2.8em;
+                font-size: 1.7em;
+            }
+            &txt {
+                display: block;
+                color: $baseWhite;
+                line-height: 1.8em;
+                font-size: 1.2em;
+                padding: 1em 0;
+            }    
         }
+    }
+}
+.sticky_sticker {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: $mainIconW * 1.2;
+    height: $mainIconW * 1.2;
+    bottom: 2em;
+    right: 2em;
+    background: #A2D729;
+    border-top: solid 1px #c1ff30;
+    border-bottom: solid 3px #9AC33D;
+    border-radius: 50%;
+    &-link {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        &::after {
+            content:url('/image/sticky-tekkun.svg');
+            position: absolute;
+            top: 4em;
+            right: -1em;
+            width: $mainIconW * 0.6;
+            height: auto;
+        }
+    
+    }
+    &-img {
+        width: 2em;
+        height: auto;
+        padding: 0 calc(($mainIconW * 1.5 - 3em) / 2);
+    }
+    &-txt {
+        text-align: center;
+        padding: 0.4em 0;
+        font-size: 1.2em;
+        line-height: 1.4em;
+        font-weight: 900;
     }
 }
