@@ -79,6 +79,26 @@ button {
 .header_nav-list {
   display: inline-block;
   position: relative;
+  height: 70px;
+  overflow-y: hidden;
+}
+.header_nav-list > .header_nav-list-sub {
+  height: 0;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s ease-in;
+}
+.header_nav-list:hover {
+  display: inline-block;
+  position: relative;
+  height: 70px;
+  overflow-y: visible;
+}
+.header_nav-list:hover > .header_nav-list-sub {
+  height: auto;
+  max-height: 9999px;
+  opacity: 1;
+  transition: all 0.4s ease-out;
 }
 .header_nav-list-txt {
   display: inline-block;
@@ -91,12 +111,10 @@ button {
 .header_nav-list-txt:hover {
   background: #D4F1F8;
 }
-.header_nav-list-sub.open {
+.header_nav-list-sub {
   display: flex;
   position: absolute;
-  display: inline-block;
   top: 70px;
-  left: 0;
   flex-wrap: wrap;
   width: 20em;
 }
@@ -138,7 +156,7 @@ button {
 .main {
   display: block;
   position: inherit;
-  padding: 70px 0 4em 0;
+  padding: 70px 0 0 0;
   min-width: 100vw;
   background-image: url("/image/main-bg-3.png");
   background-attachment: fixed;
@@ -204,6 +222,7 @@ button {
   display: flex;
   flex-wrap: nowrap;
   width: 100vw;
+  height: 100vh;
   justify-content: space-around;
   align-items: flex-start;
   background: #131D34;
@@ -223,7 +242,7 @@ button {
   margin: -12rem auto 0 auto;
   padding: 0;
   text-align: center;
-  border: #131D34 1rem solid;
+  border: #131D34 0.5rem solid;
   border-radius: 200px;
   background: #FFF;
   color: #131D34;
@@ -252,8 +271,8 @@ button {
   justify-content: center;
   align-items: center;
   position: fixed;
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   bottom: 2em;
   right: 2em;
   background: #A2D729;
@@ -262,7 +281,6 @@ button {
   border-radius: 50%;
 }
 .sticky_sticker-link {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -272,17 +290,16 @@ button {
   content: url("/image/sticky-tekkun.svg");
   position: absolute;
   top: 4em;
-  right: -1em;
+  right: -2em;
   width: 60px;
   height: auto;
 }
 .sticky_sticker-img {
-  width: 2em;
+  width: 3em;
   height: auto;
   padding: 0 calc((150px - 3em) / 2);
 }
 .sticky_sticker-txt {
-  text-align: center;
   padding: 0.4em 0;
   font-size: 1.2em;
   line-height: 1.4em;

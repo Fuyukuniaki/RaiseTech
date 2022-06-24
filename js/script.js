@@ -1,0 +1,9 @@
+$(document).ready(function(){
+    $('.header_nav-list').each(function(){
+        $(this).mouseenter(function(){
+            $(this).find('.header_nav-list-sub').slideDown(200).removeClass('close');
+        }).mouseleave(function(){
+            $(this).find('.header_nav-list-sub').slideUp(100).addClass('close');
+        });
+    });
+});

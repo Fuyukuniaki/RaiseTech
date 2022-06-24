@@ -83,6 +83,27 @@ button {
         &-list {
             display: inline-block;
             position: relative;
+            height: $headerHght;
+            overflow-y: hidden;
+            > .header_nav-list-sub {
+                height: 0;
+                max-height: 0;
+                opacity: 0;
+                transition: all 0.4s ease-in;
+            }
+            &:hover {
+                display: inline-block;
+                position: relative;
+                height: $headerHght;
+                overflow-y: visible;
+                > .header_nav-list-sub {
+                    height: auto;
+                    max-height: 9999px;
+                    opacity: 1;
+                    transition: all 0.4s ease-out;
+                }
+            }
+
             &-txt {
                 display: inline-block;
                 height: $headerHght;
@@ -94,12 +115,10 @@ button {
                     background: $navColour;
                 }
             }
-            &-sub.open {
+            &-sub {
                 display: flex;
                 position: absolute;
-                display: inline-block;
                 top: $headerHght;
-                left: 0;
                 flex-wrap: wrap;
                 width: 20em;
             }
@@ -149,7 +168,7 @@ button {
 .main {
     display: block;
     position: inherit;
-    padding: $headerHght 0 4em 0;
+    padding: $headerHght 0 0 0;
     min-width: 100vw;
     background-image: url('/image/main-bg-3.png');
     background-attachment: fixed;
@@ -214,6 +233,7 @@ button {
         display: flex;
         flex-wrap: nowrap;
         width: 100vw;
+        height: 100vh;
         justify-content: space-around;
         align-items: flex-start;
         background: $textColor;
@@ -231,7 +251,7 @@ button {
                 margin: $mainIconM;
                 padding: 0;
                 text-align: center;
-                border: $textColor 1rem solid;
+                border: $textColor 0.5rem solid;
                 border-radius: $mainIconW * 2;
                 background: $baseWhite;
                 color: $textColor;
@@ -262,8 +282,8 @@ button {
     justify-content: center;
     align-items: center;
     position: fixed;
-    width: $mainIconW * 1.2;
-    height: $mainIconW * 1.2;
+    width: $mainIconW * 1.5;
+    height: $mainIconW * 1.5;
     bottom: 2em;
     right: 2em;
     background: #A2D729;
@@ -271,7 +291,6 @@ button {
     border-bottom: solid 3px #9AC33D;
     border-radius: 50%;
     &-link {
-        position: relative;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -280,19 +299,17 @@ button {
             content:url('/image/sticky-tekkun.svg');
             position: absolute;
             top: 4em;
-            right: -1em;
+            right: -2em;
             width: $mainIconW * 0.6;
             height: auto;
         }
-    
     }
     &-img {
-        width: 2em;
+        width: 3em;
         height: auto;
         padding: 0 calc(($mainIconW * 1.5 - 3em) / 2);
     }
     &-txt {
-        text-align: center;
         padding: 0.4em 0;
         font-size: 1.2em;
         line-height: 1.4em;
