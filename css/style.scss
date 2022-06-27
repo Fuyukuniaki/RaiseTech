@@ -9,7 +9,7 @@ $mainIconW : 100px;
 $mediaIconW: 60vw;
 $mainIconM : -12rem auto 0 auto;
 
-@mixin media($width-media : 768px) {
+@mixin media($width-media : 1220px) {
     @media only screen and (max-width : $width-media) {
         @content;
     }
@@ -143,6 +143,9 @@ button {
                     height: auto;
                     max-height: 9999px;
                     transition: max-height 1s;
+                    &:hover{
+                        background: #F3FAFB;
+                    }
                 }
             }
             .header_nav-list-sub {
@@ -186,6 +189,7 @@ button {
                 @include media {
                     .header_nav-list-sub-link {
                         width: 100vw;
+                        background: $baseWhite;
                     }
                 }
             }
@@ -235,7 +239,7 @@ button {
                     width: 20vw;
                     height: $headerHght;
                     max-height: 9999px;
-                    //overflow: visible;
+                    background: #F7F7F7;
                     &::before {
                         content: "";
                         position: absolute;

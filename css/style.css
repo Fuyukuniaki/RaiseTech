@@ -50,7 +50,7 @@ button {
   height: 70px;
   z-index: 9999;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header {
     margin: 0;
   }
@@ -61,7 +61,7 @@ button {
   align-items: center;
   padding: 1em 3.6em;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_logo {
     padding: 0 1em;
   }
@@ -79,7 +79,7 @@ button {
 .header_logo-txt-accent {
   font-size: 1.3em;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_logo-txt {
     display: none;
   }
@@ -87,7 +87,7 @@ button {
 .header_nav {
   display: block;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav {
     position: fixed;
     display: flex;
@@ -104,7 +104,7 @@ button {
   margin: 0;
   height: 70px;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav-wrap {
     flex-wrap: wrap;
     width: 100vw;
@@ -135,7 +135,7 @@ button {
   height: 70px;
   overflow-y: hidden;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav-list {
     overflow: hidden;
     width: 80vw;
@@ -148,6 +148,9 @@ button {
     height: auto;
     max-height: 9999px;
     transition: max-height 1s;
+  }
+  .header_nav-list.opened-lisb:hover {
+    background: #F3FAFB;
   }
 }
 .header_nav-list .header_nav-list-sub {
@@ -179,7 +182,7 @@ button {
 .header_nav-list-txt:hover {
   background: #D4F1F8;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav-list-txt:hover {
     background: #FFF;
   }
@@ -191,9 +194,10 @@ button {
   flex-wrap: wrap;
   width: 20em;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav-list-sub .header_nav-list-sub-link {
     width: 100vw;
+    background: #FFF;
   }
 }
 .header_nav-list-sub-link {
@@ -208,7 +212,7 @@ button {
   background: #FFF;
   color: #2498B3;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav .ico_plsmns {
     display: block;
     position: relative;
@@ -242,6 +246,7 @@ button {
     width: 20vw;
     height: 70px;
     max-height: 9999px;
+    background: #F7F7F7;
   }
   .header_nav .ico_plsmns.opened-slide::before {
     content: "";
@@ -267,7 +272,7 @@ button {
 .header_nav-list-sub.close {
   display: none;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav .header_nav-list-sub {
     display: contents;
     /*opacity: 0;
@@ -293,7 +298,7 @@ button {
     padding: 0 0 0 2em;
   }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav-link {
     width: 100vw;
   }
@@ -309,7 +314,7 @@ button {
 .header_nav-link-txt:hover {
   background: #D4F1F8;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .header_nav-link.sign_up {
     display: none;
   }
@@ -323,7 +328,7 @@ button {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .icon_hamburger-wrap {
     display: flex;
     justify-content: center;
@@ -505,7 +510,7 @@ button {
   font-size: 1.2em;
   padding: 1em 0;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .main {
     display: block;
     position: inherit;
@@ -668,7 +673,7 @@ button {
   font-weight: 900;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1220px) {
   .sticky_sticker {
     display: flex;
     flex-wrap: wrap;
