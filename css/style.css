@@ -168,6 +168,8 @@ button {
 }
 .header_nav-list:hover > .header_nav-list-sub {
   height: auto;
+  display: inline-block;
+  left: 0;
 }
 .header_nav-list-txt {
   display: inline-block;
@@ -178,6 +180,12 @@ button {
   padding: 0 1em;
 }
 .header_nav-list-txt:hover {
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  font-weight: 700;
+  font-size: 1.2em;
+  padding: 0 1em;
   background: #D4F1F8;
 }
 @media only screen and (max-width: 1220px) {
@@ -202,11 +210,16 @@ button {
   width: 20em;
   line-height: 4em;
   height: 4em;
-  padding: 0 0 0 1em;
+  text-indent: 1em;
   background: #E9F8FB;
   font-weight: 700;
+  color: inherit;
 }
 .header_nav-list-sub-link:hover {
+  width: 20em;
+  line-height: 4em;
+  height: 4em;
+  text-indent: 1em;
   background: #FFF;
   color: #2498B3;
 }
@@ -272,21 +285,30 @@ button {
 }
 @media only screen and (max-width: 1220px) {
   .header_nav .header_nav-list-sub {
-    display: none;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: auto;
-    flex-wrap: wrap;
-  }
-  .header_nav .header_nav-list-sub.opened-list {
+    opacity: 0;
+    overflow: hidden;
     display: contents;
     position: relative;
+    flex-wrap: wrap;
+    top: -490px;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    max-height: 0;
+    transition: all 1s;
+  }
+  .header_nav .header_nav-list-sub.opened-list {
+    overflow: hidden;
+    opacity: 1;
+    display: contents;
+    position: relative;
+    flex-wrap: wrap;
     top: 0;
     left: 0;
     width: 100vw;
     height: auto;
+    max-height: 9999px;
+    transition: all 1s;
   }
   .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link {
     display: block;
@@ -296,10 +318,21 @@ button {
     left: 0;
   }
   .header_nav .header_nav-list-sub-link {
+    opacity: 0;
     display: block;
     height: auto;
+    line-height: 0;
   }
   .header_nav .header_nav-list-sub-link-tag {
+    padding: 0 0 0 2em;
+  }
+  .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link {
+    opacity: 1;
+    display: block;
+    height: auto;
+    line-height: 4em;
+  }
+  .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link-tag {
     padding: 0 0 0 2em;
   }
 }

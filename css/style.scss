@@ -176,6 +176,8 @@ button {
                 overflow-y: visible;
                 > .header_nav-list-sub {
                     height: auto;
+                    display: inline-block;
+                    left: 0;
                     //max-height: 9999px;
                     //opacity: 1;
                     //transition: all 0.4s ease-out;
@@ -189,6 +191,12 @@ button {
                 font-size: 1.2em;
                 padding: 0 1em;
                 &:hover {
+                    display: inline-block;
+                    height: $headerHght;
+                    line-height: $headerHght;
+                    font-weight: $textWeight;
+                    font-size: 1.2em;
+                    padding: 0 1em;
                     background: $navColour;
                     @include media {
                         background: $baseWhite;
@@ -212,10 +220,15 @@ button {
                 width: 20em;
                 line-height: 4em;
                 height: 4em;
-                padding: 0 0 0 1em;
+                text-indent: 1em;
                 background: $navLinkCol;
                 font-weight: $textWeight;
+                color: inherit;
                 &:hover{
+                    width: 20em;
+                    line-height: 4em;
+                    height: 4em;
+                    text-indent: 1em;
                     background: $baseWhite;
                     color: $nvHovColor;
                 }
@@ -285,24 +298,29 @@ button {
         }
         & &-list-sub {
             @include media {
-                    display: none;
-                    position: relative;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: auto;
-                    //top: -490px;
-                    //transition: top 1s;
-                    flex-wrap: wrap;
-                &.opened-list {
+                    opacity: 0;
+                    overflow: hidden;
                     display: contents;
                     position: relative;
+                    flex-wrap: wrap;
+                    top:  -490px;
+                    left: 0;
+                    width: 100vw;
+                    height: auto;
+                    max-height: 0;
+                    transition: all 1s;
+                &.opened-list {
+                    overflow: hidden;
+                    opacity: 1;
+                    display: contents;
+                    position: relative;
+                    flex-wrap: wrap;
                     top: 0;
                     left: 0;
                     width: 100vw;
                     height: auto;
-                    //top: 0;
-                    //transition: top 1s;
+                    max-height: 9999px;
+                    transition: all 1s;
                     .header_nav-list-sub-link {
                         display: block;
                         height: auto;
@@ -314,10 +332,21 @@ button {
                     }
                 }
                 &-link {
+                    opacity: 0;
                     display: block;
                     height: auto;
+                    line-height: 0;
                     //max-height: 0;
                     //transition: max-height .2s;
+                    &-tag {
+                        padding: 0 0 0 2em;
+                    }
+                }
+                &.opened-list .header_nav-list-sub-link {
+                    opacity: 1;
+                    display: block;
+                    height: auto;
+                    line-height: 4em;
                     &-tag {
                         padding: 0 0 0 2em;
                     }

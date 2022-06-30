@@ -2,9 +2,9 @@ $(document).ready(function(){
     //---slideUp/slideDownここから-------------------------------------------------------------------------------
         $('.header_nav-list').each(function(){
             $(this).mouseenter(function(){
-                $(this).find('.header_nav-list-sub').slideDown(200).removeClass('close');
+                $(this).find('.header_nav-list-sub').slideDown(200);
             }).mouseleave(function(){
-                $(this).find('.header_nav-list-sub').slideUp(100).addClass('close');
+                $(this).find('.header_nav-list-sub').slideUp(100);
             });
         });
     //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
@@ -27,12 +27,17 @@ $(document).ready(function(){
             $(this).on('touchstart', function(){
                 $(this).toggleClass('opened-slide');
                 var myNavSub = $(this).prev('.header_nav-list').children('.header_nav-list-sub');
+                var mylstSub = $(this).prev('.header_nav-list').children('.header_nav-list-sub').children('.header_nav-list-sub-link');
+                var myNavlst =  $(this).prev('.header_nav-list');
                 if($(this).hasClass('opened-slide')){ 
-                    myNavSub.css({top:0}).slideDown().addClass('opened-list');
-                    $(this).prev('.header_nav-list').addClass('opened-lisb');
+                    myNavlst.addClass('opened-lisb');
+                    myNavSub.animate({top:0}, 1000);
+                    mylstSub.animate({opacity:1, lineHeight:'4em'},1000, function(){myNavSub.addClass('opened-list');});
+                   
                 } else {
-                    myNavSub.css({top:0}).slideUp().removeClass('opened-list');
-                    $(this).prev('.header_nav-list').removeClass('opened-lisb');    
+                    myNavlst.removeClass('opened-lisb');
+                    myNavSub.animate({top:'-490px'}, 1000);
+                    mylstSub.animate({opacity:0, lineHeight: 0},1000, function(){myNavSub.removeClass('opened-list');});
                 }
             });
         });
@@ -47,8 +52,8 @@ $(document).ready(function(){
 });
 $(window).resize(function(){
     if (window.matchMedia("(max-width: 1220px)").matches) {
-        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
-        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+    $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+    $('.header_nav-list').after("<li class='ico_plsmns'></li>");
         $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
         $('.main_window').after($('.main_window-logo-wrap'));
         $('.icon_hamburger').on('touchstart', function(){
@@ -65,12 +70,17 @@ $(window).resize(function(){
             $(this).on('touchstart', function(){
                 $(this).toggleClass('opened-slide');
                 var myNavSub = $(this).prev('.header_nav-list').children('.header_nav-list-sub');
+                var mylstSub = $(this).prev('.header_nav-list').children('.header_nav-list-sub').children('.header_nav-list-sub-link');
+                var myNavlst =  $(this).prev('.header_nav-list');
                 if($(this).hasClass('opened-slide')){ 
-                    myNavSub.slideDown().addClass('opened-list');
-                    $(this).prev('.header_nav-list').addClass('opened-lisb');
+                    myNavlst.addClass('opened-lisb');
+                    myNavSub.animate({top:0}, 1000);
+                    mylstSub.animate({opacity:1, lineHeight:'4em'},1000, function(){myNavSub.addClass('opened-list');});
+                   
                 } else {
-                    myNavSub.slideUp().removeClass('opened-list');
-                    $(this).prev('.header_nav-list').removeClass('opened-lisb');    
+                    myNavlst.removeClass('opened-lisb');
+                    myNavSub.animate({top:'-490px'}, 1000);
+                    mylstSub.animate({opacity:0, lineHeight: 0},1000, function(){myNavSub.removeClass('opened-list');});
                 }
             });
         });
