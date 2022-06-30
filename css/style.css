@@ -63,7 +63,11 @@ button {
 }
 @media only screen and (max-width: 1220px) {
   .header_logo {
-    padding: 0 1em;
+    padding: 0 0 0 1em;
+    width: calc(100vw - 1em - 70px);
+    height: 70px;
+    background: #FFF;
+    z-index: 9999;
   }
 }
 .header_logo-img {
@@ -106,27 +110,27 @@ button {
 }
 @media only screen and (max-width: 1220px) {
   .header_nav-wrap {
+    display: none;
     flex-wrap: wrap;
-    width: 100vw;
-    position: absolute;
-    overflow: hidden;
-    height: 0;
-    max-height: 0;
-    top: calc((100% + 30px) * -1);
-    background: #FFF;
-    transition: top 1s;
-  }
-  .header_nav-wrap.opened-wrap {
-    display: flex;
     justify-content: space-between;
     width: 100vw;
     position: absolute;
-    overflow: visible;
+    height: 420px;
+    top: 70px;
+    z-index: -1;
+    background: #FFF;
+  }
+  .header_nav-wrap.opened-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100vw;
+    position: absolute;
     height: auto;
     line-height: 70px;
-    max-height: 9999px;
+    z-index: -1;
+    background: #FFF;
     top: 70px;
-    transition: top 1s;
   }
 }
 .header_nav-list {
@@ -138,26 +142,23 @@ button {
 @media only screen and (max-width: 1220px) {
   .header_nav-list {
     overflow: hidden;
-    width: 80vw;
+    width: calc(100vw - 70px);
     height: 70px;
     max-height: 70px;
-    transition: max-height 1s;
   }
   .header_nav-list.opened-lisb {
     overflow: visible;
     height: auto;
     max-height: 9999px;
-    transition: max-height 1s;
   }
   .header_nav-list.opened-lisb:hover {
     background: #F3FAFB;
   }
 }
 .header_nav-list .header_nav-list-sub {
-  height: 0;
-  max-height: 0;
-  opacity: 0;
-  transition: all 0.4s ease-in;
+  display: inline-block;
+  height: auto;
+  left: 0;
 }
 .header_nav-list:hover {
   display: inline-block;
@@ -167,9 +168,6 @@ button {
 }
 .header_nav-list:hover > .header_nav-list-sub {
   height: auto;
-  max-height: 9999px;
-  opacity: 1;
-  transition: all 0.4s ease-out;
 }
 .header_nav-list-txt {
   display: inline-block;
@@ -216,7 +214,7 @@ button {
   .header_nav .ico_plsmns {
     display: block;
     position: relative;
-    width: 20vw;
+    width: 70px;
     height: 70px;
     margin: 0 auto auto auto;
   }
@@ -243,7 +241,7 @@ button {
   .header_nav .ico_plsmns.opened-slide {
     display: block;
     position: relative;
-    width: 20vw;
+    width: 70px;
     height: 70px;
     max-height: 9999px;
     background: #F7F7F7;
@@ -274,25 +272,32 @@ button {
 }
 @media only screen and (max-width: 1220px) {
   .header_nav .header_nav-list-sub {
-    display: contents;
-    /*opacity: 0;
-    height: 0;
-    max-height: 0;*/
+    display: none;
+    position: relative;
+    top: 0;
+    left: 0;
     width: 100vw;
-    top: -490px;
-    transition: top 10s;
+    height: auto;
+    flex-wrap: wrap;
   }
   .header_nav .header_nav-list-sub.opened-list {
     display: contents;
-    /*opacity: 1;
-    height: auto;
-    max-height: 9999px;*/
-    width: 100vw;
+    position: relative;
     top: 0;
-    transition: top 10s;
+    left: 0;
+    width: 100vw;
+    height: auto;
+  }
+  .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link {
+    display: block;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
   }
   .header_nav .header_nav-list-sub-link {
     display: block;
+    height: auto;
   }
   .header_nav .header_nav-list-sub-link-tag {
     padding: 0 0 0 2em;
@@ -455,6 +460,11 @@ button {
   line-height: 2.2em;
   text-align: center;
 }
+@media only screen and (max-width: 1220px) {
+  .main_window-logo-txt {
+    width: 100vw;
+  }
+}
 .main_window-logo-btn {
   display: block;
   margin: 1.4em auto -0.6em auto;
@@ -612,7 +622,7 @@ button {
     border-radius: 60vw;
     background: #FFF;
     color: #131D34;
-    font-size: 100px;
+    font-size: 36vw;
     line-height: 60vw;
   }
   .main_icon-title {

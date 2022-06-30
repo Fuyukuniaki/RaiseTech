@@ -68,7 +68,11 @@ button {
         align-items: center;
         padding: 1em 3.6em;
         @include media {
-            padding: 0 1em;
+            padding: 0 0 0 1em;
+            width: calc( 100vw - 1em - $headerHght );
+            height: $headerHght;
+            background: $baseWhite;
+            z-index: 9999;
         }
         &-img {
             height: 2em;
@@ -104,26 +108,33 @@ button {
             margin: 0;
             height: $headerHght;
             @include media {
+                display: none;
                 flex-wrap: wrap;
+                justify-content: space-between;
                 width: 100vw;
                 position: absolute;
-                overflow: hidden;
-                height: 0;
-                max-height: 0;
-                top: calc((100% + 30px) * -1);
+                //overflow: hidden;
+                height: $headerHght * 6;
+                top: $headerHght;
+                //max-height: 0;
+                //top: calc((100% + 30px) * -1);
+                z-index: -1;
                 background: $baseWhite;
-                transition: top 1s;
+                //transition: top 1s;
                 &.opened-wrap {
                     display: flex;
+                    flex-wrap: wrap;
                     justify-content: space-between;
                     width: 100vw;
                     position: absolute;
-                    overflow: visible;
+                    //overflow: visible;
                     height: auto;
                     line-height: $headerHght;
-                    max-height: 9999px;
+                    //max-height: 9999px;
+                    z-index: -1;
+                    background: $baseWhite;
                     top: $headerHght;
-                    transition: top 1s;
+                    //transition: top 1s;
                 }
             }
         }
@@ -134,25 +145,29 @@ button {
             overflow-y: hidden;
             @include media {
                 overflow: hidden;
-                width: 80vw;
+                width: calc( 100vw - $headerHght );
                 height: $headerHght;
                 max-height: $headerHght;
-                transition: max-height 1s;
+                //transition: max-height 1s;
                 &.opened-lisb {
                     overflow: visible;
                     height: auto;
                     max-height: 9999px;
-                    transition: max-height 1s;
+                    //transition: max-height 1s;
                     &:hover{
                         background: #F3FAFB;
                     }
                 }
             }
             .header_nav-list-sub {
-                height: 0;
-                max-height: 0;
-                opacity: 0;
-                transition: all 0.4s ease-in;
+                display: inline-block;
+                height: auto;
+                left: 0;
+                //display: none;
+                //height: 0;
+                //max-height: 0;
+                //opacity: 0;
+                //transition: all 0.4s ease-in;
             }
             &:hover {
                 display: inline-block;
@@ -161,9 +176,9 @@ button {
                 overflow-y: visible;
                 > .header_nav-list-sub {
                     height: auto;
-                    max-height: 9999px;
-                    opacity: 1;
-                    transition: all 0.4s ease-out;
+                    //max-height: 9999px;
+                    //opacity: 1;
+                    //transition: all 0.4s ease-out;
                 }
             }
             &-txt {
@@ -210,7 +225,7 @@ button {
             .ico_plsmns {
                 display: block;
                 position: relative;
-                width: 20vw;
+                width: $headerHght;
                 height: $headerHght;
                 margin: 0 auto auto auto;
                 &::before {
@@ -236,7 +251,7 @@ button {
                 &.opened-slide {
                     display: block;
                     position: relative;
-                    width: 20vw;
+                    width: $headerHght;
                     height: $headerHght;
                     max-height: 9999px;
                     background: #F7F7F7;
@@ -270,24 +285,39 @@ button {
         }
         & &-list-sub {
             @include media {
-                    display: contents;
-                    /*opacity: 0;
-                    height: 0;
-                    max-height: 0;*/
+                    display: none;
+                    position: relative;
+                    top: 0;
+                    left: 0;
                     width: 100vw;
-                    top: -490px;
-                    transition: top 10s;
+                    height: auto;
+                    //top: -490px;
+                    //transition: top 1s;
+                    flex-wrap: wrap;
                 &.opened-list {
                     display: contents;
-                    /*opacity: 1;
-                    height: auto;
-                    max-height: 9999px;*/ 
-                    width: 100vw;
+                    position: relative;
                     top: 0;
-                    transition: top 10s;
+                    left: 0;
+                    width: 100vw;
+                    height: auto;
+                    //top: 0;
+                    //transition: top 1s;
+                    .header_nav-list-sub-link {
+                        display: block;
+                        height: auto;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        //max-height: $headerHght;
+                        //transition: max-height .2s;
+                    }
                 }
                 &-link {
                     display: block;
+                    height: auto;
+                    //max-height: 0;
+                    //transition: max-height .2s;
                     &-tag {
                         padding: 0 0 0 2em;
                     }
@@ -350,6 +380,7 @@ button {
         height: 1em;
         margin: .7em .3em;
         border-top: $nvHovColor 0.2em solid;
+        //transition: all 1s;
         &::before {
             content:"";
             position: absolute;
@@ -375,6 +406,7 @@ button {
             height: 1em;
             margin: .7em .3em;
             border-top: transparent 0.2em solid;
+            //transition: all 1s;
             &::before {
                 content:"";
                 position: absolute;
@@ -449,6 +481,9 @@ button {
                 font-weight: $textWeight + 200;
                 line-height: 2.2em;
                 text-align: center;
+                @include media {
+                    width: 100vw;
+                }
             }
             &-btn {
                 display: block;
@@ -605,7 +640,7 @@ button {
                     border-radius: $mediaIconW;
                     background: $baseWhite;
                     color: $textColor;
-                    font-size: $mainIconW;
+                    font-size: 36vw;
                     line-height: $mediaIconW;
                 }
                 &title {
