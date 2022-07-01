@@ -14,6 +14,20 @@ $mainIconM : -12rem auto 0 auto;
         @content;
     }
 }
+
+@keyframes slidein {
+    from {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  
+    to {
+      opacity: 0;
+      transform: rotate(-45deg);
+    }
+  }
+
+
 * {
     font-size: 14px;
     color: $textColor;
@@ -113,12 +127,12 @@ button {
                 justify-content: space-between;
                 width: 100vw;
                 position: absolute;
-                //overflow: hidden;
+                overflow: hidden;
                 height: $headerHght * 6;
                 top: $headerHght;
                 //max-height: 0;
                 //top: calc((100% + 30px) * -1);
-                z-index: -1;
+                z-index: -9999;
                 background: $baseWhite;
                 //transition: top 1s;
                 &.opened-wrap {
@@ -127,11 +141,11 @@ button {
                     justify-content: space-between;
                     width: 100vw;
                     position: absolute;
-                    //overflow: visible;
+                    overflow: hidden;
                     height: auto;
                     line-height: $headerHght;
                     //max-height: 9999px;
-                    z-index: -1;
+                    z-index: -9999;
                     background: $baseWhite;
                     top: $headerHght;
                     //transition: top 1s;
@@ -308,7 +322,7 @@ button {
                     width: 100vw;
                     height: auto;
                     max-height: 0;
-                    transition: all 1s;
+                    transition: opacity 1s;
                 &.opened-list {
                     overflow: hidden;
                     opacity: 1;
@@ -320,7 +334,7 @@ button {
                     width: 100vw;
                     height: auto;
                     max-height: 9999px;
-                    transition: all 1s;
+                    transition: opacity 1s;
                     .header_nav-list-sub-link {
                         display: block;
                         height: auto;
@@ -387,6 +401,7 @@ button {
 
 @include media {
     .icon_hamburger-wrap {
+        opacity: 1;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -395,64 +410,79 @@ button {
         height: 70px;
         margin: auto 0 auto auto;
         padding: 0;
-        background: #2498B3;
+        background: $baseWhite;
         right: 0;
         top: 0;
         bottom: 0;
-    }    
-    .icon_hamburger{
-        display: block;
-        position: absolute;
-        right: 1em;
-        margin: 0 1em;
-        width: 2.4em;
-        height: 1em;
-        margin: .7em .3em;
-        border-top: $nvHovColor 0.2em solid;
-        //transition: all 1s;
-        &::before {
-            content:"";
-            position: absolute;
-            top: calc(50% - 0.2em);
-            width: 2.4em;
-            height: 1em;
-            border-top: $nvHovColor 0.2em solid;
-        }
-        &::after {
-            content:"";
-            position: absolute;
-            bottom: 0;
-            width: 2.4em;
-            height: 1em;
-            border-bottom: $nvHovColor 0.2em solid;
-        }
         &.opened-sub {
+            opacity: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 70px;
+            height: 70px;
+            margin: auto 0 auto auto;
+            padding: 0;
+            background: $nvHovColor;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        } 
+        .icon_hamburger{
             display: block;
             position: absolute;
-            right: 1.4em;
+            right: 1em;
             margin: 0 1em;
             width: 2.4em;
             height: 1em;
             margin: .7em .3em;
-            border-top: transparent 0.2em solid;
-            //transition: all 1s;
+            border-top: $nvHovColor 0.2em solid;
+            animation-name: slidein;
             &::before {
                 content:"";
                 position: absolute;
-                top: .3em;
+                top: calc(50% - 0.2em);
                 width: 2.4em;
                 height: 1em;
-                border-top: $baseWhite 0.2em solid;
-                transform: rotate(45deg);
+                border-top: $nvHovColor 0.2em solid;
             }
             &::after {
                 content:"";
                 position: absolute;
-                bottom: .3em;
+                bottom: 0;
                 width: 2.4em;
                 height: 1em;
-                border-bottom: $baseWhite 0.2em solid;
-                transform: rotate(-45deg);
+                border-bottom: $nvHovColor 0.2em solid;
+            }
+            &.opened-sub {
+                display: block;
+                position: absolute;
+                right: 1.4em;
+                margin: 0 1em;
+                width: 2.4em;
+                height: 1em;
+                margin: .7em .3em;
+                border-top: transparent 0.2em solid;
+                //transition: all 1s;
+                &::before {
+                    content:"";
+                    position: absolute;
+                    top: .3em;
+                    width: 2.4em;
+                    height: 1em;
+                    border-top: $baseWhite 0.2em solid;
+                    transform: rotate(45deg);
+                }
+                &::after {
+                    content:"";
+                    position: absolute;
+                    bottom: .3em;
+                    width: 2.4em;
+                    height: 1em;
+                    border-bottom: $baseWhite 0.2em solid;
+                    transform: rotate(-45deg);
+                }
             }
         }
     }
