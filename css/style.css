@@ -63,7 +63,7 @@ button {
   top: 0;
   right: 0;
   left: 0;
-  margin: 0 auto auto auto;
+  margin: auto;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
@@ -80,7 +80,7 @@ button {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 1em 3.6em;
+  padding: 1em 0 1em 3.6em;
 }
 @media only screen and (max-width: 1220px) {
   .header_logo {
@@ -162,8 +162,10 @@ button {
 .header_nav-list {
   display: inline-block;
   position: relative;
+  line-height: 70px;
   height: 70px;
   overflow-y: hidden;
+  width: auto;
 }
 @media only screen and (max-width: 1220px) {
   .header_nav-list {
@@ -182,9 +184,15 @@ button {
   }
 }
 .header_nav-list .header_nav-list-sub {
-  display: inline-block;
+  position: absolute;
+  display: none;
   height: auto;
+  width: auto;
   left: 0;
+  top: 70px;
+  height: 0;
+  max-height: 0;
+  transition: max-height 0.4s ease-in;
 }
 .header_nav-list:hover {
   display: inline-block;
@@ -194,11 +202,18 @@ button {
 }
 .header_nav-list:hover > .header_nav-list-sub {
   height: auto;
+  width: auto;
+  position: absolute;
   display: inline-block;
   left: 0;
+  top: 70px;
+  max-height: 9999px;
+  background: #E9F8FB;
+  transition: max-height 0.4s ease-out;
 }
 .header_nav-list-txt {
   display: inline-block;
+  white-space: nowrap;
   height: 70px;
   line-height: 70px;
   font-weight: 700;
@@ -378,6 +393,10 @@ button {
     font-weight: 900;
     padding: 0 0 0 2em;
   }
+}
+.header_nav-link {
+  line-height: 70px;
+  height: 70px;
 }
 @media only screen and (max-width: 1220px) {
   .header_nav-link {
