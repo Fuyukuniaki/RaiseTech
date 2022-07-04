@@ -209,7 +209,7 @@ button {
   top: 70px;
   max-height: 9999px;
   background: #E9F8FB;
-  transition: max-height 0.4s ease-out;
+  transition: max-height 0.4s;
 }
 .header_nav-list-txt {
   display: inline-block;

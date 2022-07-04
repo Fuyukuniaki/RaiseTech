@@ -204,7 +204,7 @@ button {
                     top: $headerHght;
                     max-height: 9999px;
                     background: $navLinkCol;
-                    transition: max-height 0.4s ease-out;
+                    transition: max-height 0.4s ;//ease-out;
                 }
             }
             &-txt {
