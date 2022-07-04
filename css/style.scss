@@ -4,7 +4,8 @@ $navColour : #D4F1F8;
 $navLinkCol: #E9F8FB;
 $nvHovColor: #2498B3;
 $textWeight: 700;
-$headerHght: 70px;
+$headerHght: 70px; 
+$mblHeight : 50px;
 $mainIconW : 100px;
 $mediaIconW: 60vw;
 $mainIconM : -12rem auto 0 auto;
@@ -75,6 +76,7 @@ button {
     z-index: 9999;
     @include media {
         margin: 0;
+        height: $mblHeight;
     }
     &_logo {
         display: flex;
@@ -83,8 +85,8 @@ button {
         padding: 1em 3.6em;
         @include media {
             padding: 0 0 0 1em;
-            width: calc( 100vw - 1em - $headerHght );
-            height: $headerHght;
+            width: calc(100vw - $mblHeight);
+            height: $mblHeight;
             background: $baseWhite;
             z-index: 9999;
         }
@@ -108,10 +110,10 @@ button {
     &_nav {
         display: block;
             @include media {
-                position: fixed;
                 display: flex;
-                width: 100vw;
-                justify-content: space-between;
+                width: auto;
+                height: auto;
+                justify-content: flex-end;
                 align-items: center;
             }
         &-wrap {
@@ -123,31 +125,33 @@ button {
             height: $headerHght;
             @include media {
                 display: none;
+                opacity: 1;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100vw;
                 position: absolute;
                 overflow: hidden;
-                height: $headerHght * 6;
-                top: $headerHght;
-                //max-height: 0;
-                //top: calc((100% + 30px) * -1);
+                height: auto;
+                line-height: $mblHeight;
+                //max-height: 9999px;
                 z-index: -9999;
                 background: $baseWhite;
+                top: $mblHeight;
                 //transition: top 1s;
-                &.opened-wrap {
+            &.opened-wrap {
                     display: flex;
+                    opacity: 1;
                     flex-wrap: wrap;
                     justify-content: space-between;
                     width: 100vw;
                     position: absolute;
                     overflow: hidden;
                     height: auto;
-                    line-height: $headerHght;
+                    line-height: $mblHeight;
                     //max-height: 9999px;
                     z-index: -9999;
                     background: $baseWhite;
-                    top: $headerHght;
+                    top: $mblHeight;
                     //transition: top 1s;
                 }
             }
@@ -159,9 +163,9 @@ button {
             overflow-y: hidden;
             @include media {
                 overflow: hidden;
-                width: calc( 100vw - $headerHght );
-                height: $headerHght;
-                max-height: $headerHght;
+                width: calc( 100vw - $mblHeight );
+                height: $mblHeight;
+                max-height: $mblHeight;
                 //transition: max-height 1s;
                 &.opened-lisb {
                     overflow: visible;
@@ -212,9 +216,22 @@ button {
                     font-size: 1.2em;
                     padding: 0 1em;
                     background: $navColour;
-                    @include media {
-                        background: $baseWhite;
-                    }
+                }
+                @include media {
+                display: inline-block;
+                height: $mblHeight;
+                line-height: $mblHeight;
+                font-weight: $textWeight;
+                font-size: 1.2em;
+                padding: 0 1em;
+                &:hover {
+                    display: inline-block;
+                    height: $mblHeight;
+                    line-height: $mblHeight;
+                    font-weight: $textWeight;
+                    font-size: 1.2em;
+                    padding: 0 1em;
+                    background: $baseWhite;
                 }
             }
             &-sub {
@@ -248,18 +265,19 @@ button {
                 }
             }
         }
+    }
         @include media {
             .ico_plsmns {
                 display: block;
                 position: relative;
-                width: $headerHght;
-                height: $headerHght;
+                width: $mblHeight;
+                height: $mblHeight;
                 margin: 0 auto auto auto;
                 &::before {
                     content: "";
                     position: absolute;
-                    top: 1.5em;
-                    right: 1.5em;
+                    top: .6em;
+                    right: .8em;
                     border-bottom: $textColor 0.2em solid;
                     width: 2em;
                     height: 2em;
@@ -268,8 +286,8 @@ button {
                 &::after {
                     content: "";
                     position: absolute;
-                    top: 2.6em;
-                    right: 2.4em;
+                    top: 1.7em;
+                    right: 1.7em;
                     border-right: $textColor 0.2em solid;
                     width: 2em;
                     height: 2em;
@@ -278,15 +296,15 @@ button {
                 &.opened-slide {
                     display: block;
                     position: relative;
-                    width: $headerHght;
-                    height: $headerHght;
+                    width: $mblHeight;
+                    height: $mblHeight;
                     max-height: 9999px;
                     background: #F7F7F7;
                     &::before {
                         content: "";
                         position: absolute;
-                        top: 1.5em;
-                        right: 1.5em;
+                        top: .6em;
+                        right: .8em;
                         border-bottom: $textColor 0.2em solid;
                         width: 2em;
                         height: 2em;
@@ -295,8 +313,8 @@ button {
                     &::after {
                         content: "";
                         position: absolute;
-                        top: 2.6em;
-                        right: 2.4em;
+                        top: 1.7em;
+                        right: 1.7em;
                         border-right: transparent 0.2em solid;
                         width: 2em;
                         height: 2em;
@@ -317,15 +335,15 @@ button {
                     display: contents;
                     position: relative;
                     flex-wrap: wrap;
-                    top:  -490px;
+                    top:  -350px;
                     left: 0;
                     width: 100vw;
                     height: auto;
                     max-height: 0;
-                    transition: opacity 1s;
+                    transition: all 1.8s;
                 &.opened-list {
-                    overflow: hidden;
                     opacity: 1;
+                    overflow: hidden;
                     display: contents;
                     position: relative;
                     flex-wrap: wrap;
@@ -334,7 +352,7 @@ button {
                     width: 100vw;
                     height: auto;
                     max-height: 9999px;
-                    transition: opacity 1s;
+                    transition: all 1.8s;
                     .header_nav-list-sub-link {
                         display: block;
                         height: auto;
@@ -342,7 +360,7 @@ button {
                         top: 0;
                         left: 0;
                         //max-height: $headerHght;
-                        //transition: max-height .2s;
+                        transition: all 1s;
                     }
                 }
                 &-link {
@@ -353,6 +371,7 @@ button {
                     //max-height: 0;
                     //transition: max-height .2s;
                     &-tag {
+                        font-weight: $textWeight+200;
                         padding: 0 0 0 2em;
                     }
                 }
@@ -362,6 +381,7 @@ button {
                     height: auto;
                     line-height: 4em;
                     &-tag {
+                        font-weight: $textWeight+200;
                         padding: 0 0 0 2em;
                     }
                 }
@@ -406,9 +426,9 @@ button {
         justify-content: center;
         align-items: center;
         position: relative;
-        width: 70px;
-        height: 70px;
-        margin: auto 0 auto auto;
+        width: $mblHeight;
+        height: $mblHeight;
+        margin: auto;
         padding: 0;
         background: $baseWhite;
         right: 0;
@@ -420,9 +440,9 @@ button {
             justify-content: center;
             align-items: center;
             position: relative;
-            width: 70px;
-            height: 70px;
-            margin: auto 0 auto auto;
+            width: $mblHeight;
+            height: $mblHeight;
+            margin: auto;
             padding: 0;
             background: $nvHovColor;
             right: 0;
@@ -433,17 +453,16 @@ button {
             display: block;
             position: absolute;
             right: 1em;
-            margin: 0 1em;
-            width: 2.4em;
+            width: 1.6em;
             height: 1em;
-            margin: .7em .3em;
+            margin: .7em auto;
             border-top: $nvHovColor 0.2em solid;
             animation-name: slidein;
             &::before {
                 content:"";
                 position: absolute;
                 top: calc(50% - 0.2em);
-                width: 2.4em;
+                width: 1.6em;
                 height: 1em;
                 border-top: $nvHovColor 0.2em solid;
             }
@@ -451,26 +470,28 @@ button {
                 content:"";
                 position: absolute;
                 bottom: 0;
-                width: 2.4em;
+                width: 1.6em;
                 height: 1em;
                 border-bottom: $nvHovColor 0.2em solid;
             }
             &.opened-sub {
                 display: block;
                 position: absolute;
-                right: 1.4em;
+                right: 0;
+                left: 0;
                 margin: 0 1em;
-                width: 2.4em;
+                width: 1.6em;
                 height: 1em;
-                margin: .7em .3em;
+                margin: .7em auto;
                 border-top: transparent 0.2em solid;
                 //transition: all 1s;
                 &::before {
                     content:"";
                     position: absolute;
                     top: .3em;
-                    width: 2.4em;
+                    width: 1.6em;
                     height: 1em;
+                    margin: 0 0 0 -0.3em;
                     border-top: $baseWhite 0.2em solid;
                     transform: rotate(45deg);
                 }
@@ -478,8 +499,9 @@ button {
                     content:"";
                     position: absolute;
                     bottom: .3em;
-                    width: 2.4em;
+                    width: 1.6em;
                     height: 1em;
+                    margin: 0 0 0 -0.3em;
                     border-bottom: $baseWhite 0.2em solid;
                     transform: rotate(-45deg);
                 }
@@ -604,13 +626,13 @@ button {
     @include media {
         display: block;
         position: inherit;
-        padding: $headerHght 0 0 0;
+        padding: $mblHeight 0 0 0;
         width: 100vw;
         height: auto;
         aspect-ratio: 2000 / 800;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
-        background-position: 0 $headerHght;
+        background-position: 0 $mblHeight;
         background-size: contain;
         background-repeat: no-repeat;
         &_window {

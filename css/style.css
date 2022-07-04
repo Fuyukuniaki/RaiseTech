@@ -73,6 +73,7 @@ button {
 @media only screen and (max-width: 1220px) {
   .header {
     margin: 0;
+    height: 50px;
   }
 }
 .header_logo {
@@ -84,8 +85,8 @@ button {
 @media only screen and (max-width: 1220px) {
   .header_logo {
     padding: 0 0 0 1em;
-    width: calc(100vw - 1em - 70px);
-    height: 70px;
+    width: calc(100vw - 50px);
+    height: 50px;
     background: #FFF;
     z-index: 9999;
   }
@@ -113,10 +114,10 @@ button {
 }
 @media only screen and (max-width: 1220px) {
   .header_nav {
-    position: fixed;
     display: flex;
-    width: 100vw;
-    justify-content: space-between;
+    width: auto;
+    height: auto;
+    justify-content: flex-end;
     align-items: center;
   }
 }
@@ -131,28 +132,31 @@ button {
 @media only screen and (max-width: 1220px) {
   .header_nav-wrap {
     display: none;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100vw;
-    position: absolute;
-    overflow: hidden;
-    height: 420px;
-    top: 70px;
-    z-index: -9999;
-    background: #FFF;
-  }
-  .header_nav-wrap.opened-wrap {
-    display: flex;
+    opacity: 1;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100vw;
     position: absolute;
     overflow: hidden;
     height: auto;
-    line-height: 70px;
+    line-height: 50px;
     z-index: -9999;
     background: #FFF;
-    top: 70px;
+    top: 50px;
+  }
+  .header_nav-wrap.opened-wrap {
+    display: flex;
+    opacity: 1;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100vw;
+    position: absolute;
+    overflow: hidden;
+    height: auto;
+    line-height: 50px;
+    z-index: -9999;
+    background: #FFF;
+    top: 50px;
   }
 }
 .header_nav-list {
@@ -164,9 +168,9 @@ button {
 @media only screen and (max-width: 1220px) {
   .header_nav-list {
     overflow: hidden;
-    width: calc(100vw - 70px);
-    height: 70px;
-    max-height: 70px;
+    width: calc(100vw - 50px);
+    height: 50px;
+    max-height: 50px;
   }
   .header_nav-list.opened-lisb {
     overflow: visible;
@@ -211,11 +215,25 @@ button {
   background: #D4F1F8;
 }
 @media only screen and (max-width: 1220px) {
+  .header_nav-list-txt {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 0 1em;
+  }
   .header_nav-list-txt:hover {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 0 1em;
     background: #FFF;
   }
 }
-.header_nav-list-sub {
+.header_nav-list-txt-sub {
   display: flex;
   position: absolute;
   top: 70px;
@@ -223,12 +241,12 @@ button {
   width: 20em;
 }
 @media only screen and (max-width: 1220px) {
-  .header_nav-list-sub .header_nav-list-sub-link {
+  .header_nav-list-txt-sub .header_nav-list-sub-link {
     width: 100vw;
     background: #FFF;
   }
 }
-.header_nav-list-sub-link {
+.header_nav-list-txt-sub-link {
   width: 20em;
   line-height: 4em;
   height: 4em;
@@ -237,7 +255,7 @@ button {
   font-weight: 700;
   color: inherit;
 }
-.header_nav-list-sub-link:hover {
+.header_nav-list-txt-sub-link:hover {
   width: 20em;
   line-height: 4em;
   height: 4em;
@@ -249,15 +267,15 @@ button {
   .header_nav .ico_plsmns {
     display: block;
     position: relative;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin: 0 auto auto auto;
   }
   .header_nav .ico_plsmns::before {
     content: "";
     position: absolute;
-    top: 1.5em;
-    right: 1.5em;
+    top: 0.6em;
+    right: 0.8em;
     border-bottom: #131D34 0.2em solid;
     width: 2em;
     height: 2em;
@@ -266,8 +284,8 @@ button {
   .header_nav .ico_plsmns::after {
     content: "";
     position: absolute;
-    top: 2.6em;
-    right: 2.4em;
+    top: 1.7em;
+    right: 1.7em;
     border-right: #131D34 0.2em solid;
     width: 2em;
     height: 2em;
@@ -276,16 +294,16 @@ button {
   .header_nav .ico_plsmns.opened-slide {
     display: block;
     position: relative;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     max-height: 9999px;
     background: #F7F7F7;
   }
   .header_nav .ico_plsmns.opened-slide::before {
     content: "";
     position: absolute;
-    top: 1.5em;
-    right: 1.5em;
+    top: 0.6em;
+    right: 0.8em;
     border-bottom: #131D34 0.2em solid;
     width: 2em;
     height: 2em;
@@ -294,8 +312,8 @@ button {
   .header_nav .ico_plsmns.opened-slide::after {
     content: "";
     position: absolute;
-    top: 2.6em;
-    right: 2.4em;
+    top: 1.7em;
+    right: 1.7em;
     border-right: transparent 0.2em solid;
     width: 2em;
     height: 2em;
@@ -312,16 +330,16 @@ button {
     display: contents;
     position: relative;
     flex-wrap: wrap;
-    top: -490px;
+    top: -350px;
     left: 0;
     width: 100vw;
     height: auto;
     max-height: 0;
-    transition: opacity 1s;
+    transition: all 1.8s;
   }
   .header_nav .header_nav-list-sub.opened-list {
-    overflow: hidden;
     opacity: 1;
+    overflow: hidden;
     display: contents;
     position: relative;
     flex-wrap: wrap;
@@ -330,7 +348,7 @@ button {
     width: 100vw;
     height: auto;
     max-height: 9999px;
-    transition: opacity 1s;
+    transition: all 1.8s;
   }
   .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link {
     display: block;
@@ -338,6 +356,7 @@ button {
     position: relative;
     top: 0;
     left: 0;
+    transition: all 1s;
   }
   .header_nav .header_nav-list-sub-link {
     opacity: 0;
@@ -346,6 +365,7 @@ button {
     line-height: 0;
   }
   .header_nav .header_nav-list-sub-link-tag {
+    font-weight: 900;
     padding: 0 0 0 2em;
   }
   .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link {
@@ -355,6 +375,7 @@ button {
     line-height: 4em;
   }
   .header_nav .header_nav-list-sub.opened-list .header_nav-list-sub-link-tag {
+    font-weight: 900;
     padding: 0 0 0 2em;
   }
 }
@@ -395,9 +416,9 @@ button {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 70px;
-    height: 70px;
-    margin: auto 0 auto auto;
+    width: 50px;
+    height: 50px;
+    margin: auto;
     padding: 0;
     background: #FFF;
     right: 0;
@@ -410,9 +431,9 @@ button {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 70px;
-    height: 70px;
-    margin: auto 0 auto auto;
+    width: 50px;
+    height: 50px;
+    margin: auto;
     padding: 0;
     background: #2498B3;
     right: 0;
@@ -423,10 +444,9 @@ button {
     display: block;
     position: absolute;
     right: 1em;
-    margin: 0 1em;
-    width: 2.4em;
+    width: 1.6em;
     height: 1em;
-    margin: 0.7em 0.3em;
+    margin: 0.7em auto;
     border-top: #2498B3 0.2em solid;
     -webkit-animation-name: slidein;
             animation-name: slidein;
@@ -435,7 +455,7 @@ button {
     content: "";
     position: absolute;
     top: calc(50% - 0.2em);
-    width: 2.4em;
+    width: 1.6em;
     height: 1em;
     border-top: #2498B3 0.2em solid;
   }
@@ -443,26 +463,28 @@ button {
     content: "";
     position: absolute;
     bottom: 0;
-    width: 2.4em;
+    width: 1.6em;
     height: 1em;
     border-bottom: #2498B3 0.2em solid;
   }
   .icon_hamburger-wrap .icon_hamburger.opened-sub {
     display: block;
     position: absolute;
-    right: 1.4em;
+    right: 0;
+    left: 0;
     margin: 0 1em;
-    width: 2.4em;
+    width: 1.6em;
     height: 1em;
-    margin: 0.7em 0.3em;
+    margin: 0.7em auto;
     border-top: transparent 0.2em solid;
   }
   .icon_hamburger-wrap .icon_hamburger.opened-sub::before {
     content: "";
     position: absolute;
     top: 0.3em;
-    width: 2.4em;
+    width: 1.6em;
     height: 1em;
+    margin: 0 0 0 -0.3em;
     border-top: #FFF 0.2em solid;
     transform: rotate(45deg);
   }
@@ -470,8 +492,9 @@ button {
     content: "";
     position: absolute;
     bottom: 0.3em;
-    width: 2.4em;
+    width: 1.6em;
     height: 1em;
+    margin: 0 0 0 -0.3em;
     border-bottom: #FFF 0.2em solid;
     transform: rotate(-45deg);
   }
@@ -596,13 +619,13 @@ button {
   .main {
     display: block;
     position: inherit;
-    padding: 70px 0 0 0;
+    padding: 50px 0 0 0;
     width: 100vw;
     height: auto;
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
-    background-position: 0 70px;
+    background-position: 0 50px;
     background-size: contain;
     background-repeat: no-repeat;
   }
