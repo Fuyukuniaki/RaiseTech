@@ -16,19 +16,6 @@ $mainIconM : -12rem auto 0 auto;
     }
 }
 
-@keyframes slidein {
-    from {
-      opacity: 1;
-      transform: rotate(0deg);
-    }
-  
-    to {
-      opacity: 0;
-      transform: rotate(-45deg);
-    }
-  }
-
-
 * {
     font-size: 14px;
     color: $textColor;
@@ -124,8 +111,8 @@ button {
             margin: 0;
             height: $headerHght;
             @include media {
-                display: none;
-                opacity: 1;
+                display: flex;
+                opacity: 0;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100vw;
@@ -133,11 +120,9 @@ button {
                 overflow: hidden;
                 height: auto;
                 line-height: $mblHeight;
-                //max-height: 9999px;
                 z-index: -9999;
                 background: $baseWhite;
                 top: $mblHeight;
-                //transition: top 1s;
             &.opened-wrap {
                     display: flex;
                     opacity: 1;
@@ -148,11 +133,9 @@ button {
                     overflow: hidden;
                     height: auto;
                     line-height: $mblHeight;
-                    //max-height: 9999px;
                     z-index: -9999;
                     background: $baseWhite;
                     top: $mblHeight;
-                    //transition: top 1s;
                 }
             }
         }
@@ -164,19 +147,12 @@ button {
             width: auto;
             background: $baseWhite;
             @include media {
-                overflow: hidden;
                 width: calc( 100vw - $mblHeight );
                 height: $mblHeight;
-                max-height: $mblHeight;
-                //transition: max-height 1s;
-                &.opened-lisb {
-                    overflow: visible;
-                    height: auto;
-                    max-height: 9999px;
-                    //transition: max-height 1s;
-                    &:hover{
-                        background: #F3FAFB;
-                    }
+                line-height: $mblHeight;
+                overflow: hidden;
+                &:hover{
+                    background: #F3FAFB;
                 }
             }
             .header_nav-list-sub {
@@ -200,6 +176,10 @@ button {
                     white-space: nowrap;
                     background: $navLinkCol;
                     transition: opacity 1s ease-in;
+                    @include media {
+                        opacity: 1;
+                        background: $baseWhite;
+                    }
                 }
             }
             &.hover {
@@ -236,6 +216,7 @@ button {
                 font-weight: $textWeight;
                 font-size: 1.2em;
                 padding: 0 1em;
+                z-index: 9999;
                 &:hover {
                     display: inline-block;
                     height: $mblHeight;
@@ -252,12 +233,6 @@ button {
                 top: $headerHght;
                 flex-wrap: wrap;
                 width: 20em;
-                @include media {
-                    .header_nav-list-sub-link {
-                        width: 100vw;
-                        background: $baseWhite;
-                    }
-                }
             }
             &-sub-link {
                 width: 20em;
@@ -310,7 +285,6 @@ button {
                     position: relative;
                     width: $mblHeight;
                     height: $mblHeight;
-                    max-height: 9999px;
                     background: #F7F7F7;
                     &::before {
                         content: "";
@@ -343,55 +317,20 @@ button {
         & &-list-sub {
             @include media {
                     opacity: 0;
-                    overflow: hidden;
                     display: contents;
                     position: relative;
                     flex-wrap: wrap;
                     top:  -350px;
                     left: 0;
                     width: 100vw;
-                    height: auto;
-                    max-height: 0;
-                    transition: all 1.8s;
-                &.opened-list {
-                    opacity: 1;
+                    height: $mblHeight;
                     overflow: hidden;
-                    display: contents;
-                    position: relative;
-                    flex-wrap: wrap;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: auto;
-                    max-height: 9999px;
-                    transition: all 1.8s;
-                    .header_nav-list-sub-link {
-                        display: block;
-                        height: auto;
-                        position: relative;
-                        top: 0;
-                        left: 0;
-                        //max-height: $headerHght;
-                        transition: all 1s;
-                    }
-                }
                 &-link {
                     opacity: 0;
                     display: block;
-                    height: auto;
-                    line-height: 0;
-                    //max-height: 0;
-                    //transition: max-height .2s;
-                    &-tag {
-                        font-weight: $textWeight+200;
-                        padding: 0 0 0 2em;
-                    }
-                }
-                &.opened-list .header_nav-list-sub-link {
-                    opacity: 1;
-                    display: block;
-                    height: auto;
-                    line-height: 4em;
+                    height: $mblHeight;
+                    line-height: $mblHeight;
+                    //z-index: 9999;
                     &-tag {
                         font-weight: $textWeight+200;
                         padding: 0 0 0 2em;
@@ -498,7 +437,6 @@ button {
                 height: 1em;
                 margin: .7em auto;
                 border-top: transparent 0.2em solid;
-                //transition: all 1s;
                 &::before {
                     content:"";
                     position: absolute;
