@@ -184,6 +184,7 @@ button {
             }
             &.hover {
                 @extend .header_nav-list;
+                background: $navColour;
             }
             &-sub.hover {
                 @extend .header_nav-list-sub;
@@ -204,7 +205,7 @@ button {
                 font-size: 1.2em;
                 padding: 0 1em;
                 z-index: 9999;
-                background-color: $baseWhite;
+                overflow-x: hidden;
                 &:hover {
                     @extend .header_nav-list-txt;
                     background: $navColour;
@@ -242,11 +243,9 @@ button {
                 background: $navLinkCol;
                 font-weight: $textWeight;
                 color: inherit;
+                z-index: 9999;
                 &:hover{
-                    width: 20em;
-                    line-height: 4em;
-                    height: 4em;
-                    text-indent: 1em;
+                    @extend .header_nav-list-txt-sub-link;
                     background: $baseWhite;
                     color: $nvHovColor;
                 }
@@ -339,8 +338,7 @@ button {
             }
         }
         &-link {
-            line-height: $headerHght;
-            height: $headerHght;
+            @extend .header_nav-list;
             @include media {
                 width: 100vw;
             }
