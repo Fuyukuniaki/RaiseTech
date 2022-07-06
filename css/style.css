@@ -159,16 +159,16 @@ button {
     top: 50px;
   }
 }
-.header_nav-list {
+.header_nav-list, .header_nav-list.hover {
   display: inline-block;
   position: relative;
   line-height: 70px;
   height: 70px;
-  overflow-y: hidden;
   width: auto;
+  background: #FFF;
 }
 @media only screen and (max-width: 1220px) {
-  .header_nav-list {
+  .header_nav-list, .header_nav-list.hover {
     overflow: hidden;
     width: calc(100vw - 50px);
     height: 50px;
@@ -185,33 +185,36 @@ button {
 }
 .header_nav-list .header_nav-list-sub {
   position: absolute;
-  display: none;
+  display: inline-block;
   height: auto;
   width: auto;
-  left: 0;
   top: 70px;
+  left: 0;
   height: 0;
   max-height: 0;
-  transition: max-height 0.4s ease-in;
+  transition: top 1s ease-in;
+  z-index: -9999;
 }
-.header_nav-list:hover {
-  display: inline-block;
-  position: relative;
+.header_nav-list .header_nav-list-sub-link {
+  opacity: 0;
+  display: block;
   height: 70px;
-  overflow-y: visible;
-}
-.header_nav-list:hover > .header_nav-list-sub {
-  height: auto;
-  width: auto;
-  position: absolute;
-  display: inline-block;
-  left: 0;
-  top: 70px;
-  max-height: 9999px;
+  line-height: 70px;
+  padding: 0 3em 0 1em;
+  font-weight: 700;
+  white-space: nowrap;
   background: #E9F8FB;
-  transition: max-height 0.4s ease-out;
+  transition: opacity 1s ease-in;
 }
-.header_nav-list-txt {
+.header_nav-list-sub.hover {
+  top: 70px;
+  transition: top 1s ease-in;
+}
+.header_nav-list-sub-link.hover {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+.header_nav-list-txt, .header_nav-list-txt:hover {
   display: inline-block;
   white-space: nowrap;
   height: 70px;
@@ -219,18 +222,14 @@ button {
   font-weight: 700;
   font-size: 1.2em;
   padding: 0 1em;
+  z-index: 9999;
+  background-color: #FFF;
 }
 .header_nav-list-txt:hover {
-  display: inline-block;
-  height: 70px;
-  line-height: 70px;
-  font-weight: 700;
-  font-size: 1.2em;
-  padding: 0 1em;
   background: #D4F1F8;
 }
 @media only screen and (max-width: 1220px) {
-  .header_nav-list-txt {
+  .header_nav-list-txt, .header_nav-list-txt:hover {
     display: inline-block;
     height: 50px;
     line-height: 50px;

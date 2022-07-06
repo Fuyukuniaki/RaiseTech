@@ -1,20 +1,32 @@
 $(document).ready(function(){
     //---slideUp/slideDownここから-------------------------------------------------------------------------------
-        $('.header_nav-list').each(function(){
-            $(this).mouseenter(function(){
-                $(this).find('.header_nav-list-sub').slideDown(200);
+    $('.header_nav-list').each(function(){
+        $(this).mouseenter(function(){
+                $(this).addClass('hover').find('.header_nav-list-sub').addClass('hover').animate(
+                    { marginTop:0 }, 200, function(){
+                        $(this).find('.header_nav-list-sub-link').addClass('hover').animate(
+                            {opacity:1}, 200
+                        );
+                });
             }).mouseleave(function(){
-                $(this).find('.header_nav-list-sub').slideUp(100);
+                $(this).find('.header_nav-list-sub').animate(
+                    { marginTop : '-490px' }, 200, function(){
+                        $(this).find('.header_nav-list-sub').removeClass('hover');
+                        $(this).find('.header_nav-list-sub-link').animate(
+                            {opacity:0}, 200, function(){$(this).removeClass('hover')
+                });
             });
+            $(this).removeClass('hover');
         });
+    });
     //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
     if (window.matchMedia("(max-width: 1220px)").matches) {
         $('.header_nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('.header_nav-list').after("<li class='ico_plsmns'></li>");
         $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
-
         $('.main_window').after($('.main_window-logo-wrap'));
+
         $('.icon_hamburger').on('touchstart', function(){
             $(this).toggleClass('opened-sub');
             $('.icon_hamburger-wrap').toggleClass('opened-sub');
@@ -92,9 +104,11 @@ $(document).ready(function(){
 
 $(window).resize(function(){
     if (window.matchMedia("(max-width: 1220px)").matches) {
-    $('.header_nav').prepend("<div class='icon_hamburger'></div>");
-    $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
         $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
+
         $('.main_window').after($('.main_window-logo-wrap'));
         $('.icon_hamburger').on('touchstart', function(){
             $(this).toggleClass('opened-sub');

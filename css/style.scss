@@ -161,8 +161,8 @@ button {
             position: relative;
             line-height: $headerHght;
             height: $headerHght;
-            overflow-y: hidden;
             width: auto;
+            background: $baseWhite;
             @include media {
                 overflow: hidden;
                 width: calc( 100vw - $mblHeight );
@@ -181,31 +181,39 @@ button {
             }
             .header_nav-list-sub {
                 position: absolute;
-                display: none;
+                display: inline-block;
                 height: auto;
                 width: auto;
-                left: 0;
                 top: $headerHght;
+                left: 0;
                 height: 0;
                 max-height: 0;
-                transition: max-height 0.4s ease-in;
-            }
-            &:hover {
-                display: inline-block;
-                position: relative;
-                height: $headerHght;
-                overflow-y: visible;
-                > .header_nav-list-sub {
-                    height: auto;
-                    width: auto;
-                    position: absolute;
-                    display: inline-block;
-                    left: 0;
-                    top: $headerHght;
-                    max-height: 9999px;
+                transition: top 1s ease-in;
+                z-index: -9999;
+                &-link{
+                    opacity: 0;
+                    display: block;
+                    height: $headerHght;
+                    line-height: $headerHght;
+                    padding: 0 3em 0 1em;
+                    font-weight: $textWeight;
+                    white-space: nowrap;
                     background: $navLinkCol;
-                    transition: max-height 0.4s ease-out;
+                    transition: opacity 1s ease-in;
                 }
+            }
+            &.hover {
+                @extend .header_nav-list;
+            }
+            &-sub.hover {
+                @extend .header_nav-list-sub;
+                top: $headerHght;
+                transition: top 1s ease-in;
+            }
+            &-sub-link.hover {
+                @extend .header_nav-list-sub-link;
+                opacity: 1;
+                transition: opacity 1s ease-out;
             }
             &-txt {
                 display: inline-block;
@@ -215,13 +223,10 @@ button {
                 font-weight: $textWeight;
                 font-size: 1.2em;
                 padding: 0 1em;
+                z-index: 9999;
+                background-color: $baseWhite;
                 &:hover {
-                    display: inline-block;
-                    height: $headerHght;
-                    line-height: $headerHght;
-                    font-weight: $textWeight;
-                    font-size: 1.2em;
-                    padding: 0 1em;
+                    @extend .header_nav-list-txt;
                     background: $navColour;
                 }
                 @include media {
