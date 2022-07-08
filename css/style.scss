@@ -15,6 +15,7 @@ $mainIconM : -12rem auto 0 auto;
         @content;
     }
 }
+@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
 * {
     font-size: 14px;
@@ -69,25 +70,25 @@ button {
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 1em 0 1em 3.6em;
+        padding: 1rem 0 1rem 2rem;
         @include media {
-            padding: 0 0 0 1em;
+            padding: 0 0 0 1rem;
             width: calc(100vw - $mblHeight);
             height: $mblHeight;
             background: $baseWhite;
             z-index: 9999;
         }
         &-img {
-            height: 2em;
+            height: 2.35rem;
         }
         &-txt {
             display: block;
-            margin: 0 0.6em;
-            font-size: 1em;
+            margin: 0 1rem;
+            font-size: 1rem;
             font-weight: $textWeight + 200;
-            line-height: 1.1em;
+            line-height: 1.4rem;
             &-accent {
-                font-size: 1.3em;
+                font-size: 1.3rem;
             }
             @include media {
                 display: none;
@@ -160,22 +161,30 @@ button {
                 display: inline-block;
                 height: auto;
                 width: auto;
-                top: $headerHght;
+                top: ($headerHght * 7) * -1;
                 left: 0;
                 height: 0;
                 max-height: 0;
                 transition: top 1s ease-in;
                 z-index: -9999;
-                &-link{
+                &-link {
                     opacity: 0;
                     display: block;
-                    height: $headerHght;
-                    line-height: $headerHght;
+                    height: $headerHght - 20px;
+                    line-height: $headerHght - 20px;
                     padding: 0 3em 0 1em;
-                    font-weight: $textWeight;
+                    font-weight: $textWeight - 200;
                     white-space: nowrap;
                     background: $navLinkCol;
-                    transition: opacity 1s ease-in;
+                    &:hover{
+                        display: block;
+                        height: $headerHght - 20px;
+                        line-height: $headerHght - 20px;
+                        padding: 0 3em 0 1em;
+                        font-weight: $textWeight - 200;
+                        white-space: nowrap;
+                        background: $baseWhite;
+                    }
                     @include media {
                         opacity: 1;
                         background: $baseWhite;
@@ -184,17 +193,17 @@ button {
             }
             &.hover {
                 @extend .header_nav-list;
-                background: $navColour;
+                position: relative;
             }
             &-sub.hover {
                 @extend .header_nav-list-sub;
                 top: $headerHght;
-                transition: top 1s ease-in;
+                //transition: top 1s ease-in;
             }
             &-sub-link.hover {
                 @extend .header_nav-list-sub-link;
                 opacity: 1;
-                transition: opacity 1s ease-out;
+                //transition: opacity 1s ease-out;
             }
             &-txt {
                 display: inline-block;
@@ -206,10 +215,11 @@ button {
                 padding: 0 1em;
                 z-index: 9999;
                 overflow-x: hidden;
+                /*
                 &:hover {
                     @extend .header_nav-list-txt;
                     background: $navColour;
-                }
+                }*/
                 @include media {
                 display: inline-block;
                 height: $mblHeight;
@@ -329,9 +339,9 @@ button {
                     display: block;
                     height: $mblHeight;
                     line-height: $mblHeight;
-                    //z-index: 9999;
                     &-tag {
-                        font-weight: $textWeight+200;
+                        font-size: 0.8rem;
+                        font-weight: $textWeight;
                         padding: 0 0 0 2em;
                     }
                 }
@@ -359,7 +369,7 @@ button {
                 display: none;
             }
             .header_nav-link-txt {
-                font-weight: $textWeight;
+                font-weight: $textWeight - 100;
                 background: $nvHovColor;
                 color: $baseWhite;
                 &:hover {
@@ -468,7 +478,7 @@ button {
     background-image: url('/image/main-bg-3.png');
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
+    background-size: 120%;//cover;
     &_window {
         display: flex;
         justify-content: center;
@@ -478,7 +488,7 @@ button {
         background-image: url('/image/main-bg-2.png');
         background-attachment: scroll;
         background-position: center;
-        background-size: cover;
+        background-size: 120%;//cover;
         &-wrap {
             display: flex;
             justify-content: center;
@@ -488,13 +498,13 @@ button {
             background-image: url('/image/main-bg-1.png');
             background-attachment: scroll;
             background-position: center;
-            background-size: cover;
+            background-size: 120%;//cover;
             }
         &-logo {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 25vw;
+            width: 28vw;
             margin: $mainIconM;
             flex-wrap: wrap;
             background: $baseWhite;
@@ -503,13 +513,20 @@ button {
             box-sizing: border-box;
             &-img {
                 display: block;
-                height: 4em;
+                figure {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img {
+                        width: 19vw;
+                    }
+                }
             }
             &-txt {
                 display: block;
                 margin: 1.2em 0;
                 font-size: 1em;
-                font-weight: $textWeight + 200;
+                font-weight: $textWeight;
                 line-height: 2.2em;
                 text-align: center;
                 @include media {
@@ -520,7 +537,7 @@ button {
                 display: block;
                 margin: 1.4em auto -0.6em auto;
                 font-size: 1.2em;
-                font-weight: $textWeight + 200;
+                font-weight: $textWeight;
                 border-color: $nvHovColor;
                 background: $nvHovColor;
                 color: $baseWhite;
@@ -532,7 +549,7 @@ button {
         flex-wrap: nowrap;
         width: 100vw;
         height: 100vh;
-        justify-content: space-around;
+        justify-content: center;//space-around;
         align-items: flex-start;
         background: $textColor;
         color: $baseWhite;
@@ -542,19 +559,20 @@ button {
             flex-wrap: wrap;
             width: calc($mainIconW * 2 + 2rem);
             font-weight: $textWeight + 200;
+            margin: 0 4.5rem;
             &icon {
                 display: block;
-                width : $mainIconW * 2;
-                height: $mainIconW * 2;
+                width : $mainIconW * 2.25;
+                height: $mainIconW * 2.25;
                 margin: $mainIconM;
                 padding: 0;
                 text-align: center;
-                border: $textColor 0.5rem solid;
+                border: $textColor 0.3rem solid;
                 border-radius: $mainIconW * 2;
                 background: $baseWhite;
                 color: $textColor;
                 font-size: $mainIconW;
-                line-height: $mainIconW * 2;
+                line-height: $mainIconW * 2.25;
             }
             &title {
                 display: flex;

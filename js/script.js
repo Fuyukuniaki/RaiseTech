@@ -1,25 +1,21 @@
 $(document).ready(function(){
     //---slideUp/slideDownここから-------------------------------------------------------------------------------
     $('.header_nav-list').each(function(){
+        var myNvHght = $(this).find('.header_nav-list-sub-link').height();
+        var myNvLeng = $(this).find('.header_nav-list-sub-link').length;
+        var myLnkHgt = (myNvLeng + 1) * myNvHght * -1 ;
         $(this).mouseenter(function(){
-                $(this).addClass('hover').find('.header_nav-list-sub').addClass('hover').animate(
-                    { top:'70px' }, 200, function(){
-                        $(this).find('.header_nav-list-sub-link').addClass('hover').animate(
-                            {opacity:1}, 200
-                        );
-                });
-            }).mouseleave(function(){
-                $(this).find('.header_nav-list-sub').animate(
-                    { top : '-490px' }, 200, function(){
-                        $(this).find('.header_nav-list-sub').removeClass('hover');
-                        $(this).find('.header_nav-list-sub-link').animate({opacity:0},
-                            200,
-                            function(){
-                                $('.header_nav-list-sub').removeClass('hover');
-                                $('.hover').removeClass('hover');
-                            });
-                    });
-                
+            $(this).animate({ backgroundColor: (212,241,248,1) }, 200);
+            $(this).find('.header_nav-list-sub').animate(
+                { top:'70px' }, 100, function(){
+                    $(this).find('.header_nav-list-sub-link').addClass('hover');
+            });
+        }).mouseleave(function(){
+            $(this).find('.header_nav-list-sub').animate(
+                { top : myLnkHgt }, 100, function(){
+                    $(this).find('.header_nav-list-sub').removeClass('hover');
+                    $(this).find('.header_nav-list-sub-link').removeClass('hover');
+            });
         });
     });
     //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
