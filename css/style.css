@@ -159,7 +159,10 @@ button {
     background: #F3FAFB;
   }
 }
-.header_nav-list .header_nav-list-sub, .header_nav-link .header_nav-list-sub {
+.header_nav-list:hover, .header_nav-link:hover {
+  background: #D4F1F8;
+}
+.header_nav-list-sub, .header_nav-list-sub.hover {
   position: absolute;
   display: inline-block;
   height: auto;
@@ -171,7 +174,7 @@ button {
   transition: top 1s ease-in;
   z-index: -9999;
 }
-.header_nav-list .header_nav-list-sub-link, .header_nav-link .header_nav-list-sub-link {
+.header_nav-list-sub-link, .header_nav-list-sub-link.hover {
   opacity: 0;
   display: block;
   height: 50px;
@@ -181,7 +184,7 @@ button {
   white-space: nowrap;
   background: #E9F8FB;
 }
-.header_nav-list .header_nav-list-sub-link:hover, .header_nav-link .header_nav-list-sub-link:hover {
+.header_nav-list-sub-link:hover {
   display: block;
   height: 50px;
   line-height: 50px;
@@ -191,7 +194,7 @@ button {
   background: #FFF;
 }
 @media only screen and (max-width: 1220px) {
-  .header_nav-list .header_nav-list-sub-link, .header_nav-link .header_nav-list-sub-link {
+  .header_nav-list-sub-link, .header_nav-list-sub-link.hover {
     opacity: 1;
     background: #FFF;
   }
@@ -215,11 +218,6 @@ button {
   padding: 0 1em;
   z-index: 9999;
   overflow-x: hidden;
-  /*
-  &:hover {
-      @extend .header_nav-list-txt;
-      background: $navColour;
-  }*/
 }
 @media only screen and (max-width: 1220px) {
   .header_nav-list-txt {
@@ -323,18 +321,18 @@ button {
 }
 @media only screen and (max-width: 1220px) {
   .header_nav .header_nav-list-sub {
-    opacity: 0;
+    opacity: 1;
     display: contents;
     position: relative;
     flex-wrap: wrap;
-    top: -350px;
+    top: 50px;
     left: 0;
     width: 100vw;
     height: 50px;
     overflow: hidden;
   }
   .header_nav .header_nav-list-sub-link {
-    opacity: 0;
+    opacity: 1;
     display: block;
     height: 50px;
     line-height: 50px;
@@ -387,21 +385,6 @@ button {
     margin: auto;
     padding: 0;
     background: #FFF;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
-  .icon_hamburger-wrap.opened-sub {
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin: auto;
-    padding: 0;
-    background: #2498B3;
     right: 0;
     top: 0;
     bottom: 0;

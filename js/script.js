@@ -1,22 +1,8 @@
 $(document).ready(function(){
     //---slideUp/slideDownここから-------------------------------------------------------------------------------
     $('.header_nav-list').each(function(){
-        //let myNvHght = $(this).find('.header_nav-list-sub-link').height();
-        //let myNvLeng = $(this).find('.header_nav-list-sub-link').length;
-        //let myLnkHgt = (myNvLeng + 1) * myNvHght * -1 ;
         $(this).on('hover', function(){
             $(this).find('.header_nav-list-sub').slideToggle(200);
-            /*.animate(
-                { top: '70px' }, 50, function(){
-                    $(this).find('.header_nav-list-sub-link').addClass('hover');
-            });
-        }).mouseleave(function(){
-            $(this).find('.header_nav-list-sub').slideUp(200);
-            .animate(
-                { top : myLnkHgt }, 50, function(){
-                    $(this).find('.header_nav-list-sub').removeClass('hover');
-                    $(this).find('.header_nav-list-sub-link').removeClass('hover');
-                });*/
         });
     });
     //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
@@ -98,24 +84,12 @@ $(window).resize(function(){
     }
     //---slideUp/slideDownここから-------------------------------------------------------------------------------
     $('.header_nav-list').each(function(){
-        let myNvHght = $(this).find('.header_nav-list-sub-link').height();
-        let myNvLeng = $(this).find('.header_nav-list-sub-link').length;
-        let myLnkHgt = (myNvLeng + 1) * myNvHght * -1 ;
-        $(this).mouseenter(function(){
-            $(this).find('.header_nav-list-sub').animate(
-                { top:'70px' }, 50, function(){
-                    $(this).find('.header_nav-list-sub-link').addClass('hover');
-            });
-        }).mouseleave(function(){
-            $(this).find('.header_nav-list-sub').animate(
-                { top : myLnkHgt }, 50, function(){
-                    $(this).find('.header_nav-list-sub').removeClass('hover');
-                    $(this).find('.header_nav-list-sub-link').removeClass('hover');
-                });
+        $(this).on('hover', function(){
+            $(this).find('.header_nav-list-sub').slideToggle(200);
         });
     });
     //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
-
+    
     if (window.matchMedia("(max-width: 1220px)").matches) {
         $('.header_nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
