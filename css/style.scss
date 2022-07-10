@@ -161,37 +161,35 @@ button {
             }
             &-sub {
                 position: absolute;
-                display: inline-block;
+                display: none;
                 height: auto;
                 width: auto;
-                top: ($headerHght * 7) * -1;
+                top: 70px;
                 left: 0;
-                height: 0;
-                max-height: 0;
-                transition: top 1s ease-in;
-                z-index: -9999;
+                max-height: 9999px;
+                overflow: hidden;
+                z-index: -1000;
                 &-link {
-                    opacity: 0;
                     display: block;
-                    height: $headerHght - 20px;
-                    line-height: $headerHght - 20px;
-                    padding: 0 3em 0 1em;
+                    height: $headerHght - 10px;
+                    line-height: $headerHght - 10px;
+                    padding: 0 6em 0 2em;
                     font-weight: $textWeight - 200;
                     white-space: nowrap;
                     background: $navLinkCol;
+                    color: initial;                    
                     &:hover{
-                        display: block;
-                        height: $headerHght - 20px;
-                        line-height: $headerHght - 20px;
-                        padding: 0 3em 0 1em;
-                        font-weight: $textWeight - 200;
-                        white-space: nowrap;
+                        @extend .header_nav-list-sub-link;
                         background: $baseWhite;
+                        > .header_nav-list-sub-link-tag {
+                            color: $nvHovColor;
+                        }
                     }
                     @include media {
                         opacity: 1;
                         background: $baseWhite;
                     }
+                
                 }
             }
             &.hover {

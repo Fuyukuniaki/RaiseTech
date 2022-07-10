@@ -1,9 +1,16 @@
 $(document).ready(function(){
     //---slideUp/slideDownここから-------------------------------------------------------------------------------
     $('.header_nav-list').each(function(){
-        $(this).on('hover', function(){
-            $(this).find('.header_nav-list-sub').slideToggle(200);
+        $(this).on({
+            'mouseenter':function(){
+                $(this).find('.header_nav-list-sub').slideDown(200);
+            },
+            'mouseleave':function(){
+                $(this).find('.header_nav-list-sub').slideUp(200);
+            }
         });
+            // 'hover', function(){
+            //     $(this).find('.header_nav-list-sub').slideToggle(200);
     });
     //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
     if (window.matchMedia("(max-width: 1220px)").matches) {
@@ -61,20 +68,20 @@ $(document).ready(function(){
 
 $(window).resize(function(){
     if( $('.icon_hamburger-wrap').length > 0){
-            for(let i = 0; i < $('.icon_hamburger-wrap').length; i++ ){
+            for(let i = $('.icon_hamburger-wrap').length; i > 0; i-- ){
                 console.log($('.icon_hamburger-wrap').length);
                 $('.icon_hamburger-wrap').remove();
             }
-            for(let i = 0; i < $('.ico_plsmns').length; i++){
+            for(let i = $('.ico_plsmns').length; i > 0 ; i--){
                 $('.ico_plsmns').remove();
             }
             if( $('.main_window-logo-wrap').length > 0 ){
-                for(let i = 0; i < $('.main_window-logo-wrap').length; i++ ){
-                    $('.main_window').appened($('.main_window-logo'));
+                for(let i = 0; i > $('.main_window-logo-wrap').length; i++ ){
+                    $('.main_window').append($('.main_window-logo'));
                     $('.main_window-logo-wrap').remove();
                 }
             }
-        for(let i = 0;i < $(window).length; i++){
+        for(let i = 0;i == $(window).length; i++){
             $('.header_nav').prepend("<div class='icon_hamburger'></div>");
             $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
             $('.header_nav-list').after("<li class='ico_plsmns'></li>");
