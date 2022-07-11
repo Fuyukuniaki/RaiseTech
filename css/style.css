@@ -606,16 +606,17 @@ button {
     background-repeat: no-repeat;
   }
   .main_window {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: initial;
+    align-items: initial;
     width: 100vw;
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-2.png");
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
+    background-attachment: fixed;
+    background-position: -57vw 0;
+    background-size: 200%;
+    background-repeat: no-repeat;
   }
   .main_window-wrap {
     display: flex;
@@ -626,8 +627,8 @@ button {
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
+    background-position: center -8vw;
+    background-size: 210%;
   }
   .main_window-logo {
     display: flex;
@@ -637,7 +638,7 @@ button {
     margin: 0 auto;
     flex-wrap: wrap;
     background: #FFF;
-    border-radius: 10px;
+    border-radius: 0;
     border: #FFF 1rem solid;
     box-sizing: border-box;
   }
@@ -763,8 +764,8 @@ button {
     position: fixed;
     width: 30vw;
     height: 30vw;
-    bottom: 2rem;
-    right: 2rem;
+    top: 80vh;
+    left: 60vw;
     background: #A2D729;
     border-top: solid 1px #c1ff30;
     border-bottom: solid 3px #9AC33D;
@@ -792,9 +793,10 @@ button {
   }
   .sticky_sticker-txt {
     padding: 0.4rem 0;
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    font-weight: 900;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    font-weight: 700;
+    text-align: center;
   }
 }
 /*# sourceMappingURL=style.css.map */

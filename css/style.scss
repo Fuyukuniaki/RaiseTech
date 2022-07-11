@@ -607,27 +607,28 @@ button {
         background-size: contain;
         background-repeat: no-repeat;
         &_window {
-            display: flex;
+            display: block;
             flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
+            justify-content: initial;
+            align-items: initial;
             width: 100vw;
-            aspect-ratio: 2000 / 800;
+            aspect-ratio: 2000/800;
             background-image: url('/image/main-bg-2.png');
-            background-attachment: scroll;
-            background-position: center;
-            background-size: cover;
+            background-attachment: fixed;
+            background-position: -57vw 0;
+            background-size: 200%;
+            background-repeat: no-repeat;
             &-wrap {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
                 width: 100vw;
-                aspect-ratio: 2000 / 800;
+                aspect-ratio: 2000/800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center;
-                background-size: cover;
+                background-position: center -8vw;
+                background-size: 210%;
                 }
             &-logo {
                 display: flex;
@@ -637,7 +638,7 @@ button {
                 margin: 0 auto;
                 flex-wrap: wrap;
                 background: $baseWhite;
-                border-radius: 10px;
+                border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
                 &-img {
@@ -762,10 +763,10 @@ button {
         justify-content: center;
         align-items: center;
         position: fixed;
-        width: $mediaIconW / 2;
-        height: $mediaIconW / 2;
-        bottom: 2rem;
-        right: 2rem;
+        width: 30vw;
+        height: 30vw;
+        top: 80vh;
+        left: 60vw;
         background: #A2D729;
         border-top: solid 1px #c1ff30;
         border-bottom: solid 3px #9AC33D;
@@ -792,9 +793,10 @@ button {
         }
         &-txt {
             padding: 0.4rem 0;
-            font-size: 1.2rem;
-            line-height: 1.4rem;
-            font-weight: 900;
+            font-size: 1.1rem;
+            line-height: 1.1rem;
+            font-weight: $textWeight;
+            text-align: center;
         }
     }
 };
