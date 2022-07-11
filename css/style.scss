@@ -22,7 +22,7 @@ $mainIconM : -12rem auto 0 auto;
     color: $textColor;
     margin: 0;
     padding: 0;
-    font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-system, BlinkMacSystemFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
+    font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
     text-rendering: "Noto Sans JP Black";
 }
 a, *:hover, *:active {
@@ -40,7 +40,7 @@ body {
     color: #121212;
 }
 button {
-    border-width: 1em;
+    border-width: 1rem;
     border-radius: 5px;
     background-color: inherit;
     border-style: solid;
@@ -112,14 +112,16 @@ button {
             margin: 0;
             height: $headerHght;
             @include media {
-                display: flex;
-                opacity: 0;
+                position: absolute;
+                display: none;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100vw;
-                position: absolute;
+                padding: 0;
+                margin: 0;    
                 overflow: hidden;
                 height: auto;
+                max-height: 0;
                 line-height: $mblHeight;
                 z-index: -9999;
                 background: $baseWhite;
@@ -148,11 +150,18 @@ button {
             width: auto;
             background: $baseWhite;
             @include media {
+                position: relative;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                top: 0;
+                left: 0;
                 width: calc( 100vw - $mblHeight );
                 height: $mblHeight;
                 line-height: $mblHeight;
                 overflow: hidden;
-                &:hover{
+                &:hover, &.hover{
                     background: #F3FAFB;
                 }
             }
@@ -173,7 +182,7 @@ button {
                     display: block;
                     height: $headerHght - 10px;
                     line-height: $headerHght - 10px;
-                    padding: 0 6em 0 2em;
+                    padding: 0 6rem 0 2rem;
                     font-weight: $textWeight - 200;
                     white-space: nowrap;
                     background: $navLinkCol;
@@ -212,8 +221,8 @@ button {
                 height: $headerHght;
                 line-height: $headerHght;
                 font-weight: $textWeight;
-                font-size: 1.2em;
-                padding: 0 1em;
+                font-size: 1.2rem;
+                padding: 0 1rem;
                 z-index: 9999;
                 overflow-x: hidden;
                 @include media {
@@ -221,16 +230,17 @@ button {
                 height: $mblHeight;
                 line-height: $mblHeight;
                 font-weight: $textWeight;
-                font-size: 1.2em;
-                padding: 0 1em;
+                width: calc( 100vw - $mblHeight );
+                font-size: 1.2rem;
+                padding: 0 1rem;
                 z-index: 9999;
                 &:hover {
                     display: inline-block;
                     height: $mblHeight;
                     line-height: $mblHeight;
                     font-weight: $textWeight;
-                    font-size: 1.2em;
-                    padding: 0 1em;
+                    font-size: 1.2rem;
+                    padding: 0 1rem;
                     background: $baseWhite;
                 }
             }
@@ -239,13 +249,13 @@ button {
                 position: absolute;
                 top: $headerHght;
                 flex-wrap: wrap;
-                width: 20em;
+                width: 20rem;
             }
             &-sub-link {
-                width: 20em;
-                line-height: 4em;
-                height: 4em;
-                text-indent: 1em;
+                width: 20rem;
+                line-height: 4rem;
+                height: 4rem;
+                text-indent: 1rem;
                 background: $navLinkCol;
                 font-weight: $textWeight;
                 color: inherit;
@@ -268,22 +278,22 @@ button {
                 &::before {
                     content: "";
                     position: absolute;
-                    top: .6em;
-                    right: .8em;
-                    border-bottom: $textColor 0.2em solid;
-                    width: 2em;
-                    height: 2em;
-                    margin: -1em auto 0 auto;
+                    top: .6rem;
+                    right: .8rem;
+                    border-bottom: $textColor 0.2rem solid;
+                    width: 2rem;
+                    height: 2rem;
+                    margin: -1rem auto 0 auto;
                 }
                 &::after {
                     content: "";
                     position: absolute;
-                    top: 1.7em;
-                    right: 1.7em;
-                    border-right: $textColor 0.2em solid;
-                    width: 2em;
-                    height: 2em;
-                    margin: -1em auto 0 auto;
+                    top: 1.7rem;
+                    right: 1.7rem;
+                    border-right: $textColor 0.2rem solid;
+                    width: 2rem;
+                    height: 2rem;
+                    margin: -1rem auto 0 auto;
                 }
                 &.opened-slide {
                     display: block;
@@ -294,22 +304,22 @@ button {
                     &::before {
                         content: "";
                         position: absolute;
-                        top: .6em;
-                        right: .8em;
-                        border-bottom: $textColor 0.2em solid;
-                        width: 2em;
-                        height: 2em;
-                        margin: -1em auto 0 auto;
+                        top: .6rem;
+                        right: .8rem;
+                        border-bottom: $textColor 0.2rem solid;
+                        width: 2rem;
+                        height: 2rem;
+                        margin: -1rem auto 0 auto;
                     }
                     &::after {
                         content: "";
                         position: absolute;
-                        top: 1.7em;
-                        right: 1.7em;
-                        border-right: transparent 0.2em solid;
-                        width: 2em;
-                        height: 2em;
-                        margin: -1em auto 0 auto;
+                        top: 1.7rem;
+                        right: 1.7rem;
+                        border-right: transparent 0.2rem solid;
+                        width: 2rem;
+                        height: 2rem;
+                        margin: -1rem auto 0 auto;
                     }  
                 }    
             }
@@ -318,27 +328,31 @@ button {
             &-sub.close {
                 display: none;
             }
-        }
-        & &-list-sub {
-            @include media {
+            & &-sub {
+                @include media {
                     opacity: 1;
                     display: contents;
                     position: relative;
                     flex-wrap: wrap;
-                    top:  50px;
+                    top:  0;
                     left: 0;
                     width: 100vw;
                     height: $mblHeight;
                     overflow: hidden;
-                &-link {
-                    opacity: 1;
-                    display: block;
-                    height: $mblHeight;
-                    line-height: $mblHeight;
-                    &-tag {
-                        font-size: 0.8rem;
-                        font-weight: $textWeight;
-                        padding: 0 0 0 2em;
+                    &-link {
+                        opacity: 1;
+                        display: block;
+                        height: $mblHeight;
+                        line-height: $mblHeight;
+                        width: calc( 100vw - $mblHeight );
+                        padding: 0;
+                        &-tag {
+                            font-size: 1.2rem;
+                            font-weight: $textWeight - 300;
+                            padding: 0 0 0 2rem;
+                            height: $mblHeight;
+                            line-height: $mblHeight;
+                        }
                     }
                 }
             }
@@ -353,8 +367,12 @@ button {
                 height: $headerHght;
                 line-height: $headerHght;
                 font-weight: $textWeight;
-                font-size: 1.2em;
-                padding: 0 1em;
+                font-size: 1.2rem;
+                padding: 0 1rem;
+                @include media {
+                    line-height: $mblHeight;
+                    font-weight: $mblHeight;
+                }
                 &:hover {
                     background: $navColour;
                 }
@@ -391,59 +409,63 @@ button {
         right: 0;
         top: 0;
         bottom: 0;
+        &.opened-sub {
+            @extend .icon_hamburger-wrap;
+            background: $nvHovColor;
+        }
         .icon_hamburger{
             display: block;
             position: absolute;
-            right: 1em;
-            width: 1.6em;
-            height: 1em;
-            margin: .7em auto;
-            border-top: $nvHovColor 0.2em solid;
+            right: 1rem;
+            width: 1.6rem;
+            height: 1rem;
+            margin: .7rem auto;
+            border-top: $nvHovColor 0.2rem solid;
             animation-name: slidein;
             &::before {
                 content:"";
                 position: absolute;
-                top: calc(50% - 0.2em);
-                width: 1.6em;
-                height: 1em;
-                border-top: $nvHovColor 0.2em solid;
+                top: calc(50% - 0.2rem);
+                width: 1.6rem;
+                height: 1rem;
+                border-top: $nvHovColor 0.2rem solid;
             }
             &::after {
                 content:"";
                 position: absolute;
                 bottom: 0;
-                width: 1.6em;
-                height: 1em;
-                border-bottom: $nvHovColor 0.2em solid;
+                width: 1.6rem;
+                height: 1rem;
+                border-bottom: $nvHovColor 0.2rem solid;
             }
             &.opened-sub {
                 display: block;
                 position: absolute;
                 right: 0;
                 left: 0;
-                margin: 0 1em;
-                width: 1.6em;
-                height: 1em;
-                margin: .7em auto;
-                border-top: transparent 0.2em solid;
+                margin: 0 1rem;
+                width: 1.6rem;
+                height: 1rem;
+                margin: .7rem auto;
+                border-top: transparent 0.2rem solid;
                 &::before {
                     content:"";
                     position: absolute;
-                    top: .3em;
-                    width: 1.6em;
-                    height: 1em;
-                    margin: 0 0 0 -0.3em;
-                    border-top: $baseWhite 0.2em solid;
+                    top: .3rem;
+                    width: 1.6rem;
+                    height: 1rem;
+                    margin: 0 0 0 -0.3rem;
+                    border-top: $baseWhite 0.2rem solid;
                     transform: rotate(45deg);
                 }
                 &::after {
                     content:"";
                     position: absolute;
-                    bottom: .3em;
-                    width: 1.6em;
-                    height: 1em;
-                    margin: 0 0 0 -0.3em;
-                    border-bottom: $baseWhite 0.2em solid;
+                    bottom: .3rem;
+                    width: 1.6rem;
+                    height: 1rem;
+                    margin: 0 0 0 -0.3rem;
+                    border-bottom: $baseWhite 0.2rem solid;
                     transform: rotate(-45deg);
                 }
             }
@@ -490,7 +512,7 @@ button {
             flex-wrap: wrap;
             background: $baseWhite;
             border-radius: 10px;
-            border: $baseWhite 2em solid;
+            border: $baseWhite 2rem solid;
             box-sizing: border-box;
             &-img {
                 display: block;
@@ -505,10 +527,10 @@ button {
             }
             &-txt {
                 display: block;
-                margin: 1.2em 0;
-                font-size: 1em;
+                margin: 1.2rem 0;
+                font-size: 1rem;
                 font-weight: $textWeight;
-                line-height: 2.2em;
+                line-height: 2.2rem;
                 text-align: center;
                 @include media {
                     width: 100vw;
@@ -516,8 +538,8 @@ button {
             }
             &-btn {
                 display: block;
-                margin: 1.4em auto -0.6em auto;
-                font-size: 1.2em;
+                margin: 1.4rem auto -0.6rem auto;
+                font-size: 1.2rem;
                 font-weight: $textWeight;
                 border-color: $nvHovColor;
                 background: $nvHovColor;
@@ -534,7 +556,7 @@ button {
         align-items: flex-start;
         background: $textColor;
         color: $baseWhite;
-        padding-bottom: 3em;
+        padding-bottom: 3rem;
         &-{
             display: flex;
             flex-wrap: wrap;
@@ -560,15 +582,15 @@ button {
                 justify-content: center;
                 color: $baseWhite;
                 width: 100%;
-                line-height: 2.8em;
-                font-size: 1.7em;
+                line-height: 2.8rem;
+                font-size: 1.7rem;
             }
             &txt {
                 display: block;
                 color: $baseWhite;
-                line-height: 1.8em;
-                font-size: 1.2em;
-                padding: 1em 0;
+                line-height: 1.8rem;
+                font-size: 1.2rem;
+                padding: 1rem 0;
             }    
         }
     }
@@ -616,24 +638,24 @@ button {
                 flex-wrap: wrap;
                 background: $baseWhite;
                 border-radius: 10px;
-                border: $baseWhite 2.4em solid;
+                border: $baseWhite 1rem solid;
                 box-sizing: border-box;
                 &-img {
                     display: none;
-                    height: 4em;
+                    height: 4rem;
                 }
                 &-txt {
                     display: block;
                     margin: 0;
-                    font-size: 1em;
-                    font-weight: $textWeight + 200;
-                    line-height: 2.2em;
+                    font-size: 0.9rem;
+                    font-weight: $textWeight;
+                    line-height: 1.6rem;
                     text-align: center;
                 }
                 &-btn {
                     display: block;
-                    margin: 1.4em auto -0.6em auto;
-                    font-size: 1.2em;
+                    margin: 1rem auto 0 auto;
+                    font-size: 1.2rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
@@ -650,7 +672,7 @@ button {
             align-items: flex-start;
             background: $textColor;
             color: $baseWhite;
-            padding: 3em 0;
+            padding: 3rem 0;
             &-{
                 display: flex;
                 flex-wrap: wrap;
@@ -658,7 +680,7 @@ button {
                 align-items: center;
                 width: calc($mediaIconW + 2rem);
                 font-weight: $textWeight + 200;
-                margin: auto auto 3em auto;
+                margin: auto auto 3rem auto;
                 &icon {
                     display: block;
                     width : $mediaIconW;
@@ -678,15 +700,15 @@ button {
                     justify-content: center;
                     color: $baseWhite;
                     width: 100%;
-                    line-height: 2.8em;
-                    font-size: 1.7em;
+                    line-height: 2.8rem;
+                    font-size: 1.7rem;
                 }
                 &txt {
                     display: block;
                     color: $baseWhite;
-                    line-height: 1.8em;
-                    font-size: 1.2em;
-                    padding: 1em 0;
+                    line-height: 1.8rem;
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
                 }    
             }
         }    
@@ -701,8 +723,8 @@ button {
     position: fixed;
     width: $mainIconW * 1.5;
     height: $mainIconW * 1.5;
-    bottom: 2em;
-    right: 2em;
+    bottom: 2rem;
+    right: 2rem;
     background: #A2D729;
     border-top: solid 1px #c1ff30;
     border-bottom: solid 3px #9AC33D;
@@ -715,21 +737,21 @@ button {
         &::after {
             content:url('/image/sticky-tekkun.svg');
             position: absolute;
-            top: 4em;
-            right: -2em;
+            top: 4rem;
+            right: -2rem;
             width: $mainIconW * 0.6;
             height: auto;
         }
     }
     &-img {
-        width: 3em;
+        width: 3rem;
         height: auto;
-        padding: 0 calc(($mainIconW * 1.5 - 3em) / 2);
+        padding: 0 calc(($mainIconW * 1.5 - 3rem) / 2);
     }
     &-txt {
-        padding: 0.4em 0;
-        font-size: 1.2em;
-        line-height: 1.4em;
+        padding: 0.4rem 0;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
         font-weight: 900;
     }
 }
@@ -742,8 +764,8 @@ button {
         position: fixed;
         width: $mediaIconW / 2;
         height: $mediaIconW / 2;
-        bottom: 2em;
-        right: 2em;
+        bottom: 2rem;
+        right: 2rem;
         background: #A2D729;
         border-top: solid 1px #c1ff30;
         border-bottom: solid 3px #9AC33D;
@@ -757,21 +779,21 @@ button {
             &::after {
                 content:url('/image/sticky-tekkun.svg');
                 position: absolute;
-                top: 4em;
-                right: -3em;
+                top: 4rem;
+                right: -3rem;
                 width: $mainIconW * 0.6;
                 height: auto;
             }
         }
         &-img {
-            width: 3em;
+            width: 3rem;
             height: auto;
-            padding: 0 calc(($mainIconW * 1.5 - 3em) / 2);
+            padding: 0 calc(($mainIconW * 1.5 - 3rem) / 2);
         }
         &-txt {
-            padding: 0.4em 0;
-            font-size: 1.2em;
-            line-height: 1.4em;
+            padding: 0.4rem 0;
+            font-size: 1.2rem;
+            line-height: 1.4rem;
             font-weight: 900;
         }
     }
