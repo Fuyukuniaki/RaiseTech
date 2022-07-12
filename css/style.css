@@ -416,8 +416,7 @@ button {
     height: 1rem;
     margin: 0.7rem auto;
     border-top: #2498B3 0.2rem solid;
-    -webkit-animation-name: slidein;
-            animation-name: slidein;
+    rotate: 0deg;
   }
   .icon_hamburger-wrap .icon_hamburger::before {
     content: "";

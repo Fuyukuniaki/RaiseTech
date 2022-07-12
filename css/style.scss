@@ -421,7 +421,7 @@ button {
             height: 1rem;
             margin: .7rem auto;
             border-top: $nvHovColor 0.2rem solid;
-            animation-name: slidein;
+            rotate: 0deg;
             &::before {
                 content:"";
                 position: absolute;
