@@ -1,19 +1,16 @@
 function scriptAll(){
     if( $('.icon_hamburger-wrap').length > 0){
         $('.icon_hamburger-wrap').remove;
-        $('.main_window-logo-wrap').remove();
         for( let i = $('.icon_hamburger-wrap').length; i > 0; i-- ){
             $('.icon_hamburger-wrap').remove();
         }
         for( let i = $('.ico_plsmns').length; i > 0 ; i-- ){
             $('.ico_plsmns').remove();
         }
-        if( $('.main_window-logo-wrap').length > 0 ){
-            for( let i = $('.main_window-logo-wrap').length; i > 0; i-- ){
-                $('.main_window-logo').unwrap();
-                $('.main_window-wrap').append($('.main_window-logo'));
-            }
-        }
+    }
+    if( $('.main_window-logo-wrap').length > 0 ){
+        $('.main_window-logo').unwrap();
+        $('.main_window-wrap').append($('.main_window-logo'));
     }
     if( $('.hover').length > 0 || $('.opened-slide').length > 0 ){
         for( let i = $('.hover').length; i > 0; i-- ){
