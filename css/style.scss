@@ -10,13 +10,31 @@ $mainIconW : 100px;
 $mediaIconW: 60vw;
 $mainIconM : -12rem auto 0 auto;
 
-@mixin media($width-media : 1220px) {
+@mixin media($width-media : 1200px) {
     @media only screen and (max-width : $width-media) {
         @content;
     }
 }
-@import url(//fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+@mixin notepc($width-notepc : 1078px) {
+    @media only screen and (max-width: $width-notepc){
+        @content;
+    }
+}
+@mixin mobile($width-mobile : 767px) {
+    @media only screen and (max-width: $width-mobile){
+        @content;
+    }
+}
+@mixin sphone($width-sphone : 500px) {
+    @media only screen and (max-width: $width-sphone){
+        @content;
+    }
+}
 
+
+
+@import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
 * {
     font-size: 14px;
     color: $textColor;
