@@ -8,6 +8,31 @@
   font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
   text-rendering: "Noto Sans JP Black";
 }
+@media only screen and (max-width: 1200px) {
+  * {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 1078px) {
+  * {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  * {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  * {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  * {
+    font-size: 14px;
+  }
+}
 
 a, *:hover, *:active {
   text-decoration: none;
