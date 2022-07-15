@@ -103,7 +103,6 @@ function scriptRT(){
         });
     } else {
         $('*').removeAttr('style');
-        console.log('MB');
         $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
         $('.main_window').after($('.main_window-logo-wrap'));
         $('*').removeAttr('style');
