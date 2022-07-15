@@ -30,12 +30,19 @@ $mainIconM : -12rem auto 0 auto;
         @content;
     }
 }
+@mixin gpphon($width-sphone : 375px) {
+    @media only screen and (max-width: $width-sphone){
+        @content;
+    }
+}
+
+
 
 @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
 
 * {
-    font-size: 14px;
+    font-size: 0.9vw;
     color: $textColor;
     margin: 0;
     padding: 0;
@@ -494,7 +501,7 @@ button {
     display: block;
     position: inherit;
     padding: $headerHght 0 0 0;
-    min-width: 100vw;
+    width: 100vw;
     background-image: url('/image/main-bg-3.png');
     background-attachment: fixed;
     background-position: center;
@@ -503,7 +510,7 @@ button {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 100vw;
+        width: 100vw;
         aspect-ratio: 2000 / 800;
         background-image: url('/image/main-bg-2.png');
         background-attachment: scroll;
@@ -513,7 +520,7 @@ button {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-width: 100vw;
+            width: 100vw;
             aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-1.png');
             background-attachment: scroll;
@@ -611,7 +618,136 @@ button {
             }    
         }
     }
-    @include media {
+    @include notepc {
+        display: block;
+        position: inherit;
+        padding: $mblHeight 0 0 0;
+        width: 100vw;
+        height: auto;
+        aspect-ratio: 2000 / 1600;
+        background-image: url('/image/main-bg-3.png');
+        background-attachment: fixed;
+        background-position: 0 $mblHeight;
+        background-size: auto;
+        &_window {
+            display: block;
+            flex-wrap: wrap;
+            justify-content: initial;
+            align-items: initial;
+            width: 100vw;
+            height: auto;
+            aspect-ratio: 2000/ 1600;
+            background-image: url('/image/main-bg-2.png');
+            background-attachment: fixed;
+            background-position: 50% 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            &-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                height: auto;
+                aspect-ratio: 2000/ 1600;
+                background-image: url('/image/main-bg-1.png');
+                background-attachment: scroll;
+                background-position: center -8vw;
+                background-size: auto;
+                }
+            &-logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 56vw;
+                margin: 10vw auto auto auto;
+                flex-wrap: wrap;
+                background: $baseWhite;
+                border-radius: 10px;
+                border: $baseWhite 2rem solid;
+                box-sizing: border-box;
+                &-img {
+                    display: block;
+                    figure {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img {
+                            width: 19vw;
+                        }
+                    }
+                }
+                &-txt {
+                    display: block;
+                    margin: 1.2rem 0;
+                    font-size: 1rem;
+                    font-weight: $textWeight;
+                    line-height: 2.2rem;
+                    text-align: center;
+                    @include media {
+                        width: 100vw;
+                    }
+                }
+                &-btn {
+                    display: block;
+                    margin: 1.4rem auto -0.6rem auto;
+                    font-size: 1.2rem;
+                    font-weight: $textWeight;
+                    border-color: $nvHovColor;
+                    background: $nvHovColor;
+                    color: $baseWhite;
+                }
+            }
+        }
+        &_icon {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;//space-around;
+            align-items: flex-start;
+            background: $textColor;
+            color: $baseWhite;
+            padding-bottom: 3rem;
+            &-{
+                display: flex;
+                flex-wrap: wrap;
+                width: calc($mainIconW * 2 + 2rem);
+                font-weight: $textWeight + 200;
+                margin: 0 2.5vw;
+                &icon {
+                    display: block;
+                    width : $mainIconW * 2.25;
+                    height: $mainIconW * 2.25;
+                    margin: $mainIconM;
+                    padding: 0;
+                    text-align: center;
+                    border: $textColor 0.3rem solid;
+                    border-radius: $mainIconW * 2;
+                    background: $baseWhite;
+                    color: $textColor;
+                    font-size: $mainIconW;
+                    line-height: $mainIconW * 2.25;
+                }
+                &title {
+                    display: flex;
+                    justify-content: center;
+                    color: $baseWhite;
+                    width: 100%;
+                    line-height: 2.8rem;
+                    font-size: 1.7rem;
+                }
+                &txt {
+                    display: block;
+                    color: $baseWhite;
+                    line-height: 1.8rem;
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                }    
+            }
+        }
+    }
+    @include mobile {
         display: block;
         position: inherit;
         padding: $mblHeight 0 0 0;
@@ -622,16 +758,17 @@ button {
         background-attachment: fixed;
         background-position: 0 $mblHeight;
         background-size: contain;
-        background-repeat: no-repeat;
+        //background-repeat: no-repeat;
         &_window {
             display: block;
             flex-wrap: wrap;
             justify-content: initial;
             align-items: initial;
             width: 100vw;
+            height: auto;
             aspect-ratio: 2000/800;
             background-image: url('/image/main-bg-2.png');
-            background-attachment: fixed;
+            background-attachment: scroll;
             background-position: -57vw 0;
             background-size: 200%;
             background-repeat: no-repeat;
@@ -641,6 +778,7 @@ button {
                 justify-content: center;
                 align-items: center;
                 width: 100vw;
+                height: auto;
                 aspect-ratio: 2000/800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
@@ -731,8 +869,363 @@ button {
             }
         }    
     }
+    @include mobile {
+        display: block;
+        position: inherit;
+        padding: $mblHeight 0 0 0;
+        width: 100vw;
+        height: 150px;
+        //aspect-ratio: 2000 / 800;
+        background-image: url('/image/main-bg-3.png');
+        background-attachment: fixed;
+        background-position: 0 $mblHeight;
+        background-size: contain;
+        background-repeat: no-repeat;
+        &_window {
+            display: block;
+            flex-wrap: wrap;
+            justify-content: initial;
+            align-items: initial;
+            width: 100vw;
+            height: 150px;
+            //aspect-ratio: 2000/800;
+            background-image: url('/image/main-bg-2.png');
+            background-attachment: fixed;
+            background-position: -57vw 0;
+            background-size: 200%;
+            background-repeat: no-repeat;
+            &-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                height: 150px;
+                //aspect-ratio: 2000/800;
+                background-image: url('/image/main-bg-1.png');
+                background-attachment: scroll;
+                background-position: center -8vw;
+                background-size: 210%;
+                }
+            &-logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                margin: 0 auto;
+                flex-wrap: wrap;
+                background: $baseWhite;
+                border-radius: 0;
+                border: $baseWhite 1rem solid;
+                box-sizing: border-box;
+                &-img {
+                    display: none;
+                    height: 4rem;
+                }
+                &-txt {
+                    display: block;
+                    margin: 0;
+                    font-size: 0.9rem;
+                    font-weight: $textWeight;
+                    line-height: 1.6rem;
+                    text-align: center;
+                }
+                &-btn {
+                    display: block;
+                    margin: 1rem auto 0 auto;
+                    font-size: 1.2rem;
+                    font-weight: $textWeight + 200;
+                    border-color: $nvHovColor;
+                    background: $nvHovColor;
+                    color: $baseWhite;
+                }
+            }
+        }
+        &_icon {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: auto;
+            justify-content: space-around;
+            align-items: flex-start;
+            background: $textColor;
+            color: $baseWhite;
+            padding: 3rem 0;
+            &-{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: calc($mediaIconW + 2rem);
+                font-weight: $textWeight + 200;
+                margin: auto auto 3rem auto;
+                &icon {
+                    display: block;
+                    width : $mediaIconW;
+                    height: $mediaIconW;
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                    border: $textColor 0.5rem solid;
+                    border-radius: $mediaIconW;
+                    background: $baseWhite;
+                    color: $textColor;
+                    font-size: 36vw;
+                    line-height: $mediaIconW;
+                }
+                &title {
+                    display: flex;
+                    justify-content: center;
+                    color: $baseWhite;
+                    width: 100%;
+                    line-height: 2.8rem;
+                    font-size: 1.7rem;
+                }
+                &txt {
+                    display: block;
+                    color: $baseWhite;
+                    line-height: 1.8rem;
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                }    
+            }
+        }    
+    }
+    @include sphone{
+        display: block;
+        position: inherit;
+        padding: $mblHeight 0 0 0;
+        aspect-ratio: 2000 / 800;
+        width: 100vw;
+        max-height: 150px;
+        background-image: url('/image/main-bg-3.png');
+        background-attachment: fixed;
+        background-position: 0 $mblHeight;
+        background-size: contain;
+        &_window {
+            display: block;
+            flex-wrap: wrap;
+            justify-content: initial;
+            align-items: initial;
+            aspect-ratio: 2000/800;
+            width: 100vw;
+            max-height: 150px;
+            background-image: url('/image/main-bg-2.png');
+            background-attachment: fixed;
+            background-position: -57vw 0;
+            background-size: 200%;
+            &-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                aspect-ratio: 2000/800;
+                width: 100vw;
+                max-height: 150px;
+                background-image: url('/image/main-bg-1.png');
+                background-attachment: scroll;
+                background-position: center -8vw;
+                background-size: 210%;
+                }
+            &-logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                margin: 0 auto;
+                flex-wrap: wrap;
+                background: $baseWhite;
+                border-radius: 0;
+                border: $baseWhite 1rem solid;
+                box-sizing: border-box;
+                &-img {
+                    display: none;
+                    height: 4rem;
+                }
+                &-txt {
+                    display: block;
+                    margin: 0;
+                    font-size: 0.9rem;
+                    font-weight: $textWeight;
+                    line-height: 1.6rem;
+                    text-align: center;
+                }
+                &-btn {
+                    display: block;
+                    margin: 1rem auto 0 auto;
+                    font-size: 1.2rem;
+                    font-weight: $textWeight + 200;
+                    border-color: $nvHovColor;
+                    background: $nvHovColor;
+                    color: $baseWhite;
+                }
+            }
+        }
+        &_icon {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: auto;
+            justify-content: space-around;
+            align-items: flex-start;
+            background: $textColor;
+            color: $baseWhite;
+            padding: 3rem 0;
+            &-{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: calc($mediaIconW + 2rem);
+                font-weight: $textWeight + 200;
+                margin: auto auto 3rem auto;
+                &icon {
+                    display: block;
+                    width : $mediaIconW;
+                    height: $mediaIconW;
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                    border: $textColor 0.5rem solid;
+                    border-radius: $mediaIconW;
+                    background: $baseWhite;
+                    color: $textColor;
+                    font-size: 36vw;
+                    line-height: $mediaIconW;
+                }
+                &title {
+                    display: flex;
+                    justify-content: center;
+                    color: $baseWhite;
+                    width: 100%;
+                    line-height: 2.8rem;
+                    font-size: 1.7rem;
+                }
+                &txt {
+                    display: block;
+                    color: $baseWhite;
+                    line-height: 1.8rem;
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                }    
+            }
+        }    
+    }
+    @include gpphon{
+        display: block;
+        position: inherit;
+        padding: $mblHeight 0 0 0;
+        width: 100vw;
+        background-image: url('/image/main-bg-3.png');
+        background-attachment: fixed;
+        background-position: 0% 0%;
+        background-size: 170%;//cover;
+        &_window {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            aspect-ratio: 2000 / 800;
+            background-image: url('/image/main-bg-2.png');
+            background-attachment: scroll;
+            background-position: center;
+            background-size: 120%;//cover;
+            &-wrap {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                aspect-ratio: 2000 / 800;
+                background-image: url('/image/main-bg-1.png');
+                background-attachment: scroll;
+                background-position: center;
+                background-size: 120%;//cover;
+                }    
+            &-logo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                margin: 0 auto;
+                flex-wrap: wrap;
+                background: $baseWhite;
+                border-radius: 0;
+                border: $baseWhite 1rem solid;
+                box-sizing: border-box;
+                &-img {
+                    display: none;
+                    height: 4rem;
+                }
+                &-txt {
+                    display: block;
+                    margin: 0;
+                    font-size: 0.9rem;
+                    font-weight: $textWeight;
+                    line-height: 1.6rem;
+                    text-align: center;
+                }
+                &-btn {
+                    display: block;
+                    margin: 1rem auto 0 auto;
+                    font-size: 1.2rem;
+                    font-weight: $textWeight + 200;
+                    border-color: $nvHovColor;
+                    background: $nvHovColor;
+                    color: $baseWhite;
+                }
+            }
+        }
+        &_icon {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+            height: auto;
+            justify-content: space-around;
+            align-items: flex-start;
+            background: $textColor;
+            color: $baseWhite;
+            padding: 3rem 0;
+            &-{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                width: calc($mediaIconW + 2rem);
+                font-weight: $textWeight + 200;
+                margin: auto auto 3rem auto;
+                &icon {
+                    display: block;
+                    width : $mediaIconW;
+                    height: $mediaIconW;
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                    border: $textColor 0.5rem solid;
+                    border-radius: $mediaIconW;
+                    background: $baseWhite;
+                    color: $textColor;
+                    font-size: 36vw;
+                    line-height: $mediaIconW;
+                }
+                &title {
+                    display: flex;
+                    justify-content: center;
+                    color: $baseWhite;
+                    width: 100%;
+                    line-height: 2.8rem;
+                    font-size: 1.7rem;
+                }
+                &txt {
+                    display: block;
+                    color: $baseWhite;
+                    line-height: 1.8rem;
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                }    
+            }
+        }    
+    }
 }
-
 .sticky_sticker {
     display: flex;
     flex-wrap: wrap;
@@ -816,4 +1309,4 @@ button {
             text-align: center;
         }
     }
-};
+}

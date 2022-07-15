@@ -25,59 +25,7 @@ function scriptAll(){
     }
 };
 function scriptRT(){
-    if (window.matchMedia("(max-width: 1220px)").matches) {
-        $('*').removeAttr('style');
-        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
-        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
-        $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
-        $('.main_window').after($('.main_window-logo-wrap'));
-        $('.icon_hamburger-wrap').on('touchstart', function(){
-            $(this).children('.icon_hamburger').toggleClass('opened-sub');
-            let mbleHght = $(this).height();
-            let mbleLeng = $(this).next().children().length;
-            let myLnkHgt = (mbleLeng + 1) * mbleHght;
-            $(this).toggleClass('opened-sub');
-            $(this).next().toggleClass('opened-sub');
-            if($(this).hasClass('opened-sub')){
-                document.querySelector('.icon_hamburger').animate([
-                    { transform: 'rotate(0deg)'},
-                    { transform: 'rotate(-45deg)'}],
-                    200);
-                $(this).next()
-                    .css( { display: 'flex' } )
-                    .animate(
-                        { maxHeight: myLnkHgt },
-                        600);
-            } else {
-                document.querySelector('.icon_hamburger').animate([
-                    { transform: 'rotate(45deg)'},
-                    { transform: 'rotate(0deg)'}],
-                    200);
-                $(this).next()
-                    .css( { display: 'none' } )
-                    .animate(
-                    { maxHeight: 0 },
-                    );
-                }
-            });
-            $('.ico_plsmns').each(function(){
-                $(this).on('touchstart', function(){
-                    $(this).toggleClass('opened-slide');
-                    $(this).prev().toggleClass('opened-slide');
-                    let myNavlst = $(this).prev();
-                    let mbleHght = $(this).height();
-                    let mbleLeng = $(this).prev().children().eq(1).children().length;
-                    let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                    myNavlst.toggleClass('hover');
-                    if($(this).hasClass('opened-slide')){
-                        myNavlst.animate({ height : myLnkHgt }, 600);
-                    } else {
-                        myNavlst.css({ height : mbleHght });
-                    }
-                });
-            });
-    } else {
+    if(window.matchMedia("(min-width: 1200px)").matches){
         $('*').removeAttr('style');
         $('.main_window-wrap').append($('.main_window-logo'));
         $('.opened-sub').removeClass('opened-sub');
@@ -103,6 +51,110 @@ function scriptRT(){
             );
         });
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
+    } else if (window.matchMedia("(min-width: 767px)").matches) {
+        $('*').removeAttr('style');
+        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+        $('.icon_hamburger-wrap').on('touchstart', function(){
+        $(this).children('.icon_hamburger').toggleClass('opened-sub');
+        let mbleHght = $(this).height();
+        let mbleLeng = $(this).next().children().length;
+        let myLnkHgt = (mbleLeng + 1) * mbleHght;
+        $(this).toggleClass('opened-sub');
+        $(this).next().toggleClass('opened-sub');
+        if($(this).hasClass('opened-sub')){
+            document.querySelector('.icon_hamburger').animate([
+                { transform: 'rotate(0deg)'},
+                { transform: 'rotate(-45deg)'}],
+                200);
+            $(this).next()
+                .css( { display: 'flex' } )
+                .animate(
+                    { maxHeight: myLnkHgt },
+                    600);
+        } else {
+            document.querySelector('.icon_hamburger').animate([
+                { transform: 'rotate(45deg)'},
+                { transform: 'rotate(0deg)'}],
+                200);
+            $(this).next()
+                .css( { display: 'none' } )
+                .animate(
+                { maxHeight: 0 },
+                );
+            }
+        });
+        $('.ico_plsmns').each(function(){
+            $(this).on('touchstart', function(){
+                $(this).toggleClass('opened-slide');
+                $(this).prev().toggleClass('opened-slide');
+                let myNavlst = $(this).prev();
+                let mbleHght = $(this).height();
+                let mbleLeng = $(this).prev().children().eq(1).children().length;
+                let myLnkHgt = (mbleLeng + 1) * mbleHght;
+                myNavlst.toggleClass('hover');
+                if($(this).hasClass('opened-slide')){
+                    myNavlst.animate({ height : myLnkHgt }, 600);
+                } else {
+                    myNavlst.css({ height : mbleHght });
+                }
+            });
+        });
+    } else {
+        $('*').removeAttr('style');
+        console.log('MB');
+        $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
+        $('.main_window').after($('.main_window-logo-wrap'));
+        $('*').removeAttr('style');
+        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+        $('.icon_hamburger-wrap').on('touchstart', function(){
+        $(this).children('.icon_hamburger').toggleClass('opened-sub');
+        let mbleHght = $(this).height();
+        let mbleLeng = $(this).next().children().length;
+        let myLnkHgt = (mbleLeng + 1) * mbleHght;
+        $(this).toggleClass('opened-sub');
+        $(this).next().toggleClass('opened-sub');
+        if($(this).hasClass('opened-sub')){
+            document.querySelector('.icon_hamburger').animate([
+                { transform: 'rotate(0deg)'},
+                { transform: 'rotate(-45deg)'}],
+                200);
+            $(this).next()
+                .css( { display: 'flex' } )
+                .animate(
+                    { maxHeight: myLnkHgt },
+                    600);
+        } else {
+            document.querySelector('.icon_hamburger').animate([
+                { transform: 'rotate(45deg)'},
+                { transform: 'rotate(0deg)'}],
+                200);
+            $(this).next()
+                .css( { display: 'none' } )
+                .animate(
+                { maxHeight: 0 },
+                );
+            }
+        });
+        $('.ico_plsmns').each(function(){
+            $(this).on('touchstart', function(){
+                $(this).toggleClass('opened-slide');
+                $(this).prev().toggleClass('opened-slide');
+                let myNavlst = $(this).prev();
+                let mbleHght = $(this).height();
+                let mbleLeng = $(this).prev().children().eq(1).children().length;
+                let myLnkHgt = (mbleLeng + 1) * mbleHght;
+                myNavlst.toggleClass('hover');
+                if($(this).hasClass('opened-slide')){
+                    myNavlst.animate({ height : myLnkHgt }, 600);
+                } else {
+                    myNavlst.css({ height : mbleHght });
+                }
+            });
+        });
     }
 };
 
@@ -140,7 +192,7 @@ $(window).resize(function(){
 //             $('.main_window').after($('.main_window-logo-wrap'));
 //         }
 //     }
-//     if (window.matchMedia("(max-width: 1220px)").matches) {
+//     if (window.matchMedia("(max-width: 1200px)").matches) {
 //         for(let i = 0; i < $(window).length; i++){
 //             $('.header_nav').prepend("<div class='icon_hamburger'></div>");
 //             $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
