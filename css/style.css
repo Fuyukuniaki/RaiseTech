@@ -761,7 +761,7 @@ button {
     height: 160px;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center -25px;
+    background-position: center 0;
     background-size: cover;
   }
   .main_window-logo {
