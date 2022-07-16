@@ -51,7 +51,8 @@ function scriptRT(){
             );
         });
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
-    } else if (window.matchMedia("(min-width: 767px)").matches) {
+    } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
+        console.log('width:767-1200');
         $('*').removeAttr('style');
         $('.header_nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
@@ -102,10 +103,10 @@ function scriptRT(){
             });
         });
     } else {
+        console.log('else');
         $('*').removeAttr('style');
         $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
         $('.main_window').after($('.main_window-logo-wrap'));
-        $('*').removeAttr('style');
         $('.header_nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('.header_nav-list').after("<li class='ico_plsmns'></li>");
