@@ -815,7 +815,10 @@ button {
     align-items: center;
     width: 230px;
     font-weight: 900;
-    margin: auto 4.5rem 4.5rem 4.5rem;
+    margin-top: auto;
+    margin-right: 5.5rem;
+    margin-bottom: 4.5rem;
+    margin-left: 5.5rem;
   }
   .main_icon-icon {
     display: block;
@@ -828,7 +831,7 @@ button {
     border-radius: 50%;
     background: #FFF;
     color: #131D34;
-    font-size: 130px;
+    font-size: calc(230px - 6rem);
     line-height: 230px;
   }
   .main_icon-title {
@@ -976,8 +979,8 @@ button {
     width: 100vw;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
-    background-position: 0% 0%;
-    background-size: 170%;
+    background-position: center center;
+    background-size: cover;
   }
   .main_window {
     display: flex;
@@ -987,8 +990,8 @@ button {
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-2.png");
     background-attachment: scroll;
-    background-position: center;
-    background-size: 120%;
+    background-position: center center;
+    background-size: cover;
   }
   .main_window-wrap {
     display: flex;
@@ -998,8 +1001,8 @@ button {
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center;
-    background-size: 120%;
+    background-position: center center;
+    background-size: cover;
   }
   .main_window-logo {
     display: flex;
