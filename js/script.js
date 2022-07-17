@@ -25,7 +25,7 @@ function scriptAll(){
     }
 };
 function scriptRT(){
-    if(window.matchMedia("(min-width: 1200px)").matches){
+    if(window.matchMedia("(min-width: 1201px)").matches){
         $('*').removeAttr('style');
         $('.main_window-wrap').append($('.main_window-logo'));
         $('.opened-sub').removeClass('opened-sub');
@@ -52,42 +52,50 @@ function scriptRT(){
         });
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
     } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
-        console.log('width:767-1200');
+        let touch_event = window.ontouchstart;
+        let touch_points = navigator.maxTouchPoints;
+        if( touch_event !== undefined && 0 < touch_points ) {
+          // タッチ対応端末の処理が入る
+          myEvent = 'touchstart';
+        } else {
+            // タッチ非対応端末の処理が入る
+          myEvent = 'click';
+        }    
         $('*').removeAttr('style');
         $('.header_nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('.header_nav-list').after("<li class='ico_plsmns'></li>");
-        $('.icon_hamburger-wrap').on('touchstart', function(){
-        $(this).children('.icon_hamburger').toggleClass('opened-sub');
-        let mbleHght = $(this).height();
-        let mbleLeng = $(this).next().children().length;
-        let myLnkHgt = (mbleLeng + 1) * mbleHght;
-        $(this).toggleClass('opened-sub');
-        $(this).next().toggleClass('opened-sub');
-        if($(this).hasClass('opened-sub')){
-            document.querySelector('.icon_hamburger').animate([
-                { transform: 'rotate(0deg)'},
-                { transform: 'rotate(-45deg)'}],
-                200);
-            $(this).next()
-                .css( { display: 'flex' } )
-                .animate(
-                    { maxHeight: myLnkHgt },
-                    600);
-        } else {
-            document.querySelector('.icon_hamburger').animate([
-                { transform: 'rotate(45deg)'},
-                { transform: 'rotate(0deg)'}],
-                200);
-            $(this).next()
-                .css( { display: 'none' } )
-                .animate(
-                { maxHeight: 0 },
-                );
+        $('.icon_hamburger-wrap').on(myEvent, function(){
+            $(this).children('.icon_hamburger').toggleClass('opened-sub');
+            let mbleHght = $(this).height();
+            let mbleLeng = $(this).next().children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            $(this).toggleClass('opened-sub');
+            $(this).next().toggleClass('opened-sub');
+            if($(this).hasClass('opened-sub')){
+                // document.querySelector('.icon_hamburger').animate([
+                //     { transform: 'rotate(0deg)'},
+                //     { transform: 'rotate(-45deg)'}],
+                //     200);
+                $(this).next()
+                    .css( { display: 'flex' } )
+                    .animate(
+                        { maxHeight: myLnkHgt },
+                        600);
+            } else {
+                // document.querySelector('.icon_hamburger').animate([
+                //     { transform: 'rotate(45deg)'},
+                //     { transform: 'rotate(0deg)'}],
+                //     200);
+                $(this).next()
+                    .css( { display: 'none' } )
+                    .animate(
+                    { maxHeight: 0 },
+                    );
             }
         });
         $('.ico_plsmns').each(function(){
-            $(this).on('touchstart', function(){
+            $(this).on(myEvent, function(){
                 $(this).toggleClass('opened-slide');
                 $(this).prev().toggleClass('opened-slide');
                 let myNavlst = $(this).prev();
@@ -97,50 +105,129 @@ function scriptRT(){
                 myNavlst.toggleClass('hover');
                 if($(this).hasClass('opened-slide')){
                     myNavlst.animate({ height : myLnkHgt }, 600);
+                    if($('.hover')!== myNavlst){
+                        $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
+                        $('.opened-slide').not(this).removeClass('opened-slide');
+                    }
                 } else {
                     myNavlst.css({ height : mbleHght });
                 }
             });
         });
-    } else {
-        console.log('else');
+    } else if(window.matchMedia("(max-width: 375px)").matches){
+        let touch_event = window.ontouchstart;
+        let touch_points = navigator.maxTouchPoints;
+        if( touch_event !== undefined && 0 < touch_points ) {
+            // タッチ対応端末の処理が入る
+            myEvent = 'touchstart';
+        } else {
+            // タッチ非対応端末の処理が入る
+            myEvent = 'click';
+        }
+        $('*').removeAttr('style');
+        $('br').css({ display: 'none' });
+        $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
+        $('.main_window').after($('.main_window-logo-wrap'));
+        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+        $('.icon_hamburger-wrap').on(myEvent, function(){
+            $(this).children('.icon_hamburger').toggleClass('opened-sub');
+            let mbleHght = $(this).height();
+            let mbleLeng = $(this).next().children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            $(this).toggleClass('opened-sub');
+            $(this).next().toggleClass('opened-sub');
+            if($(this).hasClass('opened-sub')){
+                // document.querySelector('.icon_hamburger').animate([
+                //     { transform: 'rotate(0deg)'},
+                //     { transform: 'rotate(-45deg)'}],
+                //     200);
+                $(this).next()
+                    .css( { display: 'flex' } )
+                    .animate(
+                        { maxHeight: myLnkHgt },
+                        600);
+            } else {
+                // document.querySelector('.icon_hamburger').animate([
+                //     { transform: 'rotate(45deg)'},
+                //     { transform: 'rotate(0deg)'}],
+                //     200);
+                $(this).next()
+                    .css( { display: 'none' } )
+                    .animate(
+                    { maxHeight: 0 },
+                    );
+            }
+        });
+        $('.ico_plsmns').each(function(){
+            $(this).on(myEvent, function(){
+                $(this).toggleClass('opened-slide');
+                $(this).prev().toggleClass('opened-slide');
+                let myNavlst = $(this).prev();
+                let mbleHght = $(this).height();
+                let mbleLeng = $(this).prev().children().eq(1).children().length;
+                let myLnkHgt = (mbleLeng + 1) * mbleHght;
+                myNavlst.toggleClass('hover');
+                if($(this).hasClass('opened-slide')){
+                    myNavlst.animate({ height : myLnkHgt }, 600);
+                    if($('.hover')!== myNavlst){
+                        $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
+                        $('.opened-slide').not(this).removeClass('opened-slide');
+                    }
+                } else {
+                    myNavlst.css({ height : mbleHght });
+                }
+
+            });
+        });
+        } else {
+        let touch_event = window.ontouchstart;
+        let touch_points = navigator.maxTouchPoints;
+        if( touch_event !== undefined && 0 < touch_points ) {
+          // タッチ対応端末の処理が入る
+          myEvent = 'touchstart';
+        } else {
+            // タッチ非対応端末の処理が入る
+          myEvent = 'click';
+        }
         $('*').removeAttr('style');
         $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
         $('.main_window').after($('.main_window-logo-wrap'));
         $('.header_nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('.header_nav-list').after("<li class='ico_plsmns'></li>");
-        $('.icon_hamburger-wrap').on('touchstart', function(){
-        $(this).children('.icon_hamburger').toggleClass('opened-sub');
-        let mbleHght = $(this).height();
-        let mbleLeng = $(this).next().children().length;
-        let myLnkHgt = (mbleLeng + 1) * mbleHght;
-        $(this).toggleClass('opened-sub');
-        $(this).next().toggleClass('opened-sub');
-        if($(this).hasClass('opened-sub')){
-            document.querySelector('.icon_hamburger').animate([
-                { transform: 'rotate(0deg)'},
-                { transform: 'rotate(-45deg)'}],
-                200);
-            $(this).next()
-                .css( { display: 'flex' } )
-                .animate(
-                    { maxHeight: myLnkHgt },
-                    600);
-        } else {
-            document.querySelector('.icon_hamburger').animate([
-                { transform: 'rotate(45deg)'},
-                { transform: 'rotate(0deg)'}],
-                200);
-            $(this).next()
-                .css( { display: 'none' } )
-                .animate(
-                { maxHeight: 0 },
-                );
+        $('.icon_hamburger-wrap').on(myEvent, function(){
+            $(this).children('.icon_hamburger').toggleClass('opened-sub');
+            let mbleHght = $(this).height();
+            let mbleLeng = $(this).next().children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            $(this).toggleClass('opened-sub');
+            $(this).next().toggleClass('opened-sub');
+            if($(this).hasClass('opened-sub')){
+                // document.querySelector('.icon_hamburger').animate([
+                //     { transform: 'rotate(0deg)'},
+                //     { transform: 'rotate(-45deg)'}],
+                //     200);
+                $(this).next()
+                    .css( { display: 'flex' } )
+                    .animate(
+                        { maxHeight: myLnkHgt },
+                        600);
+            } else {
+                // document.querySelector('.icon_hamburger').animate([
+                //     { transform: 'rotate(45deg)'},
+                //     { transform: 'rotate(0deg)'}],
+                //     200);
+                $(this).next()
+                    .css( { display: 'none' } )
+                    .animate(
+                    { maxHeight: 0 },
+                    );
             }
         });
         $('.ico_plsmns').each(function(){
-            $(this).on('touchstart', function(){
+            $(this).on(myEvent, function(){
                 $(this).toggleClass('opened-slide');
                 $(this).prev().toggleClass('opened-slide');
                 let myNavlst = $(this).prev();
@@ -150,6 +237,10 @@ function scriptRT(){
                 myNavlst.toggleClass('hover');
                 if($(this).hasClass('opened-slide')){
                     myNavlst.animate({ height : myLnkHgt }, 600);
+                    if($('.hover')!== myNavlst){
+                        $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
+                        $('.opened-slide').not(this).removeClass('opened-slide');
+                    }
                 } else {
                     myNavlst.css({ height : mbleHght });
                 }
@@ -200,7 +291,7 @@ $(window).resize(function(){
 //             $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
 //             $('.main_window').after($('.main_window-logo-wrap'));
 //         }
-//         $('.icon_hamburger-wrap').on('touchstart', function(){
+//         $('.icon_hamburger-wrap').on(myEvent, function(){
 //             $(this).children('.icon_hamburger').toggleClass('opened-sub');
 //             $(this).next().toggleClass('opened-sub');
 //             let mbleHght = $(this).height();
@@ -231,7 +322,7 @@ $(window).resize(function(){
 //                 }
 //             });
 //             $('.ico_plsmns').each(function(){
-//                 $(this).on('touchstart', function(){
+//                 $(this).on(myEvent, function(){
 //                     $(this).toggleClass('opened-slide');
 //                     $(this).prev().toggleClass('opened-slide');
 //                     let myNavlst = $(this).prev();

@@ -13,6 +13,12 @@
     font-size: 14px;
   }
 }
+@media only screen and (max-width: 375px) {
+  * {
+    font-size: 2.8vw;
+    line-height: 2.6vw;
+  }
+}
 
 a, *:hover, *:active {
   text-decoration: none;
@@ -410,9 +416,11 @@ button {
     right: 0;
     top: 0;
     bottom: 0;
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap.opened-sub {
     background: #2498B3;
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap .icon_hamburger {
     display: block;
@@ -423,6 +431,7 @@ button {
     margin: 0.7rem auto;
     border-top: #2498B3 0.2rem solid;
     rotate: 0deg;
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap .icon_hamburger::before {
     content: "";
@@ -431,6 +440,7 @@ button {
     width: 1.6rem;
     height: 1rem;
     border-top: #2498B3 0.2rem solid;
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap .icon_hamburger::after {
     content: "";
@@ -439,6 +449,7 @@ button {
     width: 1.6rem;
     height: 1rem;
     border-bottom: #2498B3 0.2rem solid;
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap .icon_hamburger.opened-sub {
     display: block;
@@ -450,6 +461,7 @@ button {
     height: 1rem;
     margin: 0.7rem auto;
     border-top: transparent 0.2rem solid;
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap .icon_hamburger.opened-sub::before {
     content: "";
@@ -460,6 +472,7 @@ button {
     margin: 0 0 0 -0.3rem;
     border-top: #FFF 0.2rem solid;
     transform: rotate(45deg);
+    transition: all 0.2s;
   }
   .icon_hamburger-wrap .icon_hamburger.opened-sub::after {
     content: "";
@@ -470,6 +483,7 @@ button {
     margin: 0 0 0 -0.3rem;
     border-bottom: #FFF 0.2rem solid;
     transform: rotate(-45deg);
+    transition: all 0.2s;
   }
 }
 .main {
@@ -477,7 +491,7 @@ button {
   position: inherit;
   padding: 70px 0 0 0;
   width: 100vw;
-  height: auto;
+  height: 650px;
   aspect-ratio: 2000/1600;
   background-image: url("/image/main-bg-3.png");
   background-attachment: fixed;
@@ -593,6 +607,7 @@ button {
   line-height: 1.8rem;
   font-size: 1.2rem;
   padding: 1rem 0;
+  width: 30vw;
 }
 @media only screen and (max-width: 1200px) {
   .main {
@@ -600,7 +615,7 @@ button {
     position: inherit;
     padding: 50px 0 0 0;
     width: 100vw;
-    height: auto;
+    height: 650px;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
     background-position-x: center;
@@ -724,6 +739,8 @@ button {
     line-height: 1.8rem;
     font-size: 1.2rem;
     padding: 1rem 0;
+    width: 100vw;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -732,36 +749,33 @@ button {
     position: inherit;
     padding: 50px 0 0 0;
     width: 100vw;
-    height: auto;
     background-image: url("/image/main-bg-3.png");
-    background-attachment: fixed;
-    background-position: 0 50px;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .main_window {
-    display: block;
-    flex-wrap: wrap;
-    justify-content: initial;
-    align-items: initial;
-    width: 100vw;
-    height: 160px;
-    background-image: url("/image/main-bg-2.png");
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat;
   }
-  .main_window-wrap {
+  .main_window {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 160px;
+    height: 150px;
+    aspect-ratio: 2000/800;
+    background-image: url("/image/main-bg-2.png");
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+  .main_window-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center 0;
+    background-position: center center;
     background-size: cover;
   }
   .main_window-logo {
@@ -813,7 +827,7 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 230px;
+    width: 100vw;
     font-weight: 900;
     margin-top: auto;
     margin-right: 5.5rem;
@@ -848,6 +862,8 @@ button {
     line-height: 1.8rem;
     font-size: 1.2rem;
     padding: 1rem 0;
+    width: 100vw;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -856,36 +872,33 @@ button {
     position: inherit;
     padding: 50px 0 0 0;
     width: 100vw;
-    height: auto;
     background-image: url("/image/main-bg-3.png");
-    background-attachment: fixed;
-    background-position: 0 50px;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .main_window {
-    display: block;
-    flex-wrap: wrap;
-    justify-content: initial;
-    align-items: initial;
-    width: 100vw;
-    height: 160px;
-    background-image: url("/image/main-bg-2.png");
     background-attachment: fixed;
     background-position: center center;
     background-size: cover;
-    background-repeat: no-repeat;
   }
-  .main_window-wrap {
+  .main_window {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 160px;
+    height: 150px;
+    aspect-ratio: 2000/800;
+    background-image: url("/image/main-bg-2.png");
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+  .main_window-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center -25px;
+    background-position: center center;
     background-size: cover;
   }
   .main_window-logo {
@@ -937,7 +950,7 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: calc(60vw + 2rem);
+    width: 100vw;
     font-weight: 900;
     margin: auto auto 3rem auto;
   }
@@ -969,6 +982,8 @@ button {
     line-height: 1.8rem;
     font-size: 1.2rem;
     padding: 1rem 0;
+    width: 100vw;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 375px) {
@@ -977,6 +992,7 @@ button {
     position: inherit;
     padding: 50px 0 0 0;
     width: 100vw;
+    height: 150px;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
     background-position: center center;
@@ -987,18 +1003,19 @@ button {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    aspect-ratio: 2000/800;
+    height: auto;
     background-image: url("/image/main-bg-2.png");
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
+    aspect-ratio: 2000/800;
   }
   .main_window-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    aspect-ratio: 2000/800;
+    height: auto;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
     background-position: center center;
@@ -1053,7 +1070,7 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: calc(60vw + 2rem);
+    width: 100vw;
     font-weight: 900;
     margin: auto auto 3rem auto;
   }
@@ -1085,6 +1102,8 @@ button {
     line-height: 1.8rem;
     font-size: 1.2rem;
     padding: 1rem 0;
+    width: 100vw;
+    text-align: center;
   }
 }
 

@@ -8,6 +8,8 @@ $headerHght: 70px;
 $mblHeight : 50px;
 $mainIconW : 100px;
 $mainWidth : 650px;
+$mainHeight: 650px;
+$mainMblHgh: 150px;
 $mediaIconW: 60vw;
 $mainIconM : -12rem auto 0 auto;
 
@@ -51,6 +53,10 @@ $mainIconM : -12rem auto 0 auto;
     text-rendering: "Noto Sans JP Black";
     @include media {
         font-size: 14px;
+    }
+    @include gpphon {
+        font-size: 2.8vw;
+        line-height: 2.6vw;
     }
 }
 
@@ -438,9 +444,11 @@ button {
         right: 0;
         top: 0;
         bottom: 0;
+        transition: all 0.2s;
         &.opened-sub {
             @extend .icon_hamburger-wrap;
             background: $nvHovColor;
+            transition: all 0.2s;
         }
         .icon_hamburger{
             display: block;
@@ -451,6 +459,7 @@ button {
             margin: .7rem auto;
             border-top: $nvHovColor 0.2rem solid;
             rotate: 0deg;
+            transition: all 0.2s;
             &::before {
                 content:"";
                 position: absolute;
@@ -458,6 +467,7 @@ button {
                 width: 1.6rem;
                 height: 1rem;
                 border-top: $nvHovColor 0.2rem solid;
+                transition: all 0.2s;
             }
             &::after {
                 content:"";
@@ -466,6 +476,7 @@ button {
                 width: 1.6rem;
                 height: 1rem;
                 border-bottom: $nvHovColor 0.2rem solid;
+                transition: all 0.2s;
             }
             &.opened-sub {
                 display: block;
@@ -477,6 +488,7 @@ button {
                 height: 1rem;
                 margin: .7rem auto;
                 border-top: transparent 0.2rem solid;
+                transition: all 0.2s;
                 &::before {
                     content:"";
                     position: absolute;
@@ -486,6 +498,7 @@ button {
                     margin: 0 0 0 -0.3rem;
                     border-top: $baseWhite 0.2rem solid;
                     transform: rotate(45deg);
+                    transition: all 0.2s;
                 }
                 &::after {
                     content:"";
@@ -496,6 +509,7 @@ button {
                     margin: 0 0 0 -0.3rem;
                     border-bottom: $baseWhite 0.2rem solid;
                     transform: rotate(-45deg);
+                    transition: all 0.2s;
                 }
             }
         }
@@ -507,7 +521,7 @@ button {
     position: inherit;
     padding: $headerHght 0 0 0;
     width: 100vw;
-    height: auto;
+    height: $mainHeight;
     aspect-ratio: 2000 / 1600;
     background-image: url('/image/main-bg-3.png');
     background-attachment: fixed;
@@ -563,7 +577,7 @@ button {
                 font-weight: $textWeight;
                 line-height: 2.2rem;
                 text-align: center;
-                     width: 100vw;
+                width: 100vw;
 
             }
             &-btn {
@@ -621,6 +635,7 @@ button {
                 line-height: 1.8rem;
                 font-size: 1.2rem;
                 padding: 1rem 0;
+                width: 30vw;
             }    
         }
     }
@@ -629,7 +644,7 @@ button {
         position: inherit;
         padding: $mblHeight 0 0 0;
         width: 100vw;
-        height: auto;
+        height: $mainHeight;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position-x: center;
@@ -716,7 +731,7 @@ button {
             &-{
                 display: flex;
                 flex-wrap: wrap;
-                width: calc($mainIconW * 2 + 2rem);
+                width:  calc($mainIconW * 2 + 2rem);
                 font-weight: $textWeight + 200;
                 margin: 0 4.5rem;
                 margin-top: 0;
@@ -751,6 +766,8 @@ button {
                     line-height: 1.8rem;
                     font-size: 1.2rem;
                     padding: 1rem 0;
+                    width: 100vw;
+                    text-align: center;
                 }    
             }
         }
@@ -760,34 +777,31 @@ button {
         position: inherit;
         padding: $mblHeight 0 0 0;
         width: 100vw;
-        height: auto;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
-        background-position: 0 $mblHeight;
+        background-position: center center;
         background-size: cover;
-        background-repeat: no-repeat;
         &_window {
-            display: block;
-            flex-wrap: wrap;
-            justify-content: initial;
-            align-items: initial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100vw;
-            height: 160px;
+            height: $mainMblHgh;
+            aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
-            background-attachment: fixed;
+            background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            background-repeat: no-repeat;
             &-wrap {
                 display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
                 width: 100vw;
-                height: 160px;
+                height: auto;
+                aspect-ratio: 2000 / 800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center 0;
+                background-position: center center;
                 background-size: cover;
                 }
             &-logo {
@@ -839,7 +853,7 @@ button {
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                width: 230px;
+                width: 100vw;
                 font-weight: $textWeight + 200;
                 margin-top: auto;
                 margin-right: max(5.5rem);
@@ -873,6 +887,8 @@ button {
                     line-height: 1.8rem;
                     font-size: 1.2rem;
                     padding: 1rem 0;
+                    width: 100vw;
+                    text-align: center;
                 }    
             }
         }    
@@ -882,34 +898,31 @@ button {
         position: inherit;
         padding: $mblHeight 0 0 0;
         width: 100vw;
-        height: auto;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
-        background-position: 0 $mblHeight;
+        background-position: center center;
         background-size: cover;
-        background-repeat: no-repeat;
         &_window {
-            display: block;
-            flex-wrap: wrap;
-            justify-content: initial;
-            align-items: initial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100vw;
-            height: 160px;
+            height: $mainMblHgh;
+            aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
-            background-attachment: fixed;
+            background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            background-repeat: no-repeat;
             &-wrap {
                 display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
                 width: 100vw;
-                height: 160px;
+                height: auto;
+                aspect-ratio: 2000 / 800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center -25px;
+                background-position: center center;
                 background-size: cover;
                 }
             &-logo {
@@ -961,7 +974,7 @@ button {
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                width: calc($mediaIconW + 2rem);
+                width: 100vw;
                 font-weight: $textWeight + 200;
                 margin: auto auto 3rem auto;
                 &icon {
@@ -992,6 +1005,8 @@ button {
                     line-height: 1.8rem;
                     font-size: 1.2rem;
                     padding: 1rem 0;
+                    width: 100vw;
+                    text-align: center;
                 }    
             }
         }    
@@ -1001,6 +1016,7 @@ button {
         position: inherit;
         padding: $mblHeight 0 0 0;
         width: 100vw;
+        height: $mainMblHgh;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position: center center;
@@ -1010,17 +1026,18 @@ button {
             justify-content: center;
             align-items: center;
             width: 100vw;
-            aspect-ratio: 2000 / 800;
+            height: auto;
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
             background-position: center center;
             background-size: cover;
+            aspect-ratio: 2000 / 800;
             &-wrap {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100vw;
-                aspect-ratio: 2000 / 800;
+                height: auto;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center center;
@@ -1075,7 +1092,7 @@ button {
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
-                width: calc($mediaIconW + 2rem);
+                width: 100vw;
                 font-weight: $textWeight + 200;
                 margin: auto auto 3rem auto;
                 &icon {
@@ -1106,6 +1123,8 @@ button {
                     line-height: 1.8rem;
                     font-size: 1.2rem;
                     padding: 1rem 0;
+                    width: 100vw;
+                    text-align: center;
                 }    
             }
         }    
