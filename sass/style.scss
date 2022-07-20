@@ -2,6 +2,7 @@ $textColor : #131D34;
 $baseWhite : #FFF;
 $navColour : #D4F1F8;
 $navLinkCol: #E9F8FB;
+$navListCol: #F3FAFB;
 $nvHovColor: #2498B3;
 $textWeight: 700;
 $headerHght: 70px; 
@@ -45,19 +46,12 @@ $mainIconM : -12rem auto 0 auto;
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
 
 * {
-    font-size: 0.9vw;
+    font-size: 14px;
     color: $textColor;
     margin: 0;
     padding: 0;
     font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
     text-rendering: "Noto Sans JP Black";
-    @include media {
-        font-size: 14px;
-    }
-    @include gpphon {
-        font-size: 2.8vw;
-        line-height: 2.6vw;
-    }
 }
 
 a, *:hover, *:active {
@@ -197,11 +191,14 @@ button {
                 line-height: $mblHeight;
                 overflow: hidden;
                 &:hover, &.hover{
-                    background: #F3FAFB;
+                    background: $navListCol;
                 }
             }
             &:hover {
                 background: $navColour;
+                @include media {
+                    background: $navListCol;
+                }
             }
             &-sub {
                 position: absolute;
@@ -257,7 +254,7 @@ button {
                 line-height: $headerHght;
                 font-weight: $textWeight;
                 font-size: 1.2rem;
-                padding: 0 1rem;
+                padding: 0 0.5rem;
                 z-index: 9999;
                 overflow-x: hidden;
                 @include media {
@@ -378,15 +375,31 @@ button {
                         opacity: 1;
                         display: block;
                         height: $mblHeight;
+                        position: relative;
                         line-height: $mblHeight;
                         width: calc( 100vw - $mblHeight );
                         padding: 0;
+                        &:hover {
+                            background: $navListCol;
+                            &::after {
+                                position: absolute;
+                                content: "";
+                                width: 50px;
+                                height: 50px;
+                                top: 0;
+                                right: -50px;
+                                background: $navListCol;
+                            }
+                        }
                         &-tag {
                             font-size: 1.2rem;
                             font-weight: $textWeight - 300;
                             padding: 0 0 0 2rem;
                             height: $mblHeight;
                             line-height: $mblHeight;
+                        }
+                        &:hover > .header_nav-list-sub-link-tag {
+                            color: $textColor;
                         }
                     }
                 }
@@ -526,33 +539,34 @@ button {
     background-image: url('/image/main-bg-3.png');
     background-attachment: fixed;
     background-position: center;
-    background-size: 120%;//cover;
+    background-size: cover;
     &_window {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100vw;
+        height: $mainHeight;
         aspect-ratio: 2000 / 800;
         background-image: url('/image/main-bg-2.png');
         background-attachment: scroll;
         background-position: center;
-        background-size: 120%;//cover;
+        background-size: cover;
         &-wrap {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100vw;
-            aspect-ratio: 2000 / 800;
+            height: $mainHeight;
             background-image: url('/image/main-bg-1.png');
             background-attachment: scroll;
             background-position: center;
-            background-size: 120%;//cover;
+            background-size: cover;
             }
         &-logo {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 28vw;
+            width: 30rem;
             margin: $mainIconM;
             flex-wrap: wrap;
             background: $baseWhite;
@@ -566,7 +580,7 @@ button {
                     justify-content: center;
                     align-items: center;
                     img {
-                        width: 19vw;
+                        width: 20rem;
                     }
                 }
             }
@@ -583,6 +597,8 @@ button {
             &-btn {
                 display: block;
                 margin: 1.4rem auto -0.6rem auto;
+                width: 290px;
+                height: 68px;
                 font-size: 1.2rem;
                 font-weight: $textWeight;
                 border-color: $nvHovColor;
@@ -645,46 +661,43 @@ button {
         padding: $mblHeight 0 0 0;
         width: 100vw;
         height: $mainHeight;
+        aspect-ratio: 2000 / 1600;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
-        background-position-x: center;
-        background-position-y: center;
+        background-position: center;
         background-size: cover;
         &_window {
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100vw;
-            height: $mainWidth;    
-            overflow: hidden;
+            height: $mainHeight;
+            aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
-            background-position-x: center;
-            background-position-y: center;
+            background-position: center;
             background-size: cover;
             &-wrap {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100vw;
-                height: $mainWidth;        
-                overflow: hidden;
+                height: $mainHeight;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position-x: center;
-                background-position-y: center;
+                background-position: center;
                 background-size: cover;
                 }
             &-logo {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 28rem;
-                margin: -14vw auto 0 auto;
+                width: 30rem;
+                margin: $mainIconM;
                 flex-wrap: wrap;
                 background: $baseWhite;
                 border-radius: 10px;
-                border: $baseWhite 1.8vw solid;
+                border: $baseWhite 2rem solid;
                 box-sizing: border-box;
                 &-img {
                     display: block;
@@ -693,7 +706,7 @@ button {
                         justify-content: center;
                         align-items: center;
                         img {
-                            width: 19vw;
+                            width: 20rem;
                         }
                     }
                 }
@@ -710,6 +723,8 @@ button {
                 &-btn {
                     display: block;
                     margin: 1.4rem auto -0.6rem auto;
+                    width: 290px;
+                    height: 68px;
                     font-size: 1.2rem;
                     font-weight: $textWeight;
                     border-color: $nvHovColor;
@@ -776,7 +791,7 @@ button {
         display: block;
         position: inherit;
         padding: $mblHeight 0 0 0;
-        width: 100vw;
+        height: $mainMblHgh;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position: center center;
@@ -785,7 +800,6 @@ button {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100vw;
             height: $mainMblHgh;
             aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
@@ -796,12 +810,10 @@ button {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 100vw;
-                height: auto;
-                aspect-ratio: 2000 / 800;
+                height: $mainMblHgh;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center center;
+                background-position: center 0;
                 background-size: cover;
                 }
             &-logo {
@@ -830,7 +842,10 @@ button {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    font-size: 1.2rem;
+                    width: 228px;
+                    height: 42px;
+                    font-size: 1.1rem;
+                    line-height: 1.1rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
@@ -897,7 +912,7 @@ button {
         display: block;
         position: inherit;
         padding: $mblHeight 0 0 0;
-        width: 100vw;
+        height: $mainMblHgh;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position: center center;
@@ -906,7 +921,6 @@ button {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100vw;
             height: $mainMblHgh;
             aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
@@ -917,12 +931,10 @@ button {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 100vw;
-                height: auto;
-                aspect-ratio: 2000 / 800;
+                height: $mainMblHgh;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center center;
+                background-position: center 0;
                 background-size: cover;
                 }
             &-logo {
@@ -951,7 +963,10 @@ button {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    font-size: 1.2rem;
+                    width: 228px;
+                    height: 42px;
+                    font-size: 1.1rem;
+                    line-height: 1.1rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
@@ -1015,7 +1030,6 @@ button {
         display: block;
         position: inherit;
         padding: $mblHeight 0 0 0;
-        width: 100vw;
         height: $mainMblHgh;
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
@@ -1025,19 +1039,17 @@ button {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100vw;
-            height: auto;
+            height: $mainMblHgh;
+            aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            aspect-ratio: 2000 / 800;
             &-wrap {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                width: 100vw;
-                height: auto;
+                height: $mainMblHgh;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center center;
@@ -1069,7 +1081,10 @@ button {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    font-size: 1.2rem;
+                    width: 228px;
+                    height: 42px;
+                    font-size: 1.1rem;
+                    line-height: 1.1rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;

@@ -1,23 +1,12 @@
 @import url("https://fonts.googleapis.com/earlyaccess/notosansjapanese.css");
 @import url("https://fonts.googleapis.com/css?family=Ropa+Sans");
 * {
-  font-size: 0.9vw;
+  font-size: 14px;
   color: #131D34;
   margin: 0;
   padding: 0;
   font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
   text-rendering: "Noto Sans JP Black";
-}
-@media only screen and (max-width: 1200px) {
-  * {
-    font-size: 14px;
-  }
-}
-@media only screen and (max-width: 375px) {
-  * {
-    font-size: 2.8vw;
-    line-height: 2.6vw;
-  }
 }
 
 a, *:hover, *:active {
@@ -183,6 +172,11 @@ button {
 .header_nav-list:hover, .header_nav-link:hover {
   background: #D4F1F8;
 }
+@media only screen and (max-width: 1200px) {
+  .header_nav-list:hover, .header_nav-link:hover {
+    background: #F3FAFB;
+  }
+}
 .header_nav-list-sub, .header_nav-list-sub.hover {
   position: absolute;
   display: none;
@@ -232,7 +226,7 @@ button {
   line-height: 70px;
   font-weight: 700;
   font-size: 1.2rem;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   z-index: 9999;
   overflow-x: hidden;
 }
@@ -353,9 +347,22 @@ button {
     opacity: 1;
     display: block;
     height: 50px;
+    position: relative;
     line-height: 50px;
     width: calc(100vw - 50px);
     padding: 0;
+  }
+  .header_nav-list .header_nav-list-sub-link:hover, .header_nav-link .header_nav-list-sub-link:hover {
+    background: #F3FAFB;
+  }
+  .header_nav-list .header_nav-list-sub-link:hover::after, .header_nav-link .header_nav-list-sub-link:hover::after {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 50px;
+    top: 0;
+    right: -50px;
+    background: #F3FAFB;
   }
   .header_nav-list .header_nav-list-sub-link-tag, .header_nav-link .header_nav-list-sub-link-tag {
     font-size: 1.2rem;
@@ -363,6 +370,9 @@ button {
     padding: 0 0 0 2rem;
     height: 50px;
     line-height: 50px;
+  }
+  .header_nav-list .header_nav-list-sub-link:hover > .header_nav-list-sub-link-tag, .header_nav-link .header_nav-list-sub-link:hover > .header_nav-list-sub-link-tag {
+    color: #131D34;
   }
 }
 @media only screen and (max-width: 1200px) {
@@ -496,35 +506,36 @@ button {
   background-image: url("/image/main-bg-3.png");
   background-attachment: fixed;
   background-position: center;
-  background-size: 120%;
+  background-size: cover;
 }
 .main_window {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  height: 650px;
   aspect-ratio: 2000/800;
   background-image: url("/image/main-bg-2.png");
   background-attachment: scroll;
   background-position: center;
-  background-size: 120%;
+  background-size: cover;
 }
 .main_window-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  aspect-ratio: 2000/800;
+  height: 650px;
   background-image: url("/image/main-bg-1.png");
   background-attachment: scroll;
   background-position: center;
-  background-size: 120%;
+  background-size: cover;
 }
 .main_window-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 28vw;
+  width: 30rem;
   margin: -12rem auto 0 auto;
   flex-wrap: wrap;
   background: #FFF;
@@ -541,7 +552,7 @@ button {
   align-items: center;
 }
 .main_window-logo-img figure img {
-  width: 19vw;
+  width: 20rem;
 }
 .main_window-logo-txt {
   display: block;
@@ -555,6 +566,8 @@ button {
 .main_window-logo-btn {
   display: block;
   margin: 1.4rem auto -0.6rem auto;
+  width: 290px;
+  height: 68px;
   font-size: 1.2rem;
   font-weight: 700;
   border-color: #2498B3;
@@ -616,10 +629,10 @@ button {
     padding: 50px 0 0 0;
     width: 100vw;
     height: 650px;
+    aspect-ratio: 2000/1600;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
-    background-position-x: center;
-    background-position-y: center;
+    background-position: center;
     background-size: cover;
   }
   .main_window {
@@ -628,11 +641,10 @@ button {
     align-items: center;
     width: 100vw;
     height: 650px;
-    overflow: hidden;
+    aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-2.png");
     background-attachment: scroll;
-    background-position-x: center;
-    background-position-y: center;
+    background-position: center;
     background-size: cover;
   }
   .main_window-wrap {
@@ -641,23 +653,21 @@ button {
     align-items: center;
     width: 100vw;
     height: 650px;
-    overflow: hidden;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position-x: center;
-    background-position-y: center;
+    background-position: center;
     background-size: cover;
   }
   .main_window-logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 28rem;
-    margin: -14vw auto 0 auto;
+    width: 30rem;
+    margin: -12rem auto 0 auto;
     flex-wrap: wrap;
     background: #FFF;
     border-radius: 10px;
-    border: #FFF 1.8vw solid;
+    border: #FFF 2rem solid;
     box-sizing: border-box;
   }
   .main_window-logo-img {
@@ -669,7 +679,7 @@ button {
     align-items: center;
   }
   .main_window-logo-img figure img {
-    width: 19vw;
+    width: 20rem;
   }
   .main_window-logo-txt {
     display: block;
@@ -683,6 +693,8 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1.4rem auto -0.6rem auto;
+    width: 290px;
+    height: 68px;
     font-size: 1.2rem;
     font-weight: 700;
     border-color: #2498B3;
@@ -748,7 +760,7 @@ button {
     display: block;
     position: inherit;
     padding: 50px 0 0 0;
-    width: 100vw;
+    height: 150px;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
     background-position: center center;
@@ -758,7 +770,6 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     height: 150px;
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-2.png");
@@ -770,12 +781,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: auto;
-    aspect-ratio: 2000/800;
+    height: 150px;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center center;
+    background-position: center 0;
     background-size: cover;
   }
   .main_window-logo {
@@ -805,7 +814,10 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1rem auto 0 auto;
-    font-size: 1.2rem;
+    width: 228px;
+    height: 42px;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
     font-weight: 900;
     border-color: #2498B3;
     background: #2498B3;
@@ -871,7 +883,7 @@ button {
     display: block;
     position: inherit;
     padding: 50px 0 0 0;
-    width: 100vw;
+    height: 150px;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
     background-position: center center;
@@ -881,7 +893,6 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
     height: 150px;
     aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-2.png");
@@ -893,12 +904,10 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: auto;
-    aspect-ratio: 2000/800;
+    height: 150px;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
-    background-position: center center;
+    background-position: center 0;
     background-size: cover;
   }
   .main_window-logo {
@@ -928,7 +937,10 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1rem auto 0 auto;
-    font-size: 1.2rem;
+    width: 228px;
+    height: 42px;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
     font-weight: 900;
     border-color: #2498B3;
     background: #2498B3;
@@ -991,7 +1003,6 @@ button {
     display: block;
     position: inherit;
     padding: 50px 0 0 0;
-    width: 100vw;
     height: 150px;
     background-image: url("/image/main-bg-3.png");
     background-attachment: fixed;
@@ -1002,20 +1013,18 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: auto;
+    height: 150px;
+    aspect-ratio: 2000/800;
     background-image: url("/image/main-bg-2.png");
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
-    aspect-ratio: 2000/800;
   }
   .main_window-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: auto;
+    height: 150px;
     background-image: url("/image/main-bg-1.png");
     background-attachment: scroll;
     background-position: center center;
@@ -1048,7 +1057,10 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1rem auto 0 auto;
-    font-size: 1.2rem;
+    width: 228px;
+    height: 42px;
+    font-size: 1.1rem;
+    line-height: 1.1rem;
     font-weight: 900;
     border-color: #2498B3;
     background: #2498B3;
