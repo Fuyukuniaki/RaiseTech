@@ -54,9 +54,10 @@ $mainIconM : -12rem auto 0 auto;
     text-rendering: "Noto Sans JP Black";
 }
 
-a, *:hover, *:active {
+a, *:hover, *:active, *:visited {
     text-decoration: none;
     color: $textColor;
+    transition: .3s;
 }
 dt, dd, ul, li {
     list-style: none;
@@ -69,16 +70,16 @@ body {
     color: #121212;
 }
 *[class$=-btn] {
-    border-width: 1rem;
-    border-radius: 5px;
+    border-width: 1px;
+    border-radius: 4px;
     background-color: inherit;
     border-style: solid;
 }
 *:target {
     visibility: visible;
 }
-a:link {
-    transition: all .5s;
+*:link {
+    transition: 0.5s;
 }
 
 
@@ -604,11 +605,15 @@ a:link {
                 font-weight: $textWeight;
                 border-color: $nvHovColor;
                 background: $nvHovColor;
-                &-txt{
+                &-txt {
+                    display: block;
+                    color: $baseWhite;
+                    font-size: 1.2rem;
+                    padding: 15px 24px;
+                }
+                &-txt:link {
                     font-size: 1.2rem;
                     padding: 24px 37px;
-                    color: $baseWhite;
-                    transition: all 500ms;
                 }
             }
         }
@@ -723,8 +728,7 @@ a:link {
                     font-weight: $textWeight;
                     line-height: 2.2rem;
                     text-align: center;
-                         width: 100vw;
-    
+                    width: 100vw;
                 }
                 &-btn {
                     display: block;
@@ -732,10 +736,15 @@ a:link {
                     font-weight: $textWeight;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
-                    &-txt{                        
+                    &-txt {
+                        display: block;
+                        color: $baseWhite;
+                        padding: 15px 24px;
+                        font-size: 1.2rem;
+                    }
+                    &-txt:link {
                         padding: 24px 37px;
                         font-size: 1.2rem;
-                        color: $baseWhite;
                     }
                 }
             }
@@ -854,9 +863,14 @@ a:link {
                     border-color: $nvHovColor;
                     background: $nvHovColor;
                     &-txt {
+                        display: block;
+                        color: $baseWhite;
+                        padding: 24px 37px;
+                        font-size: 1.1rem;
+                    }
+                    &-txt:link {
                         padding: 12px 18px;
                         font-size: 1.1rem;
-                        color: $baseWhite;
                     }
                 }
             }
@@ -976,7 +990,12 @@ a:link {
                     border-color: $nvHovColor;
                     background: $nvHovColor;
                     &-txt {
+                        display: block;
                         color: $baseWhite;
+                        padding: 24px 37px;
+                        font-size: 1.1rem;
+                    }
+                    &-txt:link {
                         padding: 12px 18px;
                         font-size: 1.1rem;
                     }
@@ -1095,9 +1114,16 @@ a:link {
                     border-color: $nvHovColor;
                     background: $nvHovColor;
                     &-txt {
+                        display: block;
+                        color: $baseWhite;
                         padding: 12px 18px;
                         font-size: 1.1rem;
-                        color: $baseWhite;
+                        padding: 24px 37px;
+                        font-size: 1.1rem;
+                    }
+                    &-txt:link {
+                        padding: 12px 18px;
+                        font-size: 1.1rem;
                     }
                 }
             }

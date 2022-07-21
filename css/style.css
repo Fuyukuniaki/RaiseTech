@@ -9,9 +9,10 @@
   text-rendering: "Noto Sans JP Black";
 }
 
-a, *:hover, *:active {
+a, *:hover, *:active, *:visited {
   text-decoration: none;
   color: #131D34;
+  transition: 0.3s;
 }
 
 dt, dd, ul, li {
@@ -28,8 +29,8 @@ body {
 }
 
 *[class$=-btn] {
-  border-width: 1rem;
-  border-radius: 5px;
+  border-width: 1px;
+  border-radius: 4px;
   background-color: inherit;
   border-style: solid;
 }
@@ -38,8 +39,8 @@ body {
   visibility: visible;
 }
 
-a:link {
-  transition: all 0.5s;
+*:link {
+  transition: 0.5s;
 }
 
 .header {
@@ -575,10 +576,14 @@ a:link {
   background: #2498B3;
 }
 .main_window-logo-btn-txt {
+  display: block;
+  color: #FFF;
+  font-size: 1.2rem;
+  padding: 15px 24px;
+}
+.main_window-logo-btn-txt:link {
   font-size: 1.2rem;
   padding: 24px 37px;
-  color: #FFF;
-  transition: all 500ms;
 }
 .main_icon {
   display: flex;
@@ -704,9 +709,14 @@ a:link {
     background: #2498B3;
   }
   .main_window-logo-btn-txt {
+    display: block;
+    color: #FFF;
+    padding: 15px 24px;
+    font-size: 1.2rem;
+  }
+  .main_window-logo-btn-txt:link {
     padding: 24px 37px;
     font-size: 1.2rem;
-    color: #FFF;
   }
   .main_icon {
     display: flex;
@@ -827,9 +837,14 @@ a:link {
     background: #2498B3;
   }
   .main_window-logo-btn-txt {
+    display: block;
+    color: #FFF;
+    padding: 24px 37px;
+    font-size: 1.1rem;
+  }
+  .main_window-logo-btn-txt:link {
     padding: 12px 18px;
     font-size: 1.1rem;
-    color: #FFF;
   }
   .main_icon {
     display: flex;
@@ -951,7 +966,12 @@ a:link {
     background: #2498B3;
   }
   .main_window-logo-btn-txt {
+    display: block;
     color: #FFF;
+    padding: 24px 37px;
+    font-size: 1.1rem;
+  }
+  .main_window-logo-btn-txt:link {
     padding: 12px 18px;
     font-size: 1.1rem;
   }
@@ -1072,9 +1092,16 @@ a:link {
     background: #2498B3;
   }
   .main_window-logo-btn-txt {
+    display: block;
+    color: #FFF;
     padding: 12px 18px;
     font-size: 1.1rem;
-    color: #FFF;
+    padding: 24px 37px;
+    font-size: 1.1rem;
+  }
+  .main_window-logo-btn-txt:link {
+    padding: 12px 18px;
+    font-size: 1.1rem;
   }
   .main_icon {
     display: flex;
