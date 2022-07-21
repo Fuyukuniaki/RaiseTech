@@ -8,10 +8,6 @@ function scriptAll(){
             $('.ico_plsmns').remove();
         }
     }
-    if( $('.main_window-logo-wrap').length > 0 ){
-        $('.main_window-logo').unwrap();
-        $('.main_window-wrap').append($('.main_window-logo'));
-    }
     if( $('.hover').length > 0 || $('.opened-slide').length > 0 ){
         for( let i = $('.hover').length; i > 0; i-- ){
             $('.hover').removeClass('hover');
@@ -41,10 +37,8 @@ function scriptAll(){
 function scriptRT(){
     if(window.matchMedia("(min-width: 1201px)").matches){
         $('*').removeAttr('style');
-        $('.main_window-wrap').append($('.main_window-logo'));
         $('.opened-sub').removeClass('opened-sub');
         $('.icon_hamburger-wrap').remove;
-        $('.main_window-logo-wrap').remove();
         if($('.ico_plsmns').length < 1){
             $('.hover').removeClass('hover');
             $('.opened-slide').removeClass('opened-slide');
@@ -69,9 +63,9 @@ function scriptRT(){
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
     } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
         $('*').removeAttr('style');
-        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+        $('nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
         $('.icon_hamburger-wrap').on(myEvent, function(){
             $(this).children('.icon_hamburger').toggleClass('opened-sub');
             let mbleHght = $(this).height();
@@ -91,8 +85,8 @@ function scriptRT(){
                     .animate(
                         { maxHeight: 0 },
                         );
-                    }
-                });
+                }
+            });
                 $('.ico_plsmns').each(function(){
                     $(this).on(ohEvent, function(){
                         $(this).toggleClass('opened-slide');
@@ -113,14 +107,58 @@ function scriptRT(){
                 }
             });
         });
+    } else if (window.matchMedia("(min-width: 376px)").matches && window.matchMedia("(max-width: 767px)").matches) {
+        $('*').removeAttr('style');
+        $('nav').prepend("<div class='icon_hamburger'></div>");
+        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
+        $('.icon_hamburger-wrap').on(myEvent, function(){
+            $(this).children('.icon_hamburger').toggleClass('opened-sub');
+            let mbleHght = $(this).height();
+            let mbleLeng = $(this).next().children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            $(this).toggleClass('opened-sub');
+            $(this).next().toggleClass('opened-sub');
+            if($(this).hasClass('opened-sub')){
+                $(this).next()
+                .css( { display: 'flex' } )
+                .animate(
+                    { maxHeight: myLnkHgt }, 600
+                );
+            } else {
+                $(this).next()
+                    .css( { display: 'none' } )
+                    .animate(
+                        { maxHeight: 0 },
+                );
+            }
+            });
+            $('.ico_plsmns').each(function(){
+                $(this).on(ohEvent, function(){
+                    $(this).toggleClass('opened-slide');
+                    $(this).prev().toggleClass('opened-slide');
+                    let myNavlst = $(this).prev();
+                    let mbleHght = $(this).height();
+                let mbleLeng = $(this).prev().children().eq(1).children().length;
+                let myLnkHgt = (mbleLeng + 1) * mbleHght;
+                myNavlst.toggleClass('hover');
+                if($(this).hasClass('opened-slide')){
+                    myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
+                    if($('.hover')!== myNavlst){
+                        $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
+                        $('.opened-slide').not(this).removeClass('opened-slide');
+                    }
+                } else {
+                    myNavlst.css({ height : mbleHght });
+                }
+            });
+        });
     } else if( window.matchMedia("(max-width: 375px)").matches ){
         $('*').removeAttr('style');
         $('br').css({ display: 'none' });
-        $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
-        $('.main_window').after($('.main_window-logo-wrap'));
-        $('.header_nav').prepend("<div class='icon_hamburger'></div>");
+        $('nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('.header_nav-list').after("<li class='ico_plsmns'></li>");
+        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
         $('.icon_hamburger-wrap').on(myEvent, function(){
             $(this).children('.icon_hamburger').toggleClass('opened-sub');
             let mbleHght = $(this).height();
@@ -163,45 +201,43 @@ function scriptRT(){
                         
                     });
                 });
-                } else {
-                    $('*').removeAttr('style');
-                    $('.main_window-logo').wrap('<section class="main_window-logo-wrap"></section>');
-                    $('.main_window').after($('.main_window-logo-wrap'));
-                    $('.header_nav').prepend("<div class='icon_hamburger'></div>");
-                    $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-                    $('.header_nav-list').after("<li class='ico_plsmns'></li>");
-                    $('.icon_hamburger-wrap').on(myEvent, function(){
-                        $(this).children('.icon_hamburger').toggleClass('opened-sub');
-                        let mbleHght = $(this).height();
-                        let mbleLeng = $(this).next().children().length;
-                        let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                        $(this).toggleClass('opened-sub');
-                        $(this).next().toggleClass('opened-sub');
-                        if($(this).hasClass('opened-sub')){
-                            $(this).next()
-                            .css( { display: 'flex' } )
-                            .animate(
-                                { maxHeight: myLnkHgt },
-                                600);
-                            } else {
-                                $(this).next()
-                                .css( { display: 'none' } )
-                                .animate(
-                                    { maxHeight: 0 },
-                                    );
-                                }
-                            });
-                            $('.ico_plsmns').each(function(){
-                                $(this).on(myEvent, function(){
-                                    $(this).toggleClass('opened-slide');
-                                    $(this).prev().toggleClass('opened-slide');
-                                    let myNavlst = $(this).prev();
-                                    let mbleHght = $(this).height();
-                                    let mbleLeng = $(this).prev().children().eq(1).children().length;
-                                    let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                                    myNavlst.toggleClass('hover');
-                                    if($(this).hasClass('opened-slide')){
-                                        myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
+    } else {
+        $('*').removeAttr('style');
+        $('nav').prepend("<div class='icon_hamburger'></div>");
+        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
+        $('.icon_hamburger-wrap').on(myEvent, function(){
+            $(this).children('.icon_hamburger').toggleClass('opened-sub');
+            let mbleHght = $(this).height();
+            let mbleLeng = $(this).next().children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            $(this).toggleClass('opened-sub');
+            $(this).next().toggleClass('opened-sub');
+            if($(this).hasClass('opened-sub')){
+                $(this).next()
+                .css( { display: 'flex' } )
+                .animate(
+                    { maxHeight: myLnkHgt },
+                    600);
+            } else {
+                $(this).next()
+                .css( { display: 'none' } )
+                .animate(
+                    { maxHeight: 0 },
+                    );
+                }
+            });
+            $('.ico_plsmns').each(function(){
+                $(this).on(myEvent, function(){
+                    $(this).toggleClass('opened-slide');
+                    $(this).prev().toggleClass('opened-slide');
+                    let myNavlst = $(this).prev();
+                    let mbleHght = $(this).height();
+                    let mbleLeng = $(this).prev().children().eq(1).children().length;
+                    let myLnkHgt = (mbleLeng + 1) * mbleHght;
+                    myNavlst.toggleClass('hover');
+                    if($(this).hasClass('opened-slide')){
+                        myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
                     if($('.hover')!== myNavlst){
                         $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
                         $('.opened-slide').not(this).removeClass('opened-slide');
@@ -232,7 +268,6 @@ $(window).on('load resize', function(){
 //     rtBtnWth = $('.btn').width() +'px' ;
 //     rtBtnHgt = $('.btn').height() +'px' ;
 //     rtBtnFon = $('.btn').css('font-size');
-
 //     $(window).on('load resize', function () {
 //         let w = $(window).innerWidth();
 //         // sp幅
@@ -264,6 +299,15 @@ $(window).on('load resize', function(){
 //         }
 //     });
 // });
+
+// if( $('.main_window-logo-wrap').length > 0 ){
+//     $('.main_window-logo').unwrap();
+//     $('.main_window-wrap').append($('.main_window-logo'));
+// }
+
+// $('.main_window-wrap').append($('.main_window-logo'));
+// $('.main_window-logo-wrap').remove();
+
 //      if( $('.icon_hamburger-wrap').length > 0){
 //          for( let i = $('.icon_hamburger-wrap').length; i > 0; i-- ){
 //              console.log($('.icon_hamburger-wrap').length);

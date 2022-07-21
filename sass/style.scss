@@ -57,7 +57,7 @@ $mainIconM : -12rem auto 0 auto;
 a, *:hover, *:active, *:visited {
     text-decoration: none;
     color: $textColor;
-    transition: .3s;
+    transition: 0.3s;
 }
 dt, dd, ul, li {
     list-style: none;
@@ -69,7 +69,7 @@ body {
     position: relative;
     color: #121212;
 }
-*[class$=-btn] {
+*[class$=-btn] * {
     border-width: 1px;
     border-radius: 4px;
     background-color: inherit;
@@ -81,7 +81,9 @@ body {
 *:link {
     transition: 0.5s;
 }
-
+*:active {
+    transition: 0.5s;
+}
 
 .header {
     background: $baseWhite;
@@ -535,6 +537,7 @@ body {
 }
 
 .main {
+    position: relative;
     display: block;
     position: inherit;
     padding: $headerHght 0 0 0;
@@ -546,7 +549,7 @@ body {
     background-position: center;
     background-size: cover;
     &_window {
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
         width: 100vw;
@@ -556,17 +559,28 @@ body {
         background-attachment: scroll;
         background-position: center;
         background-size: cover;
-        &-wrap {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        &-img {
+            display: block;
             width: 100vw;
             height: $mainHeight;
+            aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-1.png');
             background-attachment: scroll;
             background-position: center;
             background-size: cover;
-            }
+        }
+    }
+    &_article {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: $mainHeight;
         &-logo {
             display: flex;
             justify-content: center;
@@ -597,23 +611,19 @@ body {
                 line-height: 2.2rem;
                 text-align: center;
                 width: 100vw;
-
+    
             }
             &-btn {
                 display: block;
                 margin: 1.4rem auto -0.6rem auto;
-                font-weight: $textWeight;
-                border-color: $nvHovColor;
-                background: $nvHovColor;
                 &-txt {
                     display: block;
+                    font-weight: $textWeight;
+                    border-color: $nvHovColor;
+                    background: $nvHovColor;
                     color: $baseWhite;
                     font-size: 1.2rem;
                     padding: 15px 24px;
-                }
-                &-txt:link {
-                    font-size: 1.2rem;
-                    padding: 24px 37px;
                 }
             }
         }
@@ -667,6 +677,7 @@ body {
         }
     }
     @include media {
+        position: relative;
         display: block;
         position: inherit;
         padding: $mblHeight 0 0 0;
@@ -678,27 +689,37 @@ body {
         background-position: center;
         background-size: cover;
         &_window {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 100vw;
-            height: $mainHeight;
             aspect-ratio: 2000 / 800;
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
             background-position: center;
             background-size: cover;
-            &-wrap {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            &-img {
+                display: block;
                 width: 100vw;
+                aspect-ratio: 2000 / 800;
                 height: $mainHeight;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center;
                 background-size: cover;
-                }
+            }
+        }
+        &_article {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: auto;
+            height: $mainHeight;
+            z-index: 9999;
             &-logo {
                 display: flex;
                 justify-content: center;
@@ -733,17 +754,13 @@ body {
                 &-btn {
                     display: block;
                     margin: 1.4rem auto -0.6rem auto;
-                    font-weight: $textWeight;
-                    border-color: $nvHovColor;
-                    background: $nvHovColor;
                     &-txt {
                         display: block;
+                        font-weight: $textWeight;
+                        border-color: $nvHovColor;
+                        background: $nvHovColor;
                         color: $baseWhite;
-                        padding: 15px 24px;
-                        font-size: 1.2rem;
-                    }
-                    &-txt:link {
-                        padding: 24px 37px;
+                        padding: 12px 18px;
                         font-size: 1.2rem;
                     }
                 }
@@ -822,16 +839,22 @@ body {
             background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            &-wrap {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            &-img {
+                display: block;
                 height: $mainMblHgh;
+                aspect-ratio: 2000 / 800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center 0;
                 background-size: cover;
-                }
+            }
+        }
+        &_article {
+            position: initial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: $mainMblHgh;
             &-logo {
                 display: flex;
                 justify-content: center;
@@ -858,17 +881,13 @@ body {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    line-height: 1.1rem;
-                    font-weight: $textWeight + 200;
-                    border-color: $nvHovColor;
-                    background: $nvHovColor;
                     &-txt {
                         display: block;
+                        line-height: 1.1rem;
+                        font-weight: $textWeight + 200;
+                        border-color: $nvHovColor;
+                        background: $nvHovColor;
                         color: $baseWhite;
-                        padding: 24px 37px;
-                        font-size: 1.1rem;
-                    }
-                    &-txt:link {
                         padding: 12px 18px;
                         font-size: 1.1rem;
                     }
@@ -949,16 +968,22 @@ body {
             background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            &-wrap {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            &-img {
+                display: block;
                 height: $mainMblHgh;
+                aspect-ratio: 2000 / 800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center 0;
                 background-size: cover;
-                }
+            }
+        }
+        &_article {
+            position: initial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: $mainMblHgh;
             &-logo {
                 display: flex;
                 justify-content: center;
@@ -985,17 +1010,13 @@ body {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    line-height: 1.1rem;
-                    font-weight: $textWeight + 200;
-                    border-color: $nvHovColor;
-                    background: $nvHovColor;
                     &-txt {
                         display: block;
+                        line-height: 1.1rem;
+                        font-weight: $textWeight + 200;
+                        border-color: $nvHovColor;
+                        background: $nvHovColor;
                         color: $baseWhite;
-                        padding: 24px 37px;
-                        font-size: 1.1rem;
-                    }
-                    &-txt:link {
                         padding: 12px 18px;
                         font-size: 1.1rem;
                     }
@@ -1073,16 +1094,22 @@ body {
             background-attachment: scroll;
             background-position: center center;
             background-size: cover;
-            &-wrap {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            &-img {
                 height: $mainMblHgh;
+                aspect-ratio: 2000 / 800;
+                display: block;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center center;
                 background-size: cover;
-                }    
+            }    
+        }
+        &_article {
+            position: initial;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: $mainMblHgh;
             &-logo {
                 display: flex;
                 justify-content: center;
@@ -1109,19 +1136,13 @@ body {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    line-height: 1.1rem;
-                    font-weight: $textWeight + 200;
-                    border-color: $nvHovColor;
-                    background: $nvHovColor;
                     &-txt {
                         display: block;
+                        line-height: 1.1rem;
+                        font-weight: $textWeight + 200;
+                        border-color: $nvHovColor;
+                        background: $nvHovColor;
                         color: $baseWhite;
-                        padding: 12px 18px;
-                        font-size: 1.1rem;
-                        padding: 24px 37px;
-                        font-size: 1.1rem;
-                    }
-                    &-txt:link {
                         padding: 12px 18px;
                         font-size: 1.1rem;
                     }
