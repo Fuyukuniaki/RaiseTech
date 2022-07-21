@@ -12,7 +12,6 @@
 a, *:hover, *:active, *:visited {
   text-decoration: none;
   color: #131D34;
-  transition: 0.3s;
 }
 
 dt, dd, ul, li {
@@ -86,18 +85,24 @@ body {
   height: 2.35rem;
 }
 .header_logo-txt {
+  position: relative;
+  top: 0;
+  left: 0;
+  bottom: 0;
   display: block;
-  margin: 0 1rem;
+  margin: auto 0 auto 0;
   font-size: 1rem;
   font-weight: 900;
-  line-height: 1.4rem;
+  padding: 0 0 0 1rem;
+  transition: top 500ms;
 }
 .header_logo-txt-accent {
   font-size: 1.3rem;
 }
 @media only screen and (max-width: 1200px) {
   .header_logo-txt {
-    display: none;
+    top: -200%;
+    transition: top 500ms;
   }
 }
 .header_nav {
@@ -506,7 +511,6 @@ body {
   }
 }
 .main {
-  position: relative;
   display: block;
   position: inherit;
   padding: 70px 0 0 0;
@@ -647,7 +651,6 @@ body {
 }
 @media only screen and (max-width: 1200px) {
   .main {
-    position: relative;
     display: block;
     position: inherit;
     padding: 50px 0 0 0;

@@ -57,7 +57,6 @@ $mainIconM : -12rem auto 0 auto;
 a, *:hover, *:active, *:visited {
     text-decoration: none;
     color: $textColor;
-    transition: 0.3s;
 }
 dt, dd, ul, li {
     list-style: none;
@@ -118,16 +117,22 @@ body {
             height: 2.35rem;
         }
         &-txt {
+            position: relative;
+            top: 0;
+            left: 0;
+            bottom: 0;
             display: block;
-            margin: 0 1rem;
+            margin: auto 0 auto 0;
             font-size: 1rem;
-            font-weight: $textWeight + 200;
-            line-height: 1.4rem;
+            font-weight: 900;
+            padding: 0 0 0 1rem;
+            transition: top 500ms;
             &-accent {
                 font-size: 1.3rem;
             }
             @include media {
-                display: none;
+                top: -200%;
+                transition: top 500ms;
             }
         }
     }
@@ -537,7 +542,6 @@ body {
 }
 
 .main {
-    position: relative;
     display: block;
     position: inherit;
     padding: $headerHght 0 0 0;
@@ -677,7 +681,6 @@ body {
         }
     }
     @include media {
-        position: relative;
         display: block;
         position: inherit;
         padding: $mblHeight 0 0 0;
