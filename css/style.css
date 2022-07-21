@@ -27,7 +27,7 @@ body {
   color: #121212;
 }
 
-button {
+*[class$=-btn] {
   border-width: 1rem;
   border-radius: 5px;
   background-color: inherit;
@@ -36,6 +36,10 @@ button {
 
 *:target {
   visibility: visible;
+}
+
+a:link {
+  transition: all 0.5s;
 }
 
 .header {
@@ -566,13 +570,15 @@ button {
 .main_window-logo-btn {
   display: block;
   margin: 1.4rem auto -0.6rem auto;
-  width: 290px;
-  height: 68px;
-  font-size: 1.2rem;
   font-weight: 700;
   border-color: #2498B3;
   background: #2498B3;
+}
+.main_window-logo-btn-txt {
+  font-size: 1.2rem;
+  padding: 24px 37px;
   color: #FFF;
+  transition: all 500ms;
 }
 .main_icon {
   display: flex;
@@ -693,12 +699,13 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1.4rem auto -0.6rem auto;
-    width: 290px;
-    height: 68px;
-    font-size: 1.2rem;
     font-weight: 700;
     border-color: #2498B3;
     background: #2498B3;
+  }
+  .main_window-logo-btn-txt {
+    padding: 24px 37px;
+    font-size: 1.2rem;
     color: #FFF;
   }
   .main_icon {
@@ -814,13 +821,14 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1rem auto 0 auto;
-    width: 228px;
-    height: 42px;
-    font-size: 1.1rem;
     line-height: 1.1rem;
     font-weight: 900;
     border-color: #2498B3;
     background: #2498B3;
+  }
+  .main_window-logo-btn-txt {
+    padding: 12px 18px;
+    font-size: 1.1rem;
     color: #FFF;
   }
   .main_icon {
@@ -937,14 +945,15 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1rem auto 0 auto;
-    width: 228px;
-    height: 42px;
-    font-size: 1.1rem;
     line-height: 1.1rem;
     font-weight: 900;
     border-color: #2498B3;
     background: #2498B3;
+  }
+  .main_window-logo-btn-txt {
     color: #FFF;
+    padding: 12px 18px;
+    font-size: 1.1rem;
   }
   .main_icon {
     display: flex;
@@ -1057,13 +1066,14 @@ button {
   .main_window-logo-btn {
     display: block;
     margin: 1rem auto 0 auto;
-    width: 228px;
-    height: 42px;
-    font-size: 1.1rem;
     line-height: 1.1rem;
     font-weight: 900;
     border-color: #2498B3;
     background: #2498B3;
+  }
+  .main_window-logo-btn-txt {
+    padding: 12px 18px;
+    font-size: 1.1rem;
     color: #FFF;
   }
   .main_icon {

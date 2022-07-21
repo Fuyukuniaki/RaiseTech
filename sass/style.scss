@@ -68,7 +68,7 @@ body {
     position: relative;
     color: #121212;
 }
-button {
+*[class$=-btn] {
     border-width: 1rem;
     border-radius: 5px;
     background-color: inherit;
@@ -77,6 +77,10 @@ button {
 *:target {
     visibility: visible;
 }
+a:link {
+    transition: all .5s;
+}
+
 
 .header {
     background: $baseWhite;
@@ -597,13 +601,15 @@ button {
             &-btn {
                 display: block;
                 margin: 1.4rem auto -0.6rem auto;
-                width: 290px;
-                height: 68px;
-                font-size: 1.2rem;
                 font-weight: $textWeight;
                 border-color: $nvHovColor;
                 background: $nvHovColor;
-                color: $baseWhite;
+                &-txt{
+                    font-size: 1.2rem;
+                    padding: 24px 37px;
+                    color: $baseWhite;
+                    transition: all 500ms;
+                }
             }
         }
     }
@@ -723,13 +729,14 @@ button {
                 &-btn {
                     display: block;
                     margin: 1.4rem auto -0.6rem auto;
-                    width: 290px;
-                    height: 68px;
-                    font-size: 1.2rem;
                     font-weight: $textWeight;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
-                    color: $baseWhite;
+                    &-txt{                        
+                        padding: 24px 37px;
+                        font-size: 1.2rem;
+                        color: $baseWhite;
+                    }
                 }
             }
         }
@@ -842,14 +849,15 @@ button {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    width: 228px;
-                    height: 42px;
-                    font-size: 1.1rem;
                     line-height: 1.1rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
-                    color: $baseWhite;
+                    &-txt {
+                        padding: 12px 18px;
+                        font-size: 1.1rem;
+                        color: $baseWhite;
+                    }
                 }
             }
         }
@@ -963,14 +971,15 @@ button {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    width: 228px;
-                    height: 42px;
-                    font-size: 1.1rem;
                     line-height: 1.1rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
-                    color: $baseWhite;
+                    &-txt {
+                        color: $baseWhite;
+                        padding: 12px 18px;
+                        font-size: 1.1rem;
+                    }
                 }
             }
         }
@@ -1081,14 +1090,15 @@ button {
                 &-btn {
                     display: block;
                     margin: 1rem auto 0 auto;
-                    width: 228px;
-                    height: 42px;
-                    font-size: 1.1rem;
                     line-height: 1.1rem;
                     font-weight: $textWeight + 200;
                     border-color: $nvHovColor;
                     background: $nvHovColor;
-                    color: $baseWhite;
+                    &-txt {
+                        padding: 12px 18px;
+                        font-size: 1.1rem;
+                        color: $baseWhite;
+                    }
                 }
             }
         }

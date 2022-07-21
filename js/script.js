@@ -1,42 +1,3 @@
-$(function () {
-    flag = '';
-    $('button:first-of-type').addClass('btn');
-    rtBtnWth = $('.btn').width() +'px' ;
-    rtBtnHgt = $('.btn').height() +'px' ;
-    rtBtnFon = $('.btn').css('font-size');
-
-    $(window).on('resize', function () {
-        let w = $(window).innerWidth();
-        // sp幅
-        if ( w <= 767 && flag != 'sp' ) {
-            flag = 'sp';
-            // sp時の処理をここに書く
-            myBtnWth = $('.btn').width() + 'px';
-            myBtnHgt = $('.btn').height() + 'px';
-            myBtnFon = $('.btn').css('font-size');
-            document.querySelector('.btn').animate([
-                { 'width' : rtBtnWth, 'height' : rtBtnHgt, 'font-size' : rtBtnFon },
-                { 'width' : myBtnWth, 'height' : myBtnHgt, 'font-size' : myBtnFon }], 200);
-            rtBtnWth = $('.btn').width() + 'px';
-            rtBtnHgt = $('.btn').height() + 'px';
-            rtBtnFon = $('.btn').css('font-size');
-            // pc幅
-        } else if ( w > 768 && flag != 'pc' ) {
-            flag = 'pc';
-            // pc時の処理をここに書く
-            myBtnWth = $('.btn').width() + 'px';
-            myBtnHgt = $('.btn').height() + 'px';
-            myBtnFon = $('.btn').css('font-size');
-            document.querySelector('.btn').animate([
-                { 'width' : rtBtnWth, 'height' : rtBtnHgt, 'font-size' : rtBtnFon },
-                { 'width' : myBtnWth, 'height' : myBtnHgt, 'font-size' : myBtnFon }], 200);
-            rtBtnWth = $('.btn').width() + 'px';
-            rtBtnHgt = $('.btn').height() + 'px';
-            rtBtnFon = $('.btn').css('font-size');
-        }
-    });
-});
-
 function scriptAll(){
     if( $('.icon_hamburger-wrap').length > 0){
         $('.icon_hamburger-wrap').remove;
@@ -134,10 +95,10 @@ function scriptRT(){
                 });
                 $('.ico_plsmns').each(function(){
                     $(this).on(ohEvent, function(){
-                $(this).toggleClass('opened-slide');
-                $(this).prev().toggleClass('opened-slide');
-                let myNavlst = $(this).prev();
-                let mbleHght = $(this).height();
+                        $(this).toggleClass('opened-slide');
+                        $(this).prev().toggleClass('opened-slide');
+                        let myNavlst = $(this).prev();
+                        let mbleHght = $(this).height();
                 let mbleLeng = $(this).prev().children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
                 myNavlst.toggleClass('hover');
@@ -265,6 +226,44 @@ $(window).on('resize', function(){
 
 
 
+// $(function () {
+//     flag = '';
+//     $('button:first-of-type').addClass('btn');
+//     rtBtnWth = $('.btn').width() +'px' ;
+//     rtBtnHgt = $('.btn').height() +'px' ;
+//     rtBtnFon = $('.btn').css('font-size');
+
+//     $(window).on('resize', function () {
+//         let w = $(window).innerWidth();
+//         // sp幅
+//         if ( w <= 767 && flag != 'sp' ) {
+//             flag = 'sp';
+//             // sp時の処理をここに書く
+//             myBtnWth = $('.btn').width() + 'px';
+//             myBtnHgt = $('.btn').height() + 'px';
+//             myBtnFon = $('.btn').css('font-size');
+//             document.querySelector('.btn').animate([
+//                 { 'width' : rtBtnWth, 'height' : rtBtnHgt, 'font-size' : rtBtnFon },
+//                 { 'width' : myBtnWth, 'height' : myBtnHgt, 'font-size' : myBtnFon }], 200);
+//             rtBtnWth = $('.btn').width() + 'px';
+//             rtBtnHgt = $('.btn').height() + 'px';
+//             rtBtnFon = $('.btn').css('font-size');
+//             // pc幅
+//         } else if ( w > 768 && flag != 'pc' ) {
+//             flag = 'pc';
+//             // pc時の処理をここに書く
+//             myBtnWth = $('.btn').width() + 'px';
+//             myBtnHgt = $('.btn').height() + 'px';
+//             myBtnFon = $('.btn').css('font-size');
+//             document.querySelector('.btn').animate([
+//                 { 'width' : rtBtnWth, 'height' : rtBtnHgt, 'font-size' : rtBtnFon },
+//                 { 'width' : myBtnWth, 'height' : myBtnHgt, 'font-size' : myBtnFon }], 200);
+//             rtBtnWth = $('.btn').width() + 'px';
+//             rtBtnHgt = $('.btn').height() + 'px';
+//             rtBtnFon = $('.btn').css('font-size');
+//         }
+//     });
+// });
 //      if( $('.icon_hamburger-wrap').length > 0){
 //          for( let i = $('.icon_hamburger-wrap').length; i > 0; i-- ){
 //              console.log($('.icon_hamburger-wrap').length);
