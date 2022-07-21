@@ -233,7 +233,7 @@ $(window).on('resize', function(){
 //     rtBtnHgt = $('.btn').height() +'px' ;
 //     rtBtnFon = $('.btn').css('font-size');
 
-//     $(window).on('resize', function () {
+//     $(window).on('load resize', function () {
 //         let w = $(window).innerWidth();
 //         // sp幅
 //         if ( w <= 767 && flag != 'sp' ) {
