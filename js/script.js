@@ -219,7 +219,7 @@ $(document).ready(function(){
     scriptRT();
 });
 
-$(window).on('resize', function(){
+$(window).on('load resize', function(){
     scriptAll();
     scriptRT();
 });
