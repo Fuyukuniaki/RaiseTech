@@ -644,7 +644,7 @@ body {
   color: #FFF;
   line-height: 1.8rem;
   font-size: 1.2rem;
-  padding: 1rem 0;
+  padding: 1rem;
   width: 30vw;
 }
 @media only screen and (max-width: 1200px) {
@@ -920,7 +920,7 @@ body {
     color: #FFF;
     line-height: 1.8rem;
     font-size: 1.2rem;
-    padding: 1rem 0;
+    padding: 1rem;
     width: 100vw;
     text-align: center;
   }
@@ -1048,7 +1048,7 @@ body {
     color: #FFF;
     line-height: 1.8rem;
     font-size: 1.2rem;
-    padding: 1rem 0;
+    padding: 1rem;
     width: 100vw;
     text-align: center;
   }
@@ -1176,7 +1176,7 @@ body {
     color: #FFF;
     line-height: 1.8rem;
     font-size: 1.2rem;
-    padding: 1rem 0;
+    padding: 1rem;
     width: 100vw;
     text-align: center;
   }

@@ -155,7 +155,7 @@ function scriptRT(){
         });
     } else if( window.matchMedia("(max-width: 375px)").matches ){
         $('*').removeAttr('style');
-        $('br').css({ display: 'none' });
+        $('article:nth-of-type(3) br').css({ display: 'none' });
         $('nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
