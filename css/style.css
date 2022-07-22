@@ -94,7 +94,7 @@ body {
   font-size: 1rem;
   font-weight: 900;
   padding: 0 0 0 1rem;
-  transition: top 500ms;
+  transition: top 1s;
 }
 .header_logo-txt-accent {
   font-size: 1.3rem;
@@ -102,7 +102,7 @@ body {
 @media only screen and (max-width: 1200px) {
   .header_logo-txt {
     top: -200%;
-    transition: top 500ms;
+    transition: top 1s;
   }
 }
 .header_nav {

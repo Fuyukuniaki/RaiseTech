@@ -126,13 +126,13 @@ body {
             font-size: 1rem;
             font-weight: 900;
             padding: 0 0 0 1rem;
-            transition: top 500ms;
+            transition: top 1s;
             &-accent {
                 font-size: 1.3rem;
             }
             @include media {
                 top: -200%;
-                transition: top 500ms;
+                transition: top 1s;
             }
         }
     }

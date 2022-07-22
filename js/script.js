@@ -25,7 +25,7 @@ function scriptAll(){
         // タッチ対応端末の処理が入る
         myEvent = 'touchstart';
         ohEvent = 'touchstart';
-        levEvent= 'touchend';
+        levEvent= 'touchend touchmove';
 
     } else {
         // タッチ非対応端末の処理が入る
@@ -53,12 +53,12 @@ function scriptRT(){
                     hedrNavLstSub.addClass('js-slide');
                     $(this).find('.js-slide').stop().slideDown(200);
                 }
-                );
-                $(this).on( levEvent ,
-                    function(){
-                        $(this).find('.js-slide').stop().slideUp(0).removeClass('js-slide');
-                    }
-                    );
+            );
+            $(this).on( levEvent ,
+                function(){
+                    $(this).find('.js-slide').stop().slideUp(0).removeClass('js-slide');
+                }
+            );
         });
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
     } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
