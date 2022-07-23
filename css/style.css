@@ -1247,8 +1247,8 @@ body {
     justify-content: center;
     align-items: center;
     position: fixed;
-    width: 30vw;
-    height: 30vw;
+    width: 10rem;
+    height: 10rem;
     top: 80vh;
     left: 60vw;
     background: #A2D729;
