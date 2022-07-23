@@ -14,6 +14,7 @@ $mainMblHgh: 150px;
 $mediaIconW: 60vw;
 $mainIconM : -12rem auto 0 auto;
 
+
 @mixin media($width-media : 1200px) {
     @media only screen and (max-width : $width-media) {
         @content;
@@ -41,9 +42,9 @@ $mainIconM : -12rem auto 0 auto;
 }
 
 
-
 @import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
 @import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+
 
 * {
     font-size: 14px;
@@ -52,6 +53,7 @@ $mainIconM : -12rem auto 0 auto;
     padding: 0;
     font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
     text-rendering: "Noto Sans JP Black";
+    transition: .3s;
 }
 
 a, *:hover, *:active, *:visited {
@@ -68,7 +70,7 @@ body {
     position: relative;
     color: #121212;
 }
-*[class$=-btn] * {
+*[class$=-btn] > * {
     border-width: 1px;
     border-radius: 4px;
     background-color: inherit;
@@ -83,6 +85,7 @@ body {
 *:active {
     transition: 0.5s;
 }
+
 
 .header {
     background: $baseWhite;

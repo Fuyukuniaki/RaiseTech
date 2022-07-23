@@ -98,7 +98,7 @@ function scriptRT(){
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
                 myNavlst.toggleClass('hover');
                 if($(this).hasClass('opened-slide')){
-                    myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
+                    myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 200);
                     if($('.hover')!== myNavlst){
                         $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
                         $('.opened-slide').not(this).removeClass('opened-slide');
@@ -144,7 +144,7 @@ function scriptRT(){
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
                 myNavlst.toggleClass('hover');
                 if($(this).hasClass('opened-slide')){
-                    myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
+                    myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 200);
                     if($('.hover')!== myNavlst){
                         $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
                         $('.opened-slide').not(this).removeClass('opened-slide');
@@ -191,7 +191,7 @@ function scriptRT(){
                         let myLnkHgt = (mbleLeng + 1) * mbleHght;
                         myNavlst.toggleClass('hover');
                         if($(this).hasClass('opened-slide')){
-                            myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
+                            myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 200);
                             if($('.hover')!== myNavlst){
                                 $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
                                 $('.opened-slide').not(this).removeClass('opened-slide');
@@ -238,7 +238,7 @@ function scriptRT(){
                     let myLnkHgt = (mbleLeng + 1) * mbleHght;
                     myNavlst.toggleClass('hover');
                     if($(this).hasClass('opened-slide')){
-                        myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 600);
+                        myNavlst.css('overflow','visible').animate({ height : myLnkHgt }, 200);
                     if($('.hover')!== myNavlst){
                         $('.hover').not(myNavlst).animate({ height : mbleHght }).removeClass('hover');
                         $('.opened-slide').not(this).removeClass('opened-slide');

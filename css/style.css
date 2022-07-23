@@ -7,6 +7,7 @@
   padding: 0;
   font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
   text-rendering: "Noto Sans JP Black";
+  transition: 0.3s;
 }
 
 a, *:hover, *:active, *:visited {
@@ -27,7 +28,7 @@ body {
   color: #121212;
 }
 
-*[class$=-btn] * {
+*[class$=-btn] > * {
   border-width: 1px;
   border-radius: 4px;
   background-color: inherit;
