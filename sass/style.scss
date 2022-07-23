@@ -58,7 +58,6 @@ $mainIconM : -12rem auto 0 auto;
 a, *:hover, *:active, *:visited {
     text-decoration: none;
     color: $textColor;
-    transition: .3s;
 }
 dt, dd, ul, li {
     list-style: none;
@@ -110,15 +109,16 @@ body {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        height: $headerHght;
         padding: 1rem 0 1rem 2rem;
-        transition : .3s;
+        transition: height 0.3s;
         @include media {
             padding: 0 0 0 1rem;
             width: calc(100vw - $mblHeight);
             height: $mblHeight;
             background: $baseWhite;
             z-index: 9999;
-            transition : .3s;
+            transition: height 0.3s;
         }
         &-img {
             height: 2.35rem;
@@ -133,14 +133,15 @@ body {
             font-size: 1rem;
             font-weight: 900;
             padding: 0 0 0 1rem;
-            transform: scale(1);
+            width: 100%;
             transition: transform .3s, top .3s;
             &-accent {
                 font-size: 1.3rem;
             }
             @include media {
                 top: -200%;
-                transform: scale(0);
+                left: 0;
+                width: 100%;
                 transition: transform .3s, top .3s;
             }
         }
@@ -609,6 +610,7 @@ body {
             border-radius: 10px;
             border: $baseWhite 2rem solid;
             box-sizing: border-box;
+            transition: width .3s;
             &-img {
                 display: block;
                 figure {
@@ -755,6 +757,7 @@ body {
                 border-radius: 10px;
                 border: $baseWhite 2rem solid;
                 box-sizing: border-box;
+                transition: width .3s;
                 &-img {
                     display: block;
                     figure {
@@ -891,6 +894,7 @@ body {
                 border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
+                transition: width .3s;
                 &-img {
                     display: none;
                     height: 4rem;
@@ -1020,6 +1024,7 @@ body {
                 border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
+                transition: width .3s;
                 &-img {
                     display: none;
                     height: 4rem;
@@ -1146,6 +1151,7 @@ body {
                 border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
+                transition: width .3s;
                 &-img {
                     display: none;
                     height: 4rem;
