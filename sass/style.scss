@@ -53,12 +53,12 @@ $mainIconM : -12rem auto 0 auto;
     padding: 0;
     font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
     text-rendering: "Noto Sans JP Black";
-    transition: .3s;
 }
 
 a, *:hover, *:active, *:visited {
     text-decoration: none;
     color: $textColor;
+    transition: .3s;
 }
 dt, dd, ul, li {
     list-style: none;
@@ -100,21 +100,25 @@ body {
     width: 100vw;
     height: $headerHght;
     z-index: 9999;
+    transition: height .3s;
     @include media {
         margin: 0;
         height: $mblHeight;
+        transition: height .3s;
     }
     &_logo {
         display: flex;
         justify-content: flex-start;
         align-items: center;
         padding: 1rem 0 1rem 2rem;
+        transition : .3s;
         @include media {
             padding: 0 0 0 1rem;
             width: calc(100vw - $mblHeight);
             height: $mblHeight;
             background: $baseWhite;
             z-index: 9999;
+            transition : .3s;
         }
         &-img {
             height: 2.35rem;
@@ -129,13 +133,15 @@ body {
             font-size: 1rem;
             font-weight: 900;
             padding: 0 0 0 1rem;
-            transition: top 1s;
+            transform: scale(1);
+            transition: transform .3s, top .3s;
             &-accent {
                 font-size: 1.3rem;
             }
             @include media {
                 top: -200%;
-                transition: top 1s;
+                transform: scale(0);
+                transition: transform .3s, top .3s;
             }
         }
     }
@@ -170,7 +176,7 @@ body {
                 z-index: -9999;
                 background: $baseWhite;
                 top: $mblHeight;
-            &.opened-wrap {
+                &.opened-wrap {
                     display: flex;
                     opacity: 1;
                     flex-wrap: wrap;
@@ -192,7 +198,7 @@ body {
             line-height: $headerHght;
             height: $headerHght;
             width: auto;
-            background: $baseWhite;
+            transition: height .3s;
             @include media {
                 position: relative;
                 display: flex;
@@ -205,6 +211,7 @@ body {
                 height: $mblHeight;
                 line-height: $mblHeight;
                 overflow: hidden;
+                transition: height .3s;
                 &:hover, &.hover{
                     background: $navListCol;
                 }

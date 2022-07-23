@@ -7,12 +7,12 @@
   padding: 0;
   font-family: "Noto Sans JP", MyYuGothicM, YuGothic, -apple-systrem, BlinkMacSystremFont, "Hiragino kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
   text-rendering: "Noto Sans JP Black";
-  transition: 0.3s;
 }
 
 a, *:hover, *:active, *:visited {
   text-decoration: none;
   color: #131D34;
+  transition: 0.3s;
 }
 
 dt, dd, ul, li {
@@ -60,11 +60,13 @@ body {
   width: 100vw;
   height: 70px;
   z-index: 9999;
+  transition: height 0.3s;
 }
 @media only screen and (max-width: 1200px) {
   .header {
     margin: 0;
     height: 50px;
+    transition: height 0.3s;
   }
 }
 .header_logo {
@@ -72,6 +74,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 1rem 0 1rem 2rem;
+  transition: 0.3s;
 }
 @media only screen and (max-width: 1200px) {
   .header_logo {
@@ -80,6 +83,7 @@ body {
     height: 50px;
     background: #FFF;
     z-index: 9999;
+    transition: 0.3s;
   }
 }
 .header_logo-img {
@@ -95,7 +99,8 @@ body {
   font-size: 1rem;
   font-weight: 900;
   padding: 0 0 0 1rem;
-  transition: top 1s;
+  transform: scale(1);
+  transition: transform 0.3s, top 0.3s;
 }
 .header_logo-txt-accent {
   font-size: 1.3rem;
@@ -103,7 +108,8 @@ body {
 @media only screen and (max-width: 1200px) {
   .header_logo-txt {
     top: -200%;
-    transition: top 1s;
+    transform: scale(0);
+    transition: transform 0.3s, top 0.3s;
   }
 }
 .header_nav {
@@ -164,7 +170,7 @@ body {
   line-height: 70px;
   height: 70px;
   width: auto;
-  background: #FFF;
+  transition: height 0.3s;
 }
 @media only screen and (max-width: 1200px) {
   .header_nav-list, .header_nav-link, .hover.header_nav-link, .header_nav-list.hover {
@@ -179,6 +185,7 @@ body {
     height: 50px;
     line-height: 50px;
     overflow: hidden;
+    transition: height 0.3s;
   }
   .header_nav-list:hover, .header_nav-link:hover, .header_nav-list.hover, .hover.header_nav-link {
     background: #F3FAFB;
