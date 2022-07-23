@@ -50,6 +50,7 @@ function scriptRT(){
             let hedrNavLstSub = $(this).children().eq(1);
             $(this).on( ohEvent,
                 function(){
+                    $('.js-slide').stop().slideUp(0).removeClass('js-slide');
                     hedrNavLstSub.addClass('js-slide');
                     $(this).find('.js-slide').stop().slideDown(200);
                 }

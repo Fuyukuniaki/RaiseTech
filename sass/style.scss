@@ -628,7 +628,8 @@ body {
                     border-color: $nvHovColor;
                     background: $nvHovColor;
                     color: $baseWhite;
-                    font-size: 1.2rem;
+                    line-height: 1.4rem;
+                    font-size: 1.4rem;
                     padding: 24px 37px;
                 }
             }
@@ -677,7 +678,8 @@ body {
                 color: $baseWhite;
                 line-height: 1.8rem;
                 font-size: 1.2rem;
-                padding: 1rem;
+                text-align: left;
+                padding: 1rem 2%;
                 width: 30vw;
             }    
         }
@@ -772,7 +774,8 @@ body {
                         border-color: $nvHovColor;
                         background: $nvHovColor;
                         color: $baseWhite;
-                        font-size: 1.2rem;
+                        line-height: 1.4rem;
+                        font-size: 1.4rem;
                         padding: 24px 37px;
                     }
                 }    
@@ -825,9 +828,9 @@ body {
                     color: $baseWhite;
                     line-height: 1.8rem;
                     font-size: 1.2rem;
-                    padding: 1rem 0;
+                    text-align: left;
+                    padding: 1rem 2%;
                     width: 100vw;
-                    text-align: center;
                 }    
             }
         }
@@ -895,12 +898,12 @@ body {
                     margin: 1rem auto 0 auto;
                     &-txt {
                         display: block;
-                        line-height: 1.1rem;
                         font-weight: $textWeight + 200;
                         border-color: $nvHovColor;
                         background: $nvHovColor;
                         color: $baseWhite;
                         padding: 12px 18px;
+                        line-height: 1.1rem;
                         font-size: 1.1rem;
                     }
                 }
@@ -954,9 +957,9 @@ body {
                     color: $baseWhite;
                     line-height: 1.8rem;
                     font-size: 1.2rem;
-                    padding: 1rem;
-                    width: 100vw;
-                    text-align: center;
+                    text-align: left;
+                    padding: 1rem 2%;
+                    width: 100%;
                 }    
             }
         }    
@@ -1024,12 +1027,12 @@ body {
                     margin: 1rem auto 0 auto;
                     &-txt {
                         display: block;
-                        line-height: 1.1rem;
                         font-weight: $textWeight + 200;
                         border-color: $nvHovColor;
                         background: $nvHovColor;
                         color: $baseWhite;
                         padding: 12px 18px;
+                        line-height: 1.1rem;
                         font-size: 1.1rem;
                     }
                 }
@@ -1080,9 +1083,9 @@ body {
                     color: $baseWhite;
                     line-height: 1.8rem;
                     font-size: 1.2rem;
-                    padding: 1rem;
-                    width: 100vw;
-                    text-align: center;
+                    text-align: left;
+                    padding: 1rem 2%;
+                    width: 100%;
                 }    
             }
         }    
@@ -1150,12 +1153,12 @@ body {
                     margin: 1rem auto 0 auto;
                     &-txt {
                         display: block;
-                        line-height: 1.1rem;
                         font-weight: $textWeight + 200;
                         border-color: $nvHovColor;
                         background: $nvHovColor;
                         color: $baseWhite;
                         padding: 12px 18px;
+                        line-height: 1.1rem;
                         font-size: 1.1rem;
                     }
                 }
@@ -1206,9 +1209,9 @@ body {
                     color: $baseWhite;
                     line-height: 1.8rem;
                     font-size: 1.2rem;
-                    padding: 1rem;
-                    width: 100vw;
-                    text-align: center;
+                    text-align: left;
+                    padding: 1rem 2%;
+                    width: 100%;
                 }    
             }
         }    
