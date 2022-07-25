@@ -105,7 +105,6 @@ function scriptRT(){
                             $('.opened-slide').not(this).removeClass('opened-slide');
                         }
                     } else {
-                        console.log();
                         myNavlst.css({ 'height' : mbleHght, 'overflow' : 'hidden' });
                     }
                 });
