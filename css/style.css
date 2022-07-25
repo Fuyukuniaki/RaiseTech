@@ -705,7 +705,7 @@ body {
     position: absolute;
     width: auto;
     height: 650px;
-    z-index: 9999;
+    z-index: 999;
   }
   .main_article-logo {
     display: flex;
