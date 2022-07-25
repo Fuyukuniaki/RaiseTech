@@ -58,6 +58,7 @@ $mainIconM : -12rem auto 0 auto;
 a, *:hover, *:active, *:visited {
     text-decoration: none;
     color: $textColor;
+    -webkit-tap-highlight-color: transparent;
 }
 dt, dd, ul, li {
     list-style: none;

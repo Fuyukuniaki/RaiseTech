@@ -12,6 +12,7 @@
 a, *:hover, *:active, *:visited {
   text-decoration: none;
   color: #131D34;
+  -webkit-tap-highlight-color: transparent;
 }
 
 dt, dd, ul, li {
