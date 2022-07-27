@@ -124,17 +124,30 @@ function scriptRT(){
                 let mbleLeng = myParent.children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
                 if(myParent.hasClass('opened-slide')){
-                    $('.hover').not(myParent).css({ height : mbleHght }).removeClass('hover');
+                    $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                     $('.opened-slide').not(myParent).removeClass('opened-slide');
-                    myParent.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
+                    myParent.css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
                     if($('.hover') !== myParent){
                         $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
-                        $('.hover').not(myParent).css({ 'height' : mbleHght }).removeClass('hover');
+                        $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                         $('.opened-slide').not(myParent).removeClass('opened-slide');
                     }
                 } else {
-                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide','hover');
+                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
+                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                     myParent.next('.ico_plsmns').removeClass('opened-slide');
+                }
+            });
+        });
+        $('nav a:last-child').addClass('submenu-link');
+        $('.submenu-link').each(function(){
+            $(this).off(ohEvent);
+            $(this).on( ohEvent, function(){
+                if($(this).hasClass('hover')){
+                    $(this).removeClass('hover');
+                } else {
+                    $('.opened-slide').removeClass('hover');
+                    $(this).addClass('hover');
                 }
             });
         });

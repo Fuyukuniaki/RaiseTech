@@ -222,6 +222,9 @@ body {
             }
             &:hover {
                 background: $navColour;
+                @include media {
+                    background: $baseWhite;
+                }
             }
             &-txt:hover, &-txt.hover{
                 @include media {
@@ -295,15 +298,6 @@ body {
                 font-size: 1.2rem;
                 padding: 0 1rem;
                 z-index: 9999;
-                &:hover {
-                    display: inline-block;
-                    height: $mblHeight;
-                    line-height: $mblHeight;
-                    font-weight: $textWeight;
-                    font-size: 1.2rem;
-                    padding: 0 1rem;
-                    background: $baseWhite;
-                }
             }
             &-sub {
                 display: flex;
