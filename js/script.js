@@ -48,6 +48,7 @@ function scriptRT(){
         let headerNavList = $('nav a:not(:only-child)').parent();
         headerNavList.each(function(){
             let hedrNavLstSub = $(this).children().eq(1);
+            $(this).off( ohEvent );
             $(this).on( ohEvent,
                 function(){
                     $('.js-slide').stop().slideUp(0).removeClass('js-slide');
@@ -67,6 +68,7 @@ function scriptRT(){
         $('nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
+        $('.icon_hamburger-wrap').off(myEvent);
         $('.icon_hamburger-wrap').on(myEvent, function(){
             $(this).children('.icon_hamburger').toggleClass('opened-sub');
             let mbleHght = $(this).height();
@@ -89,6 +91,7 @@ function scriptRT(){
             }
         });
         $('.ico_plsmns').each(function(){
+            $(this).off(ohEvent);
             $(this).on(ohEvent, function(){
                 $(this).toggleClass('opened-slide');
                 $(this).prev().toggleClass('opened-slide');
@@ -108,11 +111,10 @@ function scriptRT(){
                     myNavlst.css({ 'height' : mbleHght, 'overflow' : 'hidden' });
                 }
             });
-            $(this).on(levEvent, function(){
-            });
         });
         $('nav a:first-of-type:not(:only-child)').addClass('slide-link');
         $('.slide-link').each(function(){
+            $(this).off(ohEvent);
             $(this).on( ohEvent, function(){
                 let myParent = $(this).parent();
                 myParent.toggleClass('opened-slide');
@@ -124,14 +126,14 @@ function scriptRT(){
                 if(myParent.hasClass('opened-slide')){
                     $('.hover').not(myParent).css({ height : mbleHght }).removeClass('hover');
                     $('.opened-slide').not(myParent).removeClass('opened-slide');
+                    myParent.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
                     if($('.hover') !== myParent){
-                        myParent.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
                         $('.hover').not(myParent).css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('opened-slide');
                         $('.hover').not(myParent).css({ 'height' : mbleHght }).removeClass('hover');
                         $('.opened-slide').not(myParent).removeClass('opened-slide');
                     }
                 } else {
-                    myParent.css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('opened-slide');
+                    myParent.css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('opened-slide hover');
                     myParent.next('.ico_plsmns').removeClass('opened-slide');
                 }
             });
