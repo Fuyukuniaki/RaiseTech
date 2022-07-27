@@ -99,7 +99,7 @@ function scriptRT(){
                 let mbleHght = $(this).height();
                 let mbleLeng = $(this).prev().children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                $('.hover').not(myNavlst).css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('hover');
+                $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                 myNavlst.toggleClass('hover');
                 if($(this).hasClass('opened-slide')){
                     myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
@@ -108,7 +108,7 @@ function scriptRT(){
                         $('.opened-slide').not(this).removeClass('opened-slide');
                     }
                 } else {
-                    myNavlst.css({ 'height' : mbleHght, 'overflow' : 'hidden' });
+                    myNavlst.css({ height : mbleHght, overflow : 'hidden' });
                 }
             });
         });
@@ -128,20 +128,14 @@ function scriptRT(){
                     $('.opened-slide').not(myParent).removeClass('opened-slide');
                     myParent.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
                     if($('.hover') !== myParent){
-                        $('.hover').not(myParent).css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('opened-slide');
+                        $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
                         $('.hover').not(myParent).css({ 'height' : mbleHght }).removeClass('hover');
                         $('.opened-slide').not(myParent).removeClass('opened-slide');
                     }
                 } else {
-                    myParent.css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('opened-slide hover');
+                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide','hover');
                     myParent.next('.ico_plsmns').removeClass('opened-slide');
                 }
-            });
-        });
-        $('nav a:only-child').parent().each(function(){
-            $(this).on( ohEvent, function(){
-                $('.hover').removeClass('hover');
-                $(this).toggleClass('hover');
             });
         });
     } else if (window.matchMedia("(min-width: 376px)").matches && window.matchMedia("(max-width: 767px)").matches) {
@@ -178,7 +172,7 @@ function scriptRT(){
                     let mbleHght = $(this).height();
                 let mbleLeng = $(this).prev().children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                $('.hover').not(myNavlst).css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('hover');
+                $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                 myNavlst.toggleClass('hover');
                 if($(this).hasClass('opened-slide')){
                     myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
@@ -187,7 +181,7 @@ function scriptRT(){
                         $('.opened-slide').not(this).removeClass('opened-slide');
                     }
                 } else {
-                    myNavlst.css({ 'height' : mbleHght, 'overflow' : 'hidden' });
+                    myNavlst.css({ height : mbleHght, overflow : 'hidden' });
                 }
             });
         });
@@ -226,7 +220,7 @@ function scriptRT(){
                         let mbleHght = $(this).height();
                         let mbleLeng = $(this).prev().children().eq(1).children().length;
                         let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                        $('.hover').not(myNavlst).css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('hover');
+                        $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                         myNavlst.toggleClass('hover');
                         if($(this).hasClass('opened-slide')){
                             myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
@@ -235,7 +229,7 @@ function scriptRT(){
                                 $('.opened-slide').not(this).removeClass('opened-slide');
                             }
                         } else {
-                            myNavlst.css({ 'height' : mbleHght, 'overflow' : 'hidden' });
+                            myNavlst.css({ height : mbleHght, overflow : 'hidden' });
                         }
                     });
                 });
@@ -273,7 +267,7 @@ function scriptRT(){
                     let mbleHght = $(this).height();
                     let mbleLeng = $(this).prev().children().eq(1).children().length;
                     let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                    $('.hover').not(myNavlst).css({ 'height' : mbleHght, 'overflow' : 'hidden' }).removeClass('hover');
+                    $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                     myNavlst.toggleClass('hover');
                     if($(this).hasClass('opened-slide')){
                         myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
@@ -282,7 +276,7 @@ function scriptRT(){
                             $('.opened-slide').not(this).removeClass('opened-slide');
                         }
                     } else {
-                        myNavlst.css({ 'height' : mbleHght, 'overflow' : 'hidden' });
+                        myNavlst.css({ height : mbleHght, overflow : 'hidden' });
                     }
                 });
         });

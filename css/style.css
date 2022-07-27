@@ -150,6 +150,7 @@ body {
     z-index: -9999;
     background: #FFF;
     top: 50px;
+    -webkit-tap-highlight-color: transparent;
   }
   .header_nav-wrap.opened-wrap {
     display: flex;
@@ -190,15 +191,17 @@ body {
     transition: height 0.3s;
   }
   .header_nav-list:hover, .header_nav-link:hover, .header_nav-list.hover, .hover.header_nav-link {
-    background: #F3FAFB;
+    background: #FFF;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 .header_nav-list:hover, .header_nav-link:hover {
   background: #D4F1F8;
 }
 @media only screen and (max-width: 1200px) {
-  .header_nav-list:hover, .header_nav-link:hover {
+  .header_nav-list-txt:hover, .header_nav-list-txt.hover {
     background: #F3FAFB;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 .header_nav-list-sub, .header_nav-list-sub.hover {

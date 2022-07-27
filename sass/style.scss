@@ -178,6 +178,7 @@ body {
                 z-index: -9999;
                 background: $baseWhite;
                 top: $mblHeight;
+                -webkit-tap-highlight-color: transparent;
                 &.opened-wrap {
                     display: flex;
                     opacity: 1;
@@ -215,13 +216,17 @@ body {
                 overflow: hidden;
                 transition: height .3s;
                 &:hover, &.hover{
-                    background: $navListCol;
+                    background: $baseWhite;
+                    -webkit-tap-highlight-color: transparent;
                 }
             }
             &:hover {
                 background: $navColour;
+            }
+            &-txt:hover, &-txt.hover{
                 @include media {
                     background: $navListCol;
+                    -webkit-tap-highlight-color: transparent;
                 }
             }
             &-sub {
