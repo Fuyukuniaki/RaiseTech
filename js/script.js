@@ -128,13 +128,11 @@ function scriptRT(){
                     $('.opened-slide').not(myParent).removeClass('opened-slide');
                     myParent.css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
                     if($('.hover') !== myParent){
-                        $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
-                        $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
+                        $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
                         $('.opened-slide').not(myParent).removeClass('opened-slide');
                     }
                 } else {
-                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
-                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
+                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
                     myParent.next('.ico_plsmns').removeClass('opened-slide');
                 }
             });
