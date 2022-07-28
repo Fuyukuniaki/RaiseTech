@@ -34,38 +34,8 @@ function scriptAll(){
         levEvent= 'mouseleave';
     }
 };
-function scriptRT(){
-    if(window.matchMedia("(min-width: 1201px)").matches){
-        $('*').removeAttr('style');
-        $('.opened-sub').removeClass('opened-sub');
-        $('.icon_hamburger-wrap').remove;
-        if($('.ico_plsmns').length < 1){
-            $('.hover').removeClass('hover');
-            $('.opened-slide').removeClass('opened-slide');
-            $('.ico_plsmns').remove();
-        }
-        //---slideUp/slideDownここから-------------------------------------------------------------------------------
-        let headerNavList = $('nav a:not(:only-child)').parent();
-        headerNavList.each(function(){
-            let hedrNavLstSub = $(this).children().eq(1);
-            $(this).off( ohEvent );
-            $(this).on( ohEvent,
-                function(){
-                    $('.js-slide').stop().slideUp(0).removeClass('js-slide');
-                    hedrNavLstSub.addClass('js-slide');
-                    $(this).find('.js-slide').stop().slideDown(200);
-                }
-            );
-            $(this).on( levEvent ,
-                function(){
-                    $(this).find('.js-slide').stop().slideUp(0).removeClass('js-slide');
-                }
-            );
-        });
-        //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
-    } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
-        $('*').removeAttr('style');
-        $('nav').prepend("<div class='icon_hamburger'></div>");
+function hamburgerMenu(){
+    $('nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
         $('.icon_hamburger-wrap').off(myEvent);
@@ -150,148 +120,59 @@ function scriptRT(){
                 }
             });
         });
+};
+
+function scriptRT(){
+    if(window.matchMedia("(min-width: 1201px)").matches){
+        $('*').removeAttr('style');
+        $('.opened-sub').removeClass('opened-sub');
+        $('.icon_hamburger-wrap').remove;
+        if($('.ico_plsmns').length < 1){
+            $('.hover').removeClass('hover');
+            $('.opened-slide').removeClass('opened-slide');
+            $('.ico_plsmns').remove();
+        }
+        //---slideUp/slideDownここから-------------------------------------------------------------------------------
+        let headerNavList = $('nav a:not(:only-child)').parent();
+        headerNavList.each(function(){
+            let hedrNavLstSub = $(this).children().eq(1);
+            $(this).off( ohEvent );
+            $(this).on( ohEvent,
+                function(){
+                    $('.js-slide').stop().slideUp(0).removeClass('js-slide');
+                    hedrNavLstSub.addClass('js-slide');
+                    $(this).find('.js-slide').stop().slideDown(200);
+                }
+            );
+            $(this).on( levEvent ,
+                function(){
+                    $(this).find('.js-slide').stop().slideUp(0).removeClass('js-slide');
+                }
+            );
+        });
+        //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
+    } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
+        $('*').removeAttr('style');
+        function(){
+            hamburgerMenu();
+        };
     } else if (window.matchMedia("(min-width: 376px)").matches && window.matchMedia("(max-width: 767px)").matches) {
         $('*').removeAttr('style');
-        $('nav').prepend("<div class='icon_hamburger'></div>");
-        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
-        $('.icon_hamburger-wrap').on(myEvent, function(){
-            $(this).children('.icon_hamburger').toggleClass('opened-sub');
-            let mbleHght = $(this).height();
-            let mbleLeng = $(this).next().children().length;
-            let myLnkHgt = (mbleLeng + 1) * mbleHght;
-            $(this).toggleClass('opened-sub');
-            $(this).next().toggleClass('opened-sub');
-            if($(this).hasClass('opened-sub')){
-                $(this).next()
-                .css( { display: 'flex' } )
-                .animate(
-                    { maxHeight: myLnkHgt }, 600
-                );
-            } else {
-                $(this).next()
-                    .css( { display: 'none' } )
-                    .animate(
-                        { maxHeight: 0 },
-                );
-            }
-            });
-            $('.ico_plsmns').each(function(){
-                $(this).on(ohEvent, function(){
-                    $(this).toggleClass('opened-slide');
-                    $(this).prev().toggleClass('opened-slide');
-                    let myNavlst = $(this).prev();
-                    let mbleHght = $(this).height();
-                let mbleLeng = $(this).prev().children().eq(1).children().length;
-                let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
-                myNavlst.toggleClass('hover');
-                if($(this).hasClass('opened-slide')){
-                    myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
-                    if($('.hover')!== myNavlst){
-                        $('.hover').not(myNavlst).css({ height : mbleHght }).removeClass('hover');
-                        $('.opened-slide').not(this).removeClass('opened-slide');
-                    }
-                } else {
-                    myNavlst.css({ height : mbleHght, overflow : 'hidden' });
-                }
-            });
-        });
+        function(){
+            hamburgerMenu();
+        };
+
     } else if( window.matchMedia("(max-width: 375px)").matches ){
         $('*').removeAttr('style');
-        $('article:nth-of-type(3) br').css({ display: 'none' });
-        $('nav').prepend("<div class='icon_hamburger'></div>");
-        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
-        $('.icon_hamburger-wrap').on(myEvent, function(){
-            $(this).children('.icon_hamburger').toggleClass('opened-sub');
-            let mbleHght = $(this).height();
-            let mbleLeng = $(this).next().children().length;
-            let myLnkHgt = (mbleLeng + 1) * mbleHght;
-            $(this).toggleClass('opened-sub');
-            $(this).next().toggleClass('opened-sub');
-            if($(this).hasClass('opened-sub')){
-                $(this).next()
-                .css( { display: 'flex' } )
-                .animate(
-                    { maxHeight: myLnkHgt },
-                    600);
-                } else {
-                    $(this).next()
-                    .css( { display: 'none' } )
-                    .animate(
-                        { maxHeight: 0 },
-                        );
-                    }
-                });
-                $('.ico_plsmns').each(function(){
-                    $(this).on(ohEvent, function(){
-                        $(this).toggleClass('opened-slide');
-                        $(this).prev().toggleClass('opened-slide');
-                        let myNavlst = $(this).prev();
-                        let mbleHght = $(this).height();
-                        let mbleLeng = $(this).prev().children().eq(1).children().length;
-                        let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                        $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
-                        myNavlst.toggleClass('hover');
-                        if($(this).hasClass('opened-slide')){
-                            myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
-                            if($('.hover')!== myNavlst){
-                                $('.hover').not(myNavlst).css({ height : mbleHght }).removeClass('hover');
-                                $('.opened-slide').not(this).removeClass('opened-slide');
-                            }
-                        } else {
-                            myNavlst.css({ height : mbleHght, overflow : 'hidden' });
-                        }
-                    });
-                });
+        function(){
+            hamburgerMenu();
+        };
+
     } else {
         $('*').removeAttr('style');
-        $('nav').prepend("<div class='icon_hamburger'></div>");
-        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
-        $('.icon_hamburger-wrap').on(myEvent, function(){
-            $(this).children('.icon_hamburger').toggleClass('opened-sub');
-            let mbleHght = $(this).height();
-            let mbleLeng = $(this).next().children().length;
-            let myLnkHgt = (mbleLeng + 1) * mbleHght;
-            $(this).toggleClass('opened-sub');
-            $(this).next().toggleClass('opened-sub');
-            if($(this).hasClass('opened-sub')){
-                $(this).next()
-                .css( { display: 'flex' } )
-                .animate(
-                    { maxHeight: myLnkHgt },
-                    600);
-            } else {
-                $(this).next()
-                .css( { display: 'none' } )
-                .animate(
-                    { maxHeight: 0 },
-                    );
-                }
-            });
-            $('.ico_plsmns').each(function(){
-                $(this).on(myEvent, function(){
-                    $(this).toggleClass('opened-slide');
-                    $(this).prev().toggleClass('opened-slide');
-                    let myNavlst = $(this).prev();
-                    let mbleHght = $(this).height();
-                    let mbleLeng = $(this).prev().children().eq(1).children().length;
-                    let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                    $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
-                    myNavlst.toggleClass('hover');
-                    if($(this).hasClass('opened-slide')){
-                        myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
-                        if($('.hover')!== myNavlst){
-                            $('.hover').not(myNavlst).css({ height : mbleHght }).removeClass('hover');
-                            $('.opened-slide').not(this).removeClass('opened-slide');
-                        }
-                    } else {
-                        myNavlst.css({ height : mbleHght, overflow : 'hidden' });
-                    }
-                });
-        });
+        function(){
+            hamburgerMenu();
+        };
     }
 };
 
