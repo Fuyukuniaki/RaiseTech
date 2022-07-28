@@ -204,7 +204,7 @@ body {
   }
 }
 @media only screen and (max-width: 1200px) {
-  .header_nav-list-txt:hover, .header_nav-list-txt.hover {
+  .header_nav-list-txt.hover {
     background: #F3FAFB;
     -webkit-tap-highlight-color: transparent;
   }
@@ -411,14 +411,18 @@ body {
   font-size: 1.2rem;
   padding: 0 1rem;
 }
+.header_nav-link-txt:hover {
+  background: #D4F1F8;
+}
 @media only screen and (max-width: 1200px) {
   .header_nav-link-txt {
     line-height: 50px;
     font-weight: 50px;
   }
-}
-.header_nav-link-txt:hover {
-  background: #D4F1F8;
+  .header_nav-link-txt:hover {
+    width: 100vw;
+    background: #F3FAFB;
+  }
 }
 @media only screen and (max-width: 1200px) {
   .header_nav-link.sign_up {
@@ -768,7 +772,7 @@ body {
   .main_icon- {
     display: flex;
     flex-wrap: wrap;
-    width: calc(200px + 2rem);
+    width: calc(33.3333333333vw - 2rem);
     font-weight: 900;
     margin: 0 4.5rem;
     margin-top: 0;
