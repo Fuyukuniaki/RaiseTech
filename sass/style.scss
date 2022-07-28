@@ -214,7 +214,7 @@ body {
                 height: $mblHeight;
                 line-height: $mblHeight;
                 overflow: hidden;
-                transition: height .3s;
+                transition: height 250ms;
                 &:hover, &.hover{
                     background: $baseWhite;
                     -webkit-tap-highlight-color: transparent;
@@ -614,7 +614,7 @@ body {
             border-radius: 10px;
             border: $baseWhite 2rem solid;
             box-sizing: border-box;
-            transition: width .3s;
+            transition: height .3s;
             &-img {
                 display: block;
                 figure {
@@ -761,7 +761,7 @@ body {
                 border-radius: 10px;
                 border: $baseWhite 2rem solid;
                 box-sizing: border-box;
-                transition: width .3s;
+                transition: height .3s;
                 &-img {
                     display: block;
                     figure {
@@ -860,7 +860,7 @@ body {
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position: center center;
-        background-size: cover;
+        background-size: auto 300px;
         &_window {
             display: flex;
             justify-content: center;
@@ -870,7 +870,7 @@ body {
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
             background-position: center center;
-            background-size: cover;
+            background-size: auto 300px;
             &-img {
                 display: block;
                 height: $mainMblHgh;
@@ -878,7 +878,7 @@ body {
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
                 background-position: center -30px;
-                background-size: cover;
+                background-size: auto 300px;
             }
         }
         &_article {
@@ -898,7 +898,7 @@ body {
                 border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
-                transition: width .3s;
+                transition: height .3s;
                 &-img {
                     display: none;
                     height: 4rem;
@@ -990,7 +990,7 @@ body {
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position: center center;
-        background-size: cover;
+        background-size: auto 300px;
         &_window {
             display: flex;
             justify-content: center;
@@ -1000,15 +1000,15 @@ body {
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
             background-position: center center;
-            background-size: cover;
+            background-size: auto 300px;
             &-img {
                 display: block;
                 height: $mainMblHgh;
                 aspect-ratio: 2000 / 800;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center 0;
-                background-size: cover;
+                background-position: center -30px;
+                background-size: auto 300px;
             }
         }
         &_article {
@@ -1028,7 +1028,7 @@ body {
                 border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
-                transition: width .3s;
+                transition: height .3s;
                 &-img {
                     display: none;
                     height: 4rem;
@@ -1117,7 +1117,7 @@ body {
         background-image: url('/image/main-bg-3.png');
         background-attachment: fixed;
         background-position: center center;
-        background-size: cover;
+        background-size: auto 300px;
         &_window {
             display: flex;
             justify-content: center;
@@ -1127,15 +1127,15 @@ body {
             background-image: url('/image/main-bg-2.png');
             background-attachment: scroll;
             background-position: center center;
-            background-size: cover;
+            background-size: auto 300px;
             &-img {
                 height: $mainMblHgh;
                 aspect-ratio: 2000 / 800;
                 display: block;
                 background-image: url('/image/main-bg-1.png');
                 background-attachment: scroll;
-                background-position: center center;
-                background-size: cover;
+                background-position: center -30px;
+                background-size: auto 300px;
             }    
         }
         &_article {
@@ -1155,7 +1155,7 @@ body {
                 border-radius: 0;
                 border: $baseWhite 1rem solid;
                 box-sizing: border-box;
-                transition: width .3s;
+                transition: height .3s;
                 &-img {
                     display: none;
                     height: 4rem;
