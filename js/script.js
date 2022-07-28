@@ -60,6 +60,7 @@ function hamburgerMenu(){
                     );
             }
         });
+        $('nav a:first-of-type:not(:only-child)').addClass('slide-link');
         $('.ico_plsmns').each(function(){
             $(this).off(ohEvent);
             $(this).on(ohEvent, function(){
@@ -69,21 +70,23 @@ function hamburgerMenu(){
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
                 if( myNavlst.css('overflow') == 'hidden' ){
                     $(this).addClass('opened-slide');
-                    myNavlst.addClass('opened-slide hover');
-                    $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
+                    myNavlst.addClass('opened-slide');
+                    myNavlst.find('.slide-link').addClass('hover');
                     myNavlst.css({ overflow:'visible' }).animate({ 'height' : myLnkHgt }, 200);
-                    if($('.hover')!== myNavlst){
-                        $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
-                        $('.opened-slide').not(this).removeClass('opened-slide');
+                    if( $('.opened-slide')!== myNavlst && $('.opened-slide')!== $(this) ){
+                        $('.opened-slide').not($(this)&&myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
+                    }
+                    if( $('.hover')!== myNavlst.find('.slide-link') ){
+                        $('.hover').not(myNavlst.find('.slide-link')).removeClass('hover');
                     }
                 } else {
                     myNavlst.css({ height : mbleHght, overflow : 'hidden' });
                     $(this).removeClass('opened-slide');
-                    $(this).prev().removeClass('opened-slide');
+                    myNavlst.removeClass('opened-slide');
+                    myNavlst.find('.slide-link').removeClass('hover');
                 }
             });
         });
-        $('nav a:first-of-type:not(:only-child)').addClass('slide-link');
         $('.slide-link').each(function(){
             $(this).off(ohEvent);
             $(this).on( ohEvent, function(){
@@ -92,18 +95,18 @@ function hamburgerMenu(){
                 let mbleLeng = myParent.children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
                 if( myParent.css('overflow') == 'hidden' ){
-                    myParent.addClass('hover');
-                    $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
-                    $('.opened-slide').not(myParent).removeClass('opened-slide');
+                    myParent.find('.slide-link').addClass('hover');
+                    $('.opened-slide').not(myParent).removeClass('opened-slide').css({ height : mbleHght, overflow : 'hidden' });
                     myParent.css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
-                    if($('.hover') !== myParent){
-                        $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
+                    if($('.hover') !== myParent.find('.slide-link')){
+                        $('.hover').not(myParent.find('.slide-link')).removeClass('hover');
                         $('.opened-slide').not(myParent).removeClass('opened-slide');
                     }
                     myParent.addClass('opened-slide');
                     myParent.next().addClass('opened-slide');
-                } else {console.log('ここまで');
+                } else {
                     myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
+                    myParent.find('.slide-link').removeClass('hover');
                     myParent.next('.ico_plsmns').removeClass('opened-slide');
                     }
             });
@@ -112,10 +115,12 @@ function hamburgerMenu(){
         $('.submenu-link').each(function(){
             $(this).off(ohEvent);
             $(this).on( ohEvent, function(){
+                if($('.slide-link').hasClass('hover')){
+                    $('.slide-link').removeClass('hover');
+                }
                 if($(this).hasClass('hover')){
                     $(this).removeClass('hover');
                 } else {
-                    $('.opened-slide').removeClass('hover');
                     $(this).addClass('hover');
                 }
             });

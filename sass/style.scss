@@ -262,7 +262,6 @@ body {
                         opacity: 1;
                         background: $baseWhite;
                     }
-                
                 }
             }
             &.hover {
@@ -298,6 +297,9 @@ body {
                 font-size: 1.2rem;
                 padding: 0 1rem;
                 z-index: 9999;
+                &.hover {
+                    background: $navListCol;
+                }
             }
             &-sub {
                 display: flex;
@@ -402,27 +404,40 @@ body {
                         line-height: $mblHeight;
                         width: calc( 100vw - $mblHeight );
                         padding: 0;
-                        &:hover {
-                            background: $navListCol;
-                            &::after {
-                                position: absolute;
-                                content: "";
-                                width: 50px;
-                                height: 50px;
-                                top: 0;
-                                right: -50px;
-                                background: $navListCol;
-                            }
-                        }
                         &-tag {
+                            display: block;
                             font-size: 1.2rem;
                             font-weight: $textWeight - 300;
                             padding: 0 0 0 2rem;
+                            width: calc( 100vw - $mblHeight );
                             height: $mblHeight;
                             line-height: $mblHeight;
-                        }
-                        &:hover > .header_nav-list-sub-link-tag {
-                            color: $textColor;
+                            &:hover {
+                                background: $navListCol;
+                                color: $textColor;
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 50px;
+                                    height: 50px;
+                                    top: 0;
+                                    right: -50px;
+                                    background: $navListCol;
+                                }
+                            }
+                            &.hover {
+                                background: $navListCol;
+                                color: $textColor;
+                                &::after {
+                                    position: absolute;
+                                    content: "";
+                                    width: 50px;
+                                    height: 50px;
+                                    top: 0;
+                                    right: -50px;
+                                    background: $navListCol;
+                                }
+                            }
                         }
                     }
                 }
