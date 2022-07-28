@@ -153,26 +153,18 @@ function scriptRT(){
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
     } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
         $('*').removeAttr('style');
-        function(){
-            hamburgerMenu();
-        };
+        hamburgerMenu();
     } else if (window.matchMedia("(min-width: 376px)").matches && window.matchMedia("(max-width: 767px)").matches) {
         $('*').removeAttr('style');
-        function(){
-            hamburgerMenu();
-        };
+        hamburgerMenu();
 
     } else if( window.matchMedia("(max-width: 375px)").matches ){
         $('*').removeAttr('style');
-        function(){
-            hamburgerMenu();
-        };
+        hamburgerMenu();
 
     } else {
         $('*').removeAttr('style');
-        function(){
-            hamburgerMenu();
-        };
+ 
     }
 };
 
