@@ -93,22 +93,23 @@ function scriptRT(){
         $('.ico_plsmns').each(function(){
             $(this).off(ohEvent);
             $(this).on(ohEvent, function(){
-                $(this).toggleClass('opened-slide');
-                $(this).prev().toggleClass('opened-slide');
                 let myNavlst = $(this).prev();
                 let mbleHght = $(this).height();
                 let mbleLeng = $(this).prev().children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
-                myNavlst.toggleClass('hover');
-                if($(this).hasClass('opened-slide')){
-                    myNavlst.css('overflow','visible').animate({ 'height' : myLnkHgt }, 200);
+                if( myNavlst.css('overflow') == 'hidden' ){
+                    $(this).addClass('opened-slide');
+                    myNavlst.addClass('opened-slide hover');
+                    $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
+                    myNavlst.css({ overflow:'visible' }).animate({ 'height' : myLnkHgt }, 200);
                     if($('.hover')!== myNavlst){
-                        $('.hover').not(myNavlst).css({ height : mbleHght }).removeClass('hover');
+                        $('.hover').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                         $('.opened-slide').not(this).removeClass('opened-slide');
                     }
                 } else {
                     myNavlst.css({ height : mbleHght, overflow : 'hidden' });
+                    $(this).removeClass('opened-slide');
+                    $(this).prev().removeClass('opened-slide');
                 }
             });
         });
@@ -117,13 +118,11 @@ function scriptRT(){
             $(this).off(ohEvent);
             $(this).on( ohEvent, function(){
                 let myParent = $(this).parent();
-                myParent.toggleClass('opened-slide');
-                myParent.next().toggleClass('opened-slide');
-                myParent.toggleClass('hover');
                 let mbleHght = myParent.children().eq(0).height();
                 let mbleLeng = myParent.children().eq(1).children().length;
                 let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                if(myParent.hasClass('opened-slide')){
+                if( myParent.css('overflow') == 'hidden' ){
+                    myParent.addClass('hover');
                     $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('hover');
                     $('.opened-slide').not(myParent).removeClass('opened-slide');
                     myParent.css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
@@ -131,10 +130,12 @@ function scriptRT(){
                         $('.hover').not(myParent).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
                         $('.opened-slide').not(myParent).removeClass('opened-slide');
                     }
-                } else {
+                    myParent.addClass('opened-slide');
+                    myParent.next().addClass('opened-slide');
+                } else {console.log('ここまで');
                     myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
                     myParent.next('.ico_plsmns').removeClass('opened-slide');
-                }
+                    }
             });
         });
         $('nav a:last-child').addClass('submenu-link');

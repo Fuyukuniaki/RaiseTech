@@ -226,7 +226,7 @@ body {
                     background: $baseWhite;
                 }
             }
-            &-txt:hover, &-txt.hover{
+            &-txt.hover{
                 @include media {
                     background: $navListCol;
                     -webkit-tap-highlight-color: transparent;
@@ -440,12 +440,16 @@ body {
                 font-weight: $textWeight;
                 font-size: 1.2rem;
                 padding: 0 1rem;
+                &:hover {
+                    background: $navColour;
+                }
                 @include media {
                     line-height: $mblHeight;
                     font-weight: $mblHeight;
-                }
-                &:hover {
-                    background: $navColour;
+                    &:hover {
+                        width: 100vw;
+                        background: $navListCol;
+                    }
                 }
             }
         }
@@ -807,7 +811,7 @@ body {
             &-{
                 display: flex;
                 flex-wrap: wrap;
-                width:  calc($mainIconW * 2 + 2rem);
+                width:  calc(100vw / 3 - 2rem);
                 font-weight: $textWeight + 200;
                 margin: 0 4.5rem;
                 margin-top: 0;
