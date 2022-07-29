@@ -38,6 +38,7 @@ function hamburgerMenu(){
     $('nav').prepend("<div class='icon_hamburger'></div>");
         $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
         $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
+        $('.icon_hamburger-wrap').next().addClass('by-hamburger');
         $('.icon_hamburger-wrap').off(myEvent);
         $('.icon_hamburger-wrap').on(myEvent, function(){
             $(this).children('.icon_hamburger').toggleClass('opened-sub');
@@ -53,7 +54,7 @@ function hamburgerMenu(){
                     { maxHeight: myLnkHgt },
                     600);
             } else {
-                    $(this).next()
+                    $('.by-hamburger').not('.opened-sub')
                     .css( { display: 'none' } )
                     .animate(
                         { maxHeight: 0 },
