@@ -36,96 +36,99 @@ function scriptAll(){
 };
 function hamburgerMenu(){
     $('nav').prepend("<div class='icon_hamburger'></div>");
-        $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
-        $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
-        $('.icon_hamburger-wrap').next().addClass('by-hamburger');
-        $('.icon_hamburger-wrap').off(myEvent);
-        $('.icon_hamburger-wrap').on(myEvent, function(){
-            $(this).children('.icon_hamburger').toggleClass('opened-sub');
-            let mbleHght = $(this).height();
-            let mbleLeng = $(this).next().children().length;
-            let myLnkHgt = (mbleLeng + 1) * mbleHght;
-            $(this).toggleClass('opened-sub');
-            $(this).next().toggleClass('opened-sub');
-            if($(this).hasClass('opened-sub')){
-                $(this).next()
-                .css( { display: 'flex' } )
+    $('.icon_hamburger').wrap('<div class="icon_hamburger-wrap"></div>');
+    $('nav').find('a:not(:only-child)').parent().each(function(){$(this).after("<li class='ico_plsmns'></li>")});
+    $('nav').find('a:not(:only-child)').parent().parent().addClass('by-hamburger');
+    $('.icon_hamburger-wrap').off(myEvent);
+    $('.icon_hamburger-wrap').on(myEvent, function(){
+        $(this).children('.icon_hamburger').toggleClass('opened-sub');
+        let mbleHght = $(this).height();
+        let mbleLeng = $(this).next().children().length;
+        let myLnkHgt = (mbleLeng + 1) * mbleHght;
+        $(this).toggleClass('opened-sub');
+        $(this).next().toggleClass('opened-sub');
+        if($(this).hasClass('opened-sub')){
+            $(this).next()
+            .css( { display: 'flex' } )
+            .animate(
+                { maxHeight: myLnkHgt },
+                600);
+        } else {
+                $('.by-hamburger')
+                .css( { display: 'none' } )
                 .animate(
-                    { maxHeight: myLnkHgt },
-                    600);
+                    { maxHeight: 0 },
+                );
+        }
+    });
+    $('nav a:first-of-type:not(:only-child)').addClass('slide-link');
+    $('.ico_plsmns').each(function(){
+        $(this).off(ohEvent);
+        $(this).on(ohEvent, function(){
+            let myNavlst = $(this).prev();
+            let mbleHght = $(this).height();
+            let mbleLeng = $(this).prev().children().eq(1).children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            if( myNavlst.css('overflow') == 'hidden' ){
+                $(this).addClass('this-is-minus');
+                myNavlst.addClass('opened-slide');
+                myNavlst.find('.slide-link').addClass('hover');
+                myNavlst.css({ overflow:'visible' }).animate({ 'height' : myLnkHgt }, 200);
+                if( $('.this-is-minus')!== $(this)){
+                    $('.this-is-minus').not($(this)).removeClass('this-is-minus');
+                }
+                if ($('.opened-slide')!== myNavlst ){
+                    $('.opened-slide').not(myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
+                }
+                if( $('.hover')!== myNavlst.find('.slide-link') ){
+                    $('.hover').not(myNavlst.find('.slide-link')).removeClass('hover');
+                }
             } else {
-                    $('.by-hamburger').not('.opened-sub')
-                    .css( { display: 'none' } )
-                    .animate(
-                        { maxHeight: 0 },
-                    );
+                myNavlst.css({ height : mbleHght, overflow : 'hidden' });
+                $(this).removeClass('this-is-minus');
+                myNavlst.removeClass('opened-slide');
+                myNavlst.find('.slide-link').removeClass('hover');
             }
         });
-        $('nav a:first-of-type:not(:only-child)').addClass('slide-link');
-        $('.ico_plsmns').each(function(){
-            $(this).off(ohEvent);
-            $(this).on(ohEvent, function(){
-                let myNavlst = $(this).prev();
-                let mbleHght = $(this).height();
-                let mbleLeng = $(this).prev().children().eq(1).children().length;
-                let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                if( myNavlst.css('overflow') == 'hidden' ){
-                    $(this).addClass('opened-slide');
-                    myNavlst.addClass('opened-slide');
-                    myNavlst.find('.slide-link').addClass('hover');
-                    myNavlst.css({ overflow:'visible' }).animate({ 'height' : myLnkHgt }, 200);
-                    if( $('.opened-slide')!== myNavlst && $('.opened-slide')!== $(this) ){
-                        $('.opened-slide').not($(this)&&myNavlst).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
-                    }
-                    if( $('.hover')!== myNavlst.find('.slide-link') ){
-                        $('.hover').not(myNavlst.find('.slide-link')).removeClass('hover');
-                    }
-                } else {
-                    myNavlst.css({ height : mbleHght, overflow : 'hidden' });
-                    $(this).removeClass('opened-slide');
-                    myNavlst.removeClass('opened-slide');
-                    myNavlst.find('.slide-link').removeClass('hover');
+    });
+    $('.slide-link').each(function(){
+        $(this).off(ohEvent);
+        $(this).on( ohEvent, function(){
+            let myParent = $(this).parent();
+            let mbleHght = myParent.children().eq(0).height();
+            let mbleLeng = myParent.children().eq(1).children().length;
+            let myLnkHgt = (mbleLeng + 1) * mbleHght;
+            if( myParent.css('overflow') == 'hidden' ){
+                myParent.find('.slide-link').addClass('hover');
+                $('.opened-slide').not(myParent).removeClass('opened-slide').css({ height : mbleHght, overflow : 'hidden' });
+                myParent.css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
+                if($('.hover') !== myParent.find('.slide-link')){
+                    $('.hover').not(myParent.find('.slide-link')).removeClass('hover');
+                    $('.opened-slide').not(myParent).removeClass('opened-slide');
                 }
-            });
-        });
-        $('.slide-link').each(function(){
-            $(this).off(ohEvent);
-            $(this).on( ohEvent, function(){
-                let myParent = $(this).parent();
-                let mbleHght = myParent.children().eq(0).height();
-                let mbleLeng = myParent.children().eq(1).children().length;
-                let myLnkHgt = (mbleLeng + 1) * mbleHght;
-                if( myParent.css('overflow') == 'hidden' ){
-                    myParent.find('.slide-link').addClass('hover');
-                    $('.opened-slide').not(myParent).removeClass('opened-slide').css({ height : mbleHght, overflow : 'hidden' });
-                    myParent.css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
-                    if($('.hover') !== myParent.find('.slide-link')){
-                        $('.hover').not(myParent.find('.slide-link')).removeClass('hover');
-                        $('.opened-slide').not(myParent).removeClass('opened-slide');
-                    }
-                    myParent.addClass('opened-slide');
-                    myParent.next().addClass('opened-slide');
-                } else {
-                    myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
-                    myParent.find('.slide-link').removeClass('hover');
-                    myParent.next('.ico_plsmns').removeClass('opened-slide');
-                    }
-            });
-        });
-        $('nav a:last-child').addClass('submenu-link');
-        $('.submenu-link').each(function(){
-            $(this).off(ohEvent);
-            $(this).on( ohEvent, function(){
-                if($('.slide-link').hasClass('hover')){
-                    $('.slide-link').removeClass('hover');
+                myParent.addClass('opened-slide');
+                myParent.next().addClass('opened-slide');
+            } else {
+                myParent.css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide hover');
+                myParent.find('.slide-link').removeClass('hover');
+                myParent.next('.ico_plsmns').removeClass('opened-slide');
                 }
-                if($(this).hasClass('hover')){
-                    $(this).removeClass('hover');
-                } else {
-                    $(this).addClass('hover');
-                }
-            });
         });
+    });
+    $('nav a:last-child').addClass('submenu-link');
+    $('.submenu-link').each(function(){
+        $(this).off(ohEvent);
+        $(this).on( ohEvent, function(){
+            if($('.slide-link').hasClass('hover')){
+                $('.slide-link').removeClass('hover');
+            }
+            if($(this).hasClass('hover')){
+                $(this).removeClass('hover');
+            } else {
+                $(this).addClass('hover');
+            }
+        });
+    });
 };
 
 function scriptRT(){
@@ -173,6 +176,7 @@ function scriptRT(){
  
     }
 };
+
 
 $(document).ready(function(){
     scriptAll();
