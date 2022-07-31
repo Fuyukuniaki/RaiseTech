@@ -210,7 +210,7 @@ body {
                 flex-wrap: wrap;
                 top: 0;
                 left: 0;
-                width: calc( 100vw - $mblHeight );
+                width: 100vw;
                 height: $mblHeight;
                 line-height: $mblHeight;
                 overflow: hidden;
@@ -289,13 +289,14 @@ body {
                 z-index: 9999;
                 overflow-x: hidden;
                 @include media {
-                display: inline-block;
+                display: flex;
+                justify-content: space-between;
                 height: $mblHeight;
                 line-height: $mblHeight;
                 font-weight: $textWeight;
-                width: calc( 100vw - $mblHeight );
+                width: 100vw;
                 font-size: 1.2rem;
-                padding: 0 1rem;
+                padding: 0 0 0 1rem;
                 z-index: 9999;
                 &.hover {
                     background: $navListCol;
@@ -326,12 +327,12 @@ body {
         }
     }
         @include media {
-            .ico_plsmns {
+            .icon_plsmns {
                 display: block;
                 position: relative;
                 width: $mblHeight;
                 height: $mblHeight;
-                margin: 0 auto auto auto;
+                margin: 0;
                 &::before {
                     content: "";
                     position: absolute;
@@ -352,7 +353,7 @@ body {
                     height: 2rem;
                     margin: -1rem auto 0 auto;
                 }
-                &.this-is-minus {
+                &.js-plsmns--mns {
                     display: block;
                     position: relative;
                     width: $mblHeight;
@@ -402,14 +403,14 @@ body {
                         height: $mblHeight;
                         position: relative;
                         line-height: $mblHeight;
-                        width: calc( 100vw - $mblHeight );
+                        width: 100vw;
                         padding: 0;
                         &-tag {
                             display: block;
                             font-size: 1.2rem;
                             font-weight: $textWeight - 300;
                             padding: 0 0 0 2rem;
-                            width: calc( 100vw - $mblHeight );
+                            width: 100vw;
                             height: $mblHeight;
                             line-height: $mblHeight;
                             &:hover {
@@ -460,7 +461,8 @@ body {
                 }
                 @include media {
                     line-height: $mblHeight;
-                    font-weight: $mblHeight;
+                    font-weight: $textWeight;
+                    width: 100vw;
                     &:hover {
                         width: 100vw;
                         background: $navListCol;

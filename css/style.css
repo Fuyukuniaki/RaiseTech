@@ -184,7 +184,7 @@ body {
     flex-wrap: wrap;
     top: 0;
     left: 0;
-    width: calc(100vw - 50px);
+    width: 100vw;
     height: 50px;
     line-height: 50px;
     overflow: hidden;
@@ -264,13 +264,14 @@ body {
 }
 @media only screen and (max-width: 1200px) {
   .header_nav-list-txt {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
     height: 50px;
     line-height: 50px;
     font-weight: 700;
-    width: calc(100vw - 50px);
+    width: 100vw;
     font-size: 1.2rem;
-    padding: 0 1rem;
+    padding: 0 0 0 1rem;
     z-index: 9999;
   }
   .header_nav-list-txt.hover {
@@ -299,14 +300,14 @@ body {
   color: #2498B3;
 }
 @media only screen and (max-width: 1200px) {
-  .header_nav .ico_plsmns {
+  .header_nav .icon_plsmns {
     display: block;
     position: relative;
     width: 50px;
     height: 50px;
-    margin: 0 auto auto auto;
+    margin: 0;
   }
-  .header_nav .ico_plsmns::before {
+  .header_nav .icon_plsmns::before {
     content: "";
     position: absolute;
     top: 0.6rem;
@@ -316,7 +317,7 @@ body {
     height: 2rem;
     margin: -1rem auto 0 auto;
   }
-  .header_nav .ico_plsmns::after {
+  .header_nav .icon_plsmns::after {
     content: "";
     position: absolute;
     top: 1.7rem;
@@ -326,14 +327,14 @@ body {
     height: 2rem;
     margin: -1rem auto 0 auto;
   }
-  .header_nav .ico_plsmns.this-is-minus {
+  .header_nav .icon_plsmns.js-plsmns--mns {
     display: block;
     position: relative;
     width: 50px;
     height: 50px;
     background: #F7F7F7;
   }
-  .header_nav .ico_plsmns.this-is-minus::before {
+  .header_nav .icon_plsmns.js-plsmns--mns::before {
     content: "";
     position: absolute;
     top: 0.6rem;
@@ -343,7 +344,7 @@ body {
     height: 2rem;
     margin: -1rem auto 0 auto;
   }
-  .header_nav .ico_plsmns.this-is-minus::after {
+  .header_nav .icon_plsmns.js-plsmns--mns::after {
     content: "";
     position: absolute;
     top: 1.7rem;
@@ -375,7 +376,7 @@ body {
     height: 50px;
     position: relative;
     line-height: 50px;
-    width: calc(100vw - 50px);
+    width: 100vw;
     padding: 0;
   }
   .header_nav-list .header_nav-list-sub-link-tag, .header_nav-link .header_nav-list-sub-link-tag {
@@ -383,7 +384,7 @@ body {
     font-size: 1.2rem;
     font-weight: 400;
     padding: 0 0 0 2rem;
-    width: calc(100vw - 50px);
+    width: 100vw;
     height: 50px;
     line-height: 50px;
   }
@@ -433,7 +434,8 @@ body {
 @media only screen and (max-width: 1200px) {
   .header_nav-link-txt {
     line-height: 50px;
-    font-weight: 50px;
+    font-weight: 700;
+    width: 100vw;
   }
   .header_nav-link-txt:hover {
     width: 100vw;
