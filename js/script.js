@@ -40,6 +40,7 @@ function hamburgerMenu(){
     $('nav').find('a:not(:only-child)').each(function(){$(this).append("<span class='icon_plsmns'></span>")});
     $('nav:first-of-type > ul:first-of-type').addClass('js-hamburger__toplist');
     $('nav a:first-of-type:not(:only-child)').addClass('slide-link');
+    $('nav a:first-of-type:not(:only-child)').next().addClass('js-hamburger__wrapper');
     $('nav a:last-child').addClass('submenu-link');
     $('.icon_hamburger-wrap').off(myEvent);
     $('.icon_hamburger-wrap').on(myEvent, function(){
@@ -78,35 +79,40 @@ function hamburgerMenu(){
             if($('.hover') !== $(this).find('.slide-link')){
                 $('.hover').not($(this).find('.slide-link')).removeClass('hover');
             }
+            $('.js-hamburger__parent').each(function(){
+                $(this).off(ohEvent);
+                $(this).on( ohEvent, function(){
+                    if( $(this).css('overflow') == 'hidden' ){
+                        $('.js-hamburger__toplist').css({ maxHeight : menuHght });
+                        $(this).find('.icon_plsmns').addClass('js-plsmns--mns');
+                        $(this).children('.js-hamburger__wrapper').css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
+                        $(this).addClass('opened-slide');
+                        if($('.js-hamburger__toplist') !== $(this) ){
+                            $('.js-hamburger__toplist').not($(this)).removeClass('js-hamburger__toplist');
+                        }
+                        if($('.js-plsmns--mns') !== $(this).find('.icon_plsmns')){
+                            $('.js-plsmns--mns').not($(this).find('.icon_plsmns')).removeClass('js-plsmns--mns');
+                        }
+                        if( $('.opened-slide') !== $(this) ){
+                            $('.opened-slide').not($(this)).removeClass('opened-slide').css({ height : mbleHght, overflow : 'hidden' });
+                        }
+                    } else {
+                        $('.js-hamburger__toplist').css({ maxHeight : defoHght }).removeClass('js-hamburger__toplist');
+                        $(this).attr('style', '').removeClass('opened-slide');
+                        $(this).find('.icon_plsmns').removeClass('js-plsmns--mns');    
+                    }
+                });
+                $('.js-hamburger__parent').on(levEvent, function(){
+                    $('.js-hamburger__toplist').css({ maxHeight : defoHght }).removeClass('js-hamburger__toplist');
+                    $(this).attr('style', '').removeClass('opened-slide');
+                    $(this).find('.icon_plsmns').removeClass('js-plsmns--mns');
+                });
+            });
         });
-        $('.js-hamburger__parent').off(ohEvent);
-        $('.js-hamburger__parent').on( ohEvent, function(){
-            if( $(this).css('overflow') == 'hidden' ){
-                $('.js-hamburger__toplist').css({ maxHeight : menuHght });
-                $(this).find('.icon_plsmns').addClass('js-plsmns--mns');
-                $(this).css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
-                $(this).addClass('opened-slide');
-                if($('.js-hamburger__toplist') !== $(this) ){
-                    $('.js-hamburger__toplist').not($(this)).removeClass('js-hamburger__toplist');
-                }
-                if($('.js-plsmns--mns') !== $(this).find('.icon_plsmns')){
-                    $('.js-plsmns--mns').not($(this).find('.icon_plsmns')).removeClass('js-plsmns--mns');
-                }
-                if( $('.opened-slide') !== $(this) ){
-                    $('.opened-slide').not($(this)).removeClass('opened-slide').css({ height : mbleHght, overflow : 'hidden' });
-                }
-            } else {
-                $('.js-hamburger__toplist').css({ maxHeight : defoHght }).removeClass('js-hamburger__toplist');
-                $(this).attr('style', '').removeClass('opened-slide');
-                $(this).find('.icon_plsmns').removeClass('js-plsmns--mns');    
-            }
+            $(this).on( levEvent, function(){
+                $('.js-hamburger__wrapper').attr('style','').removeClass('js-hamburger__wrapper');
+            });
         });
-        $('.js-hamburger__parent').on(levEvent, function(){
-            $('.js-hamburger__toplist').css({ maxHeight : defoHght }).removeClass('js-hamburger__toplist');
-            $(this).attr('style', '').removeClass('opened-slide');
-            $(this).find('.icon_plsmns').removeClass('js-plsmns--mns');
-        });
-    });
     $('.submenu-link').each(function(){
         $(this).off(ohEvent);
         $(this).on( ohEvent, function(){
