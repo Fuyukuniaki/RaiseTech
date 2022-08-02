@@ -64,28 +64,31 @@ function hamburgerMenu(){
         }
     });
     $('.slide-link').each(function(){
-        let myParent = $(this).parent();
-        let mbleHght = myParent.children().eq(0).height();
-        let mbleLeng = myParent.children().eq(1).children().length;
+        $(this).parent().addClass('js-hamburger__parent');
+        let mbleHght = $('.js-hamburger__parent').children().eq(0).height();
+        let mbleLeng = $('.js-hamburger__parent').children().eq(1).children().length;
         let menuLeng = $('.js-hamburger__toplist').children().length;
         let myLnkHgt = (mbleLeng + 1) * mbleHght;
         let menuHght = (mbleLeng + menuLeng ) * mbleHght;
         let defoHght = menuLeng * mbleHght;
         $(this).off();
         $(this).on( ohEvent, function(){
+            console.log($('.js-hamburger__parent').attr('class'));
             $(this).addClass('hover');
             if($('.hover') !== $(this).find('.slide-link')){
                 $('.hover').not($(this).find('.slide-link')).removeClass('hover');
             }
         });
-        $(myParent).off(ohEvent);
-        $(myParent).on( ohEvent, function(){
+        $('.js-hamburger__parent').off(ohEvent);
+        $('.js-hamburger__parent').on( ohEvent, function(){
             if( $(this).css('overflow') == 'hidden' ){
-                console.log($('.js-hamburger__toplist'));
                 $('.js-hamburger__toplist').css({ maxHeight : menuHght });
                 $(this).find('.icon_plsmns').addClass('js-plsmns--mns');
                 $(this).css({ overflow :'visible'}).animate({ 'height' : myLnkHgt }, 200);
                 $(this).addClass('opened-slide');
+                if($('.js-hamburger__toplist') !== $(this) ){
+                    $('.js-hamburger__toplist').not($(this)).removeClass('js-hamburger__toplist');
+                }
                 if($('.js-plsmns--mns') !== $(this).find('.icon_plsmns')){
                     $('.js-plsmns--mns').not($(this).find('.icon_plsmns')).removeClass('js-plsmns--mns');
                 }
@@ -93,14 +96,14 @@ function hamburgerMenu(){
                     $('.opened-slide').not($(this)).removeClass('opened-slide').css({ height : mbleHght, overflow : 'hidden' });
                 }
             } else {
-                $('.js-hamburger__toplist').css({ maxHeight : defoHght });
-                $(this).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
+                $('.js-hamburger__toplist').css({ maxHeight : defoHght }).removeClass('js-hamburger__toplist');
+                $(this).attr('style', '').removeClass('opened-slide');
                 $(this).find('.icon_plsmns').removeClass('js-plsmns--mns');    
             }
         });
-        $(myParent).on(levEvent, function(){
-            $('.js-hamburger__toplist').css({ maxHeight : defoHght });
-            $(this).css({ height : mbleHght, overflow : 'hidden' }).removeClass('opened-slide');
+        $('.js-hamburger__parent').on(levEvent, function(){
+            $('.js-hamburger__toplist').css({ maxHeight : defoHght }).removeClass('js-hamburger__toplist');
+            $(this).attr('style', '').removeClass('opened-slide');
             $(this).find('.icon_plsmns').removeClass('js-plsmns--mns');
         });
     });
@@ -178,6 +181,7 @@ $(document).ready(function(){
 });
 
 $(window).on('load resize', function(){
+    $('*').removeAttr('style');
     scriptAll();
     scriptRT();
 });
@@ -267,7 +271,6 @@ $(window).on('load resize', function(){
 
 //      if( $('.icon_hamburger-wrap').length > 0){
 //          for( let i = $('.icon_hamburger-wrap').length; i > 0; i-- ){
-//              console.log($('.icon_hamburger-wrap').length);
 //              $('.icon_hamburger-wrap').remove();
 //          }
 //          for( let i = $('.icon_plsmns').length; i > 0 ; i-- ){
