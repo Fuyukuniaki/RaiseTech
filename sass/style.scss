@@ -172,26 +172,29 @@ body {
                 padding: 0;
                 margin: 0;    
                 overflow: hidden;
-                height: auto;
+                height: 0;
                 max-height: 0;
                 line-height: $mblHeight;
                 z-index: -9999;
                 background: $baseWhite;
                 top: $mblHeight;
                 -webkit-tap-highlight-color: transparent;
-                &.opened-wrap {
+                transition: all 1s;
+                &.js-hamburger__toplist--open {
+                    position: absolute;
                     display: flex;
-                    opacity: 1;
                     flex-wrap: wrap;
                     justify-content: space-between;
                     width: 100vw;
-                    position: absolute;
                     overflow: hidden;
                     height: auto;
+                    max-height: 9999px;
                     line-height: $mblHeight;
                     z-index: -9999;
                     background: $baseWhite;
                     top: $mblHeight;
+                    -webkit-tap-highlight-color: transparent;
+                    transition: all 1s;
                 }
             }
         }
@@ -215,7 +218,9 @@ body {
                 line-height: $mblHeight;
                 overflow: hidden;
                 transition: height 250ms;
-                &:hover, &.hover{
+                &:hover, &.js-hamburger__parent{
+                    overflow: visible;
+                    height: auto;
                     background: $baseWhite;
                     -webkit-tap-highlight-color: transparent;
                 }
@@ -296,9 +301,9 @@ body {
                 font-weight: $textWeight;
                 width: 100vw;
                 font-size: 1.2rem;
-                padding: 0 0 0 1rem;
+                padding: 0 $mblHeight 0 1rem;
                 z-index: 9999;
-                &.hover {
+                &.js-hamburger__sublist--open {
                     background: $navListCol;
                 }
             }
@@ -327,12 +332,12 @@ body {
         }
     }
         @include media {
-            .icon_plsmns {
+            .icon-plsmns {
                 display: block;
                 position: relative;
                 width: $mblHeight;
                 height: $mblHeight;
-                margin: 0;
+                margin: 0 0 -$mblHeight 0;
                 &::before {
                     content: "";
                     position: absolute;
@@ -383,7 +388,7 @@ body {
             }
         }
         &-list {
-            &-sub.close {
+            &:not[class='js-hamburger__parent--open'] {
                 display: none;
             }
             & &-sub {
@@ -487,7 +492,7 @@ body {
 }
 
 @include media {
-    .icon_hamburger-wrap {
+    .icon-hamburger--wrap {
         opacity: 1;
         display: flex;
         justify-content: center;
@@ -502,12 +507,12 @@ body {
         top: 0;
         bottom: 0;
         transition: all 0.2s;
-        &.opened-sub {
-            @extend .icon_hamburger-wrap;
+        &.js-hamburger--wrap--open {
+            @extend .icon-hamburger--wrap;
             background: $nvHovColor;
             transition: all 0.2s;
         }
-        .icon_hamburger{
+        .icon-hamburger {
             display: block;
             position: absolute;
             right: 1rem;
@@ -535,7 +540,7 @@ body {
                 border-bottom: $nvHovColor 0.2rem solid;
                 transition: all 0.2s;
             }
-            &.opened-sub {
+            &.icon-hamburger--open {
                 display: block;
                 position: absolute;
                 right: 0;
