@@ -23,7 +23,7 @@ function scriptAll(){
     let touch_points = navigator.maxTouchPoints;
     if( touch_event !== undefined && 0 < touch_points ) {
         // タッチ対応端末の処理が入る
-        myEvent = 'touchstart';
+        myEvent = 'click';
         ohEvent = 'touchstart';
         levEvent= 'touchend touchmove';
 
@@ -35,80 +35,57 @@ function scriptAll(){
     }
 };
 function hamburgerMenu(){
-    $('nav').prepend("<div class='icon-hamburger'></div>");
+    $('nav').prepend("<span class='icon-hamburger'></span>");
     $('.icon-hamburger').wrap('<div class="icon-hamburger--wrap"></div>');
     $('nav').find('a:not(:only-child)').each(function(){$(this).append("<span class='icon-plsmns'></span>")});
     $('nav:first-of-type > ul:first-of-type').addClass('js-hamburger__toplist');
     $('nav a:first-of-type:not(:only-child)').addClass('js-hamburger__sublist');
     $('nav a:first-of-type:not(:only-child)').next().addClass('js-hamburger__btmlist');
     $('nav a:last-child').addClass('js-hamburger__sublist');
-    $('.icon-hamburger--wrap').off(myEvent);
+
     $('.icon-hamburger--wrap').on(myEvent, function(){
         $(this).toggleClass('js-hamburger--wrap--open');
-        $(this).children('.icon-hamburger').toggleClass('icon-hamburger--open');
-        $('.js-hamburger__toplist').toggleClass('js-hamburger__toplist--open');
         if($(this).hasClass('js-hamburger--wrap--open')){
+            $(this).children('.icon-hamburger').addClass('icon-hamburger--open');
             $(this).next().addClass('js-hamburger__toplist--open');
         } else {
+            $(this).children('.icon-hamburger').removeClass('icon-hamburger--open');
             $(this).next().removeClass('js-hamburger__toplist--open');
         }
     });
-    $('.js-hamburger__sublist').each(function(){
-        $(this).off();
-        $(this).parent().on( ohEvent, function(){
-            $(this).addClass('js-hamburger__parent');
-            if( $(this).hasClass('js-hamburger__parent') ){
-                $(this).parent().addClass('js-hamburger__wrapper');
+    $('.js-hamburger__sublist').parent().each(function(){
+        $(this).off(myEvent);
+        $(this).on(myEvent, function(){
+            $(this).toggleClass('js-hamburger__parent');
+            if($(this).hasClass('js-hamburger__parent')){
+                $(this).addClass('js-hamburger__parent--open');
+                $(this).find('.js-hamburger__btmlist').addClass('js-hamburger__btmlist--open');
                 $(this).find('.icon-plsmns').addClass('js-plsmns--mns');
+                $('.js-hamburger__parent').not(this).removeClass('js-hamburger__parent--open');
+                $('.js-hamburger__btmlist--open').not($(this).find('.js-hamburger__btmlist')).removeClass('js-hamburger__btmlist--open')
+                $('.js-plsmns--mns').not($(this).find('.icon-plsmns')).removeClass('js-plsmns--mns');
+            } else {
+                $(this).removeClass('js-hamburger__parent--open');
+                $(this).find('.js-hamburger__btmlist').removeClass('js-hamburger__btmlist--open');
+                $(this).find('.icon-plsmns').removeClass('js-plsmns--mns');
             }
         });
-        $(this).parent().on( levEvent, function(){
-            $(this).removeClass('js-hamburger__parent');
-            $('.js-hamburger__wrapper').removeClass('js-hamburger__wrapper');
-            $(this).find('.icon-plsmns').removeClass('js-plsmns--mns');
+    });
+    $('.js-hamburger__sublist').each(function(){
+        $(this).off(ohEvent);
+        $(this).on( ohEvent, function(){
+            $(this).addClass('js-hamburger__sublist--open');
+            $('.js-hamburger__parent--open').removeClass('js-hamburger__parent--open js-hamburger__btmlist');
         });
+        $(this).off(levEvent);
+        $(this).on( levEvent, function(){
+            $(this).removeClass('js-hamburger__sublist--open');
         });
-        $('.js-hamburger__sublist').each(function(){
-            $(this).off(ohEvent);
-            $(this).on( ohEvent, function(){
-                $(this).addClass('js-hamburger__sublist--open');
-            });
-            $(this).off(levEvent);
-            $(this).on( levEvent, function(){
-                $(this).removeClass('js-hamburger__sublist--open');
-            });
-        });
-    // $('.js-hamburger__sublist').each(function(){
-    //     $(this).off(ohEvent);
-    //     $(this).on( ohEvent, function(){
-    //         if($('.js-hamburger__sublist--open').hasClass('js-humburger--hover')){
-    //             $('.js-hamburger__sublist--open').removeClass('js-humburger--hover');
-    //         }
-    //         if($('.js-hamburger__sublist--open').not(this).hasClass('js-humburger--hover')){
-    //             $('.js-hamburger__sublist--open').not(this).removeClass('js-humburger--hover');
-    //         }
-    //         if($(this).hasClass('js-humburger--hover').length == false ){
-    //             $(this).addClass('js-humburger--hover');
-    //         }
-    //     });
-    //     $(this).on(levEvent, function(){
-    //         if($(this).hasClass('js-humburger--hover')){
-    //             $(this).removeClass('js-humburger--hover');
-    //         }
-    //     });
-    // });
+    });
 };
 
 function scriptRT(){
     if(window.matchMedia("(min-width: 1201px)").matches){
-        $('*').removeAttr('style');
-        $('.js-hamburger__sublist--open').removeClass('js-hamburger__sublist--open');
-        $('.icon-hamburger--wrap').remove;
-        if($('.icon-plsmns').length < 1){
-            $('.js-humburger--hover').removeClass('js-humburger--hover');
-            $('.js-hamburger__parent--open').removeClass('js-hamburger__parent--open');
-            $('.icon-plsmns').remove();
-        }
         //---slideUp/slideDownここから-------------------------------------------------------------------------------
         let headerNavList = $('nav a:not(:only-child)').parent();
         headerNavList.each(function(){
@@ -128,20 +105,8 @@ function scriptRT(){
             );
         });
         //---ここまでslideUp/slideDown-------------------------------------------------------------------------------
-    } else if (window.matchMedia("(min-width: 768px)").matches && window.matchMedia("(max-width: 1200px)").matches) {
-        $('*').removeAttr('style');
+    } else if ( window.matchMedia("(max-width: 1200px)").matches ) {
         hamburgerMenu();
-    } else if (window.matchMedia("(min-width: 376px)").matches && window.matchMedia("(max-width: 767px)").matches) {
-        $('*').removeAttr('style');
-        hamburgerMenu();
-
-    } else if( window.matchMedia("(max-width: 375px)").matches ){
-        $('*').removeAttr('style');
-        hamburgerMenu();
-
-    } else {
-        $('*').removeAttr('style');
- 
     }
 };
 

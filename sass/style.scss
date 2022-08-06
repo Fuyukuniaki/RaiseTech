@@ -165,36 +165,24 @@ body {
             height: $headerHght;
             @include media {
                 position: absolute;
-                display: none;
+                display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
                 width: 100vw;
                 padding: 0;
                 margin: 0;    
                 overflow: hidden;
-                height: 0;
+                height: auto;
                 max-height: 0;
                 line-height: $mblHeight;
                 z-index: -9999;
                 background: $baseWhite;
                 top: $mblHeight;
                 -webkit-tap-highlight-color: transparent;
-                transition: all 1s;
+                transition: max-height .4s;
                 &.js-hamburger__toplist--open {
-                    position: absolute;
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-between;
-                    width: 100vw;
-                    overflow: hidden;
-                    height: auto;
-                    max-height: 9999px;
-                    line-height: $mblHeight;
-                    z-index: -9999;
-                    background: $baseWhite;
-                    top: $mblHeight;
-                    -webkit-tap-highlight-color: transparent;
-                    transition: all 1s;
+                    max-height: 100vh;
+                    transition: max-height .4s;
                 }
             }
         }
@@ -205,6 +193,9 @@ body {
             height: $headerHght;
             width: auto;
             transition: height .3s;
+            &:hover {
+                background: $navColour;
+            }
             @include media {
                 position: relative;
                 display: flex;
@@ -216,19 +207,22 @@ body {
                 width: 100vw;
                 height: $mblHeight;
                 line-height: $mblHeight;
+                max-height: $mblHeight;
                 overflow: hidden;
                 transition: height 250ms;
-                &:hover, &.js-hamburger__parent{
-                    overflow: visible;
+                &:hover {
                     height: auto;
                     background: $baseWhite;
                     -webkit-tap-highlight-color: transparent;
+                    max-height: 100vh;
+                    transition: max-height 250ms;
                 }
-            }
-            &:hover {
-                background: $navColour;
-                @include media {
-                    background: $baseWhite;
+                &.js-hamburger__parent--open {
+                    height: auto;
+                    background: $navListCol;
+                    -webkit-tap-highlight-color: transparent;
+                    max-height: 100vh;
+                    transition: max-height 250ms;
                 }
             }
             &-txt.hover{
@@ -244,7 +238,7 @@ body {
                 width: auto;
                 top: 70px;
                 left: 0;
-                max-height: 9999px;
+                max-height: 100vh;
                 overflow: hidden;
                 z-index: -1000;
                 &-link {
@@ -268,10 +262,6 @@ body {
                         background: $baseWhite;
                     }
                 }
-            }
-            &.hover {
-                @extend .header_nav-list;
-                position: relative;
             }
             &-sub.hover {
                 @extend .header_nav-list-sub;
@@ -388,25 +378,30 @@ body {
             }
         }
         &-list {
-            &:not[class='js-hamburger__parent--open'] {
-                display: none;
-            }
-            & &-sub {
-                @include media {
-                    opacity: 1;
-                    display: contents;
-                    position: relative;
+            @include media {
+                & &-sub {
+                    display: block;
+                    position: static;
                     flex-wrap: wrap;
                     top:  0;
                     left: 0;
                     width: 100vw;
-                    height: $mblHeight;
+                    height: 0;
+                    max-height: 0;
+                    line-height: 0;
                     overflow: hidden;
+                    z-index: 0;
+                    transition: max-height .6s ease-out;
+                    &.js-hamburger__btmlist--open{ 
+                        line-height: $mblHeight;
+                        height: auto;
+                        max-height: 100vh;
+                        transition: max-height .3s ease-in;
+                    }
                     &-link {
-                        opacity: 1;
                         display: block;
-                        height: $mblHeight;
                         position: relative;
+                        height: $mblHeight;
                         line-height: $mblHeight;
                         width: 100vw;
                         padding: 0;
@@ -416,32 +411,21 @@ body {
                             font-weight: $textWeight - 300;
                             padding: 0 0 0 2rem;
                             width: 100vw;
-                            height: $mblHeight;
-                            line-height: $mblHeight;
-                            &:hover {
-                                background: $navListCol;
-                                color: $textColor;
-                                &::after {
-                                    position: absolute;
-                                    content: "";
-                                    width: 50px;
-                                    height: 50px;
-                                    top: 0;
-                                    right: -50px;
+                            &.js-hamburger__sublist {
+                                height: $mblHeight;
+                                line-height: $mblHeight;
+                                &:hover {
                                     background: $navListCol;
-                                }
-                            }
-                            &.hover {
-                                background: $navListCol;
-                                color: $textColor;
-                                &::after {
-                                    position: absolute;
-                                    content: "";
-                                    width: 50px;
-                                    height: 50px;
-                                    top: 0;
-                                    right: -50px;
-                                    background: $navListCol;
+                                    color: $textColor;
+                                    &::after {
+                                        position: absolute;
+                                        content: "";
+                                        width: 50px;
+                                        height: 50px;
+                                        top: 0;
+                                        right: -50px;
+                                        background: $navListCol;
+                                    }
                                 }
                             }
                         }
@@ -468,6 +452,7 @@ body {
                     line-height: $mblHeight;
                     font-weight: $textWeight;
                     width: 100vw;
+                    height: $mblHeight;
                     &:hover {
                         width: 100vw;
                         background: $navListCol;
@@ -1308,8 +1293,8 @@ body {
         position: fixed;
         width: 10rem;
         height: 10rem;
-        top: 65vh;
-        left: 75vw;
+        top: 75vh;
+        left: 55vw;
         background: #A2D729;
         border-top: solid 1px #c1ff30;
         border-bottom: solid 3px #9AC33D;
