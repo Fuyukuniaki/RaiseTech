@@ -1,5 +1,5 @@
 function scriptAll(){
-    if( $('.icon-hamburger--wrap').length > 0){
+    if( $('.icon-hamburger--wrap').length > 0 ){
         $('.icon-hamburger--wrap').remove;
         for( let i = $('.icon-hamburger--wrap').length; i > 0; i-- ){
             $('.icon-hamburger--wrap').remove();
@@ -8,12 +8,21 @@ function scriptAll(){
             $('.icon-plsmns').remove();
         }
     }
-    if( $('.js-humburger--hover').length > 0 || $('.js-hamburger__parent--open').length > 0 ){
-        for( let i = $('.js-humburger--hover').length; i > 0; i-- ){
-            $('.js-humburger--hover').removeClass('js-humburger--hover');
+    if( $('.js-hamburger--wrap--open').length    > 0
+     || $('.js-hamburger__parent--open').length  > 0
+     || $('.js-hamburger__toplist--open').length > 0
+     || $('.js-hamburger__sublist--open').length > 0 ){
+        for( let i = $('.js-hamburger--wrap--open').length; i > 0; i-- ){
+            $('.js-hamburger--wrap--open').removeClass('js-hamburger--wrap--open');
         }
         for( let i = $('.js-hamburger__parent--open').length; i > 0; i-- ){
             $('.js-hamburger__parent--open').removeClass('js-hamburger__parent--open');
+        }
+        for( let i = $('.js-hamburger__toplist--open').length; i > 0; i-- ){
+            $('.js-hamburger__toplist--open').removeClass('js-hamburger__toplist--open');
+        }
+        for( let i = $('.js-hamburger__sublist--open').length; i > 0; i-- ){
+            $('.js-hamburger__sublist--open').removeClass('js-hamburger__sublist--open');
         }
         for( let i = $('.icon-plsmns').length; i > 0; i-- ){
             $('.icon-plsmns').remove();
@@ -24,7 +33,7 @@ function scriptAll(){
     if( touch_event !== undefined && 0 < touch_points ) {
         // タッチ対応端末の処理が入る
         myEvent = 'click';
-        ohEvent = 'touchstart';
+        ohEvent = 'click';
         levEvent= 'touchend touchmove';
 
     } else {
@@ -53,35 +62,62 @@ function hamburgerMenu(){
             $(this).next().removeClass('js-hamburger__toplist--open');
         }
     });
-    $('.js-hamburger__sublist').parent().each(function(){
-        $(this).off(myEvent);
-        $(this).on(myEvent, function(){
-            $(this).toggleClass('js-hamburger__parent');
-            if($(this).hasClass('js-hamburger__parent')){
-                $(this).addClass('js-hamburger__parent--open');
+    if( ohEvent == 'click' ){
+        $('.js-hamburger__sublist').parent().each(function(){
+            $(this).off(ohEvent);
+            $(this).on(ohEvent, function(){
+                $(this).toggleClass('js-hamburger__parent');
+                if($(this).hasClass('js-hamburger__parent')){
+                    $(this).addClass('js-hamburger__parent--open');
+                    $(this).find('.js-hamburger__btmlist').addClass('js-hamburger__btmlist--open');
+                    $(this).find('.icon-plsmns').addClass('js-plsmns--mns');
+                    $('.js-hamburger__parent').not(this).removeClass('js-hamburger__parent--open');
+                    $('.js-hamburger__btmlist--open').not($(this).find('.js-hamburger__btmlist')).removeClass('js-hamburger__btmlist--open')
+                    $('.js-plsmns--mns').not($(this).find('.icon-plsmns')).removeClass('js-plsmns--mns');
+                } else {
+                    $(this).removeClass('js-hamburger__parent--open');
+                    $(this).find('.js-hamburger__btmlist').removeClass('js-hamburger__btmlist--open');
+                    $(this).find('.icon-plsmns').removeClass('js-plsmns--mns');
+                }
+            });
+        });
+        $('.js-hamburger__sublist').each(function(){
+            $(this).off(ohEvent);
+            $(this).on( ohEvent, function(){
+                $(this).toggleClass('js-hamburger__sublist--open');
+                if($(this).hasClass('js-hamburger__sublist--open')){
+                    $('.js-hamburger__sublist--open').not(this).removeClass('js-hamburger__sublist--open');
+                }
+            });
+        });
+
+    } else {
+        $('.js-hamburger__sublist').parent().each(function(){
+            $(this).off(ohEvent);
+            $(this).on(ohEvent, function(){
                 $(this).find('.js-hamburger__btmlist').addClass('js-hamburger__btmlist--open');
                 $(this).find('.icon-plsmns').addClass('js-plsmns--mns');
-                $('.js-hamburger__parent').not(this).removeClass('js-hamburger__parent--open');
                 $('.js-hamburger__btmlist--open').not($(this).find('.js-hamburger__btmlist')).removeClass('js-hamburger__btmlist--open')
                 $('.js-plsmns--mns').not($(this).find('.icon-plsmns')).removeClass('js-plsmns--mns');
-            } else {
-                $(this).removeClass('js-hamburger__parent--open');
+            });
+            $(this).on(levEvent, function(){
                 $(this).find('.js-hamburger__btmlist').removeClass('js-hamburger__btmlist--open');
                 $(this).find('.icon-plsmns').removeClass('js-plsmns--mns');
-            }
+            });
         });
-    });
-    $('.js-hamburger__sublist').each(function(){
-        $(this).off(ohEvent);
-        $(this).on( ohEvent, function(){
-            $(this).addClass('js-hamburger__sublist--open');
-            $('.js-hamburger__parent--open').removeClass('js-hamburger__parent--open js-hamburger__btmlist');
+
+        $('.js-hamburger__sublist').each(function(){
+            $(this).off(ohEvent);
+            $(this).on( ohEvent, function(){
+                $(this).addClass('js-hamburger__sublist--open');
+                $('.js-hamburger__parent--open').removeClass('js-hamburger__parent--open js-hamburger__btmlist');
+            });
+            $(this).off(levEvent);
+            $(this).on( levEvent, function(){
+                $(this).removeClass('js-hamburger__sublist--open');
+            });
         });
-        $(this).off(levEvent);
-        $(this).on( levEvent, function(){
-            $(this).removeClass('js-hamburger__sublist--open');
-        });
-    });
+    }
 };
 
 function scriptRT(){

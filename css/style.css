@@ -194,7 +194,6 @@ body {
   }
   .header_nav-list.js-hamburger__parent--open, .js-hamburger__parent--open.header_nav-link {
     height: auto;
-    background: #F3FAFB;
     -webkit-tap-highlight-color: transparent;
     max-height: 100vh;
     transition: max-height 250ms;

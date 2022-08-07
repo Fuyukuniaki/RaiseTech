@@ -219,7 +219,7 @@ body {
                 }
                 &.js-hamburger__parent--open {
                     height: auto;
-                    background: $navListCol;
+                    // background: $navListCol;
                     -webkit-tap-highlight-color: transparent;
                     max-height: 100vh;
                     transition: max-height 250ms;
