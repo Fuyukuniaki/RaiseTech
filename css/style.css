@@ -165,7 +165,7 @@ body {
   height: 70px;
   width: auto;
   overflow-x: hidden;
-  transition: height 0.3s;
+  transition: height 250ms, line-height 250ms;
 }
 .header_nav-list:hover, .header_nav-link:hover {
   background: #D4F1F8;
@@ -184,7 +184,7 @@ body {
     line-height: 50px;
     max-height: 50px;
     overflow: hidden;
-    transition: height 250ms;
+    transition: height 250ms, line-height 250ms;
   }
   .header_nav-list:hover, .header_nav-link:hover {
     height: auto;
@@ -227,6 +227,7 @@ body {
   background: #E9F8FB;
   overflow-x: hidden;
   color: initial;
+  transition: height 250ms, line-height 250ms;
 }
 .header_nav-list-sub-link:hover {
   background: #FFF;
