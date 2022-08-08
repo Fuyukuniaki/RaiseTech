@@ -193,6 +193,7 @@ body {
             line-height: $headerHght;
             height: $headerHght;
             width: auto;
+            overflow: hidden;
             transition: height .3s;
             &:hover {
                 background: $navColour;
@@ -250,7 +251,8 @@ body {
                     font-weight: $textWeight - 200;
                     white-space: nowrap;
                     background: $navLinkCol;
-                    color: initial;                    
+                    overflow: hidden;
+                    color: initial;
                     &:hover{
                         @extend .header_nav-list-sub-link;
                         background: $baseWhite;
