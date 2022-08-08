@@ -164,7 +164,7 @@ body {
   line-height: 70px;
   height: 70px;
   width: auto;
-  overflow: hidden;
+  overflow-x: hidden;
   transition: height 0.3s;
 }
 .header_nav-list:hover, .header_nav-link:hover {
@@ -225,7 +225,7 @@ body {
   font-weight: 500;
   white-space: nowrap;
   background: #E9F8FB;
-  overflow: hidden;
+  overflow-x: hidden;
   color: initial;
 }
 .header_nav-list-sub-link:hover {
