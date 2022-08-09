@@ -193,7 +193,7 @@ body {
             line-height: $headerHght;
             height: $headerHght;
             width: auto;
-            overflow-x: hidden;
+            white-space: nowrap;
             transition: height 250ms, line-height 250ms;
             &:hover {
                 background: $navColour;
@@ -251,7 +251,6 @@ body {
                     font-weight: $textWeight - 200;
                     white-space: nowrap;
                     background: $navLinkCol;
-                    overflow-x: hidden;
                     color: initial;
                     transition: height 250ms, line-height 250ms;
                     &:hover{
@@ -286,7 +285,6 @@ body {
                 font-size: 1.2rem;
                 padding: 0 0.5rem;
                 z-index: 9999;
-                overflow-x: hidden;
                 @include media {
                 display: flex;
                 justify-content: space-between;
