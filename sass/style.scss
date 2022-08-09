@@ -193,8 +193,7 @@ body {
             line-height: $headerHght;
             height: $headerHght;
             width: auto;
-            overflow-x: hidden;
-            transition: height .3s;
+            transition: height 250ms, line-height 250ms;
             &:hover {
                 background: $navColour;
             }
@@ -211,7 +210,7 @@ body {
                 line-height: $mblHeight;
                 max-height: $mblHeight;
                 overflow: hidden;
-                transition: height 250ms;
+                transition: height 250ms, line-height 250ms;
                 &:hover {
                     height: auto;
                     background: $baseWhite;
@@ -241,7 +240,6 @@ body {
                 top: 70px;
                 left: 0;
                 max-height: 100vh;
-                overflow: hidden;
                 z-index: -1000;
                 &-link {
                     display: block;
@@ -251,8 +249,8 @@ body {
                     font-weight: $textWeight - 200;
                     white-space: nowrap;
                     background: $navLinkCol;
-                    overflow-x: hidden;
                     color: initial;
+                    transition: height 250ms, line-height 250ms;
                     &:hover{
                         @extend .header_nav-list-sub-link;
                         background: $baseWhite;
@@ -285,7 +283,6 @@ body {
                 font-size: 1.2rem;
                 padding: 0 0.5rem;
                 z-index: 9999;
-                overflow-x: hidden;
                 @include media {
                 display: flex;
                 justify-content: space-between;

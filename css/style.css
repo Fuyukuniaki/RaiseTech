@@ -164,8 +164,7 @@ body {
   line-height: 70px;
   height: 70px;
   width: auto;
-  overflow-x: hidden;
-  transition: height 0.3s;
+  transition: height 250ms, line-height 250ms;
 }
 .header_nav-list:hover, .header_nav-link:hover {
   background: #D4F1F8;
@@ -184,7 +183,7 @@ body {
     line-height: 50px;
     max-height: 50px;
     overflow: hidden;
-    transition: height 250ms;
+    transition: height 250ms, line-height 250ms;
   }
   .header_nav-list:hover, .header_nav-link:hover {
     height: auto;
@@ -214,7 +213,6 @@ body {
   top: 70px;
   left: 0;
   max-height: 100vh;
-  overflow: hidden;
   z-index: -1000;
 }
 .header_nav-list-sub-link, .header_nav-list-sub-link.hover, .header_nav-list-sub-link:hover {
@@ -225,8 +223,8 @@ body {
   font-weight: 500;
   white-space: nowrap;
   background: #E9F8FB;
-  overflow-x: hidden;
   color: initial;
+  transition: height 250ms, line-height 250ms;
 }
 .header_nav-list-sub-link:hover {
   background: #FFF;
@@ -255,7 +253,6 @@ body {
   font-size: 1.2rem;
   padding: 0 0.5rem;
   z-index: 9999;
-  overflow-x: hidden;
 }
 @media only screen and (max-width: 1200px) {
   .header_nav-list-txt {
