@@ -101,7 +101,6 @@ body {
   font-weight: 900;
   padding: 0 0 0 1rem;
   width: 100%;
-  transition: transform 0.3s, top 0.3s;
 }
 .header_logo-txt-accent {
   font-size: 1.3rem;
@@ -253,7 +252,7 @@ body {
   font-size: 1.2rem;
   padding: 0 0.5rem;
   z-index: 9999;
-  transition: line-height 0.3s;
+  transition: 0.3s;
 }
 @media only screen and (max-width: 1200px) {
   .header_nav-list-txt {
@@ -266,7 +265,7 @@ body {
     font-size: 1.2rem;
     padding: 0 50px 0 1rem;
     z-index: 9999;
-    transition: line-height 0.3s;
+    transition: 0.3s;
   }
   .header_nav-list-txt.js-hamburger__sublist--open {
     background: #F3FAFB;
