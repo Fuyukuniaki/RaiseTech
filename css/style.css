@@ -111,7 +111,6 @@ body {
     top: -200%;
     left: 0;
     width: 100%;
-    transition: transform 0s, top 0s;
   }
 }
 .header_nav {
@@ -247,12 +246,14 @@ body {
 .header_nav-list-txt {
   display: inline-block;
   white-space: nowrap;
+  overflow: hidden;
   height: 70px;
   line-height: 70px;
   font-weight: 700;
   font-size: 1.2rem;
   padding: 0 0.5rem;
   z-index: 9999;
+  transition: line-height 0.3s;
 }
 @media only screen and (max-width: 1200px) {
   .header_nav-list-txt {
@@ -265,6 +266,7 @@ body {
     font-size: 1.2rem;
     padding: 0 50px 0 1rem;
     z-index: 9999;
+    transition: line-height 0.3s;
   }
   .header_nav-list-txt.js-hamburger__sublist--open {
     background: #F3FAFB;
@@ -413,6 +415,8 @@ body {
   font-weight: 700;
   font-size: 1.2rem;
   padding: 0 1rem;
+  overflow: hidden;
+  transition: line-height 0.3s;
 }
 .header_nav-link-txt:hover {
   background: #D4F1F8;
@@ -423,6 +427,7 @@ body {
     font-weight: 700;
     width: 100vw;
     height: 50px;
+    overflow: visible;
   }
   .header_nav-link-txt:hover {
     width: 100vw;
