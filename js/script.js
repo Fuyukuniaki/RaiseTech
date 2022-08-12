@@ -71,26 +71,19 @@ function hamburgerMenu(){
                     $(this).addClass('js-hamburger__parent--open');
                     $(this).find('.js-hamburger__btmlist').addClass('js-hamburger__btmlist--open');
                     $(this).find('.icon-plsmns').addClass('js-plsmns--mns');
+                    $('.js-hamburger__sublist').addClass('js-hamburger__sublist--open');
                     $('.js-hamburger__parent').not(this).removeClass('js-hamburger__parent--open');
                     $('.js-hamburger__btmlist--open').not($(this).find('.js-hamburger__btmlist')).removeClass('js-hamburger__btmlist--open')
                     $('.js-plsmns--mns').not($(this).find('.icon-plsmns')).removeClass('js-plsmns--mns');
+                    $('.js-hamburger__sublist').not($(this).find('.js-hamburger__sublist')).removeClass('js-hamburger__sublist--open');
                 } else {
                     $(this).removeClass('js-hamburger__parent--open');
                     $(this).find('.js-hamburger__btmlist').removeClass('js-hamburger__btmlist--open');
                     $(this).find('.icon-plsmns').removeClass('js-plsmns--mns');
+                    $(this).find('.js-hamburger__sublist').removeClass('js-hamburger__sublist--open');
                 }
             });
         });
-        $('.js-hamburger__sublist').each(function(){
-            $(this).off(ohEvent);
-            $(this).on( ohEvent, function(){
-                $(this).toggleClass('js-hamburger__sublist--open');
-                if($(this).hasClass('js-hamburger__sublist--open')){
-                    $('.js-hamburger__sublist--open').not(this).removeClass('js-hamburger__sublist--open');
-                }
-            });
-        });
-
     } else {
         $('.js-hamburger__sublist').parent().each(function(){
             $(this).off(ohEvent);
